@@ -1,0 +1,28 @@
+.header
+{
+  margin-top: 50px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.info
+{
+  margin-top: -1px;
+}
+
+.image
+{
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.isi
+{
+  padding-top: 120px;
+}
+
+.tombol
+{
+  padding-bottom: 15px;
+  padding-left: 95px;
+}
