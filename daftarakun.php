@@ -8,7 +8,7 @@
   	<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     <!--END BOSTTSTRAP AND CKEDITOR-->
     <!--CSS KITA SENDIRI-->
-    <link rel="stylesheet" href="css/cafee.css">
+    <link rel="stylesheet" href="css/akun.css">
     <!--end css kita sendiri-->
     <title>cafee</title>
   </head>
