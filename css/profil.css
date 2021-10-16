@@ -29,5 +29,6 @@
 
 .exitbutton
 {
-  padding-left: 1092px;
+  float: right;
+  margin-right: -13px;
 }

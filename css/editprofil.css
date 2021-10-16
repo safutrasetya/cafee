@@ -28,3 +28,9 @@
       padding-top: 20px;
       padding-bottom: 30px;
 }
+
+.exitbutton
+{
+  float: right;
+  margin-right: -13px;
+}

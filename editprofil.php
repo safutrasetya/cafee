@@ -15,6 +15,11 @@
       </div>
       <div class="container bg-warning text light isi">
         <div class="row">
+          <div class="col-md-12">
+            <div class="exitbutton">
+              <button type="button" class="btn btn-outline-light active" name="exit"><i class="fas fa-door-open"></i></button>
+            </div>
+          </div>
           <div class="col-md-4">
           <div class="container gambar">
           <img src="img/pfp1.jpg" alt="Foto Profil" class="rounded-circle" width="200px" height="200px">

@@ -14,16 +14,18 @@
       <h1>Profil</h1>
     </div>
     <div class="container bg-warning info">
-      <div class="exitbutton">
-        <button type="button" class="btn btn-outline-light active" name="exit"><i class="fas fa-door-open"></i></button>
-      </div>
-    <div class="row">
-      <div class="col-sm-3">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="exitbutton">
+            <button type="button" class="btn btn-outline-light active" name="exit"><i class="fas fa-door-open"></i></button>
+          </div>
+        </div>
+      <div class="col-md-4">
       <div class="container image">
         <img src="img/pfp1.jpg" alt="profile" class="rounded-circle" width="200px" height="200px">
       </div>
     </div>
-    <div class="col-sm-3">
+    <div class="col-md-6">
       <div class="container text-white isi">
           <table>
             <tr>
