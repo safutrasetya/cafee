@@ -50,13 +50,14 @@
                   <li class="page-item"><a class="page-link" href="#">Next</a></li>
                 </ul>
                 <table class="table table-bordered table-info">
-                  <thead class="h5">
+                  <thead class="h6">
                     <tr>
                       <td>Id</td>
                       <td>Gambar</td>
                       <td>Nama Makanan/Minuman</td>
                       <td>Info Makanan/Minuman</td>
                       <td>Harga</td>
+                      <td>Ketersediaan</td>
                       <td>Action</td>
                     </tr>
                   </thead>
@@ -67,6 +68,7 @@
                       <td>T E S T</td>
                       <td>Sapi, Telur, Tortilla, Blah blah</td>
                       <td>Rp. 200.000,-</td>
+                      <td></td>
                       <td>
                         <form action="#">
                           <input type="text" value="" hidden>
@@ -83,6 +85,7 @@
                           <td>T E S T</td>
                           <td>Sapi, Telur, Tortilla, Blah blah</td>
                           <td>Rp. 200.000,-</td>
+                          <td>Ada</td>
                           <td>
                             <form action='#'>
                               <input type='text' value='' hidden>
