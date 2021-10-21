@@ -12,18 +12,18 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid">
-    <img src="/flexbox/img/img1.png" alt="" width="30" height="24">
+    <img src="/img/img1.png" alt="" width="30" height="24">
     <a class="navbar-brand" href="#" style ="margin-left: 5px">About Us</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      
+
     </div>
   </div>
     <form class="d-flex">
-        <img src="/flexbox/img/img7.jpg" alt="" width="30" height="24" style ="margin-right: 15px">
-        <img src="/flexbox/img/img1.png" alt="" width="30" height="24" style ="margin-right: 15px">
+        <img src="/img/img7.jpg" alt="" width="30" height="24" style ="margin-right: 15px">
+        <img src="/img/img1.png" alt="" width="30" height="24" style ="margin-right: 15px">
     </form>
 </nav>
 <div class="second">
@@ -46,6 +46,6 @@
     <section>
 
     </section>
-    
+
 </body>
 </html>
