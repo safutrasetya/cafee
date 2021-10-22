@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!-- Bootstrap  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- css kita -->
+    <link href = "css/halmakanan.css" rel = "stylesheet">
+    <title>Halaman Makanan</title>
+  </head>
+
+  <body>
+  <div class="jumbotron p-3 h-100" style="height: 750px;">
+    <div class="jumbotron p-3 h-100" style="height: 750px;">
+      <div class="jumbotron bg-light shadow-lg mx-auto p-5">
+        <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
+          <h2 class="text-dark">Orari Restaurant</h2>
+      <div class="my-4 ps-3 shadow">
+        <form class="row g-3">
+          <div class="col-sm-3">
+            <input type="text" class="form-control mb-2 mr-sm-2" placeholder"Search">
+          </div>
+          <button type="submit" class="btn btn-primary mb-2 col-sm-1">Search</button>
+          <div class="col" style="margin-right: -500px">
+          <button type="submit" class="btn btn-danger mb-2 col-sm-1">Selesai</button>
+          </div>
+        </form>
+      </div>
+  </div>
+
+  <div class="tm-paging-links">
+				<nav>
+					<ul>
+						<li class="tm-paging-item"><a href="#" class="tm-paging-link active">Minuman</a></li>
+						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Makanan</a></li>
+						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Cemilan</a></li>
+            <li class="tm-paging-item"><a href="#" class="tm-paging-link">Paket</a></li>
+					</ul>
+				</nav>
+			</div>
+<table >
+  <tr>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+    <td>
+      <div class="card" style="width: 18rem;">
+        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
+
+  </body>
+</html>
