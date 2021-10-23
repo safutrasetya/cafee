@@ -32,9 +32,9 @@
   <div class="tm-paging-links">
 				<nav>
 					<ul>
-						<li class="tm-paging-item"><a href="halamanminuman.php" class="tm-paging-link active">Minuman</a></li>
+						<li class="tm-paging-item"><a href="halamanminuman.php" class="tm-paging-link">Minuman</a></li>
 						<li class="tm-paging-item"><a href="halamanmakanan.php" class="tm-paging-link">Makanan</a></li>
-						<li class="tm-paging-item"><a href="halamancemilan.php" class="tm-paging-link">Cemilan</a></li>
+						<li class="tm-paging-item"><a href="halamancemilan.php" class="tm-paging-link active">Cemilan</a></li>
             <li class="tm-paging-item"><a href="halamanpaket.php" class="tm-paging-link">Paket</a></li>
 					</ul>
 				</nav>
@@ -43,9 +43,9 @@
   <tr>
     <td>
       <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <img src="img/menu_cemilan.jpg"class="card-img-top" alt="img/menu_Cemilan.jpg">
         <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
+          <h5 class="card-title">Cemilan</h5>
           <p class="card-text">Rp. 12.000</p>
             <a href="#" class="btn btn-primary">+</a>
         </div>
@@ -53,9 +53,9 @@
     </td>
     <td>
       <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <img src="img/menu_cemilan.jpg"class="card-img-top" alt="img/menu_Cemilan.jpg">
         <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
+          <h5 class="card-title">Cemilan</h5>
           <p class="card-text">Rp. 12.000</p>
             <a href="#" class="btn btn-primary">+</a>
         </div>
@@ -63,9 +63,9 @@
     </td>
     <td>
       <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <img src="img/menu_cemilan.jpg"class="card-img-top" alt="img/menu_Cemilan.jpg">
         <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
+          <h5 class="card-title">Cemilan</h5>
           <p class="card-text">Rp. 12.000</p>
             <a href="#" class="btn btn-primary">+</a>
         </div>
@@ -73,9 +73,9 @@
     </td>
     <td>
       <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <img src="img/menu_cemilan.jpg"class="card-img-top" alt="img/menu_Cemilan.jpg">
         <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
+          <h5 class="card-title">Cemilan</h5>
           <p class="card-text">Rp. 12.000</p>
             <a href="#" class="btn btn-primary">+</a>
         </div>
@@ -86,9 +86,9 @@
   <tr>
     <td>
       <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <img src="img/menu_cemilan.jpg"class="card-img-top" alt="img/menu_Cemilan.jpg">
         <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
+          <h5 class="card-title">Cemilan</h5>
           <p class="card-text">Rp. 12.000</p>
             <a href="#" class="btn btn-primary">+</a>
         </div>
@@ -96,9 +96,9 @@
     </td>
     <td>
       <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <img src="img/menu_cemilan.jpg"class="card-img-top" alt="img/menu_Cemilan.jpg">
         <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
+          <h5 class="card-title">Cemilan</h5>
           <p class="card-text">Rp. 12.000</p>
             <a href="#" class="btn btn-primary">+</a>
         </div>
@@ -106,9 +106,9 @@
     </td>
     <td>
       <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <img src="img/menu_cemilan.jpg"class="card-img-top" alt="img/menu_Cemilan.jpg">
         <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
+          <h5 class="card-title">Cemilan</h5>
           <p class="card-text">Rp. 12.000</p>
             <a href="#" class="btn btn-primary">+</a>
         </div>
@@ -116,58 +116,16 @@
     </td>
     <td>
       <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
+        <img src="img/menu_cemilan.jpg"class="card-img-top" alt="img/menu_Cemilan.jpg">
         <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
+          <h5 class="card-title">Cemilan</h5>
           <p class="card-text">Rp. 12.000</p>
-            <a href="#" class="btn btn-primary">+</a>
+          <a href="#" class="btn btn-primary">+</a>
         </div>
       </div>
     </td>
   </tr>
 
-  <tr>
-    <td>
-      <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
-        <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
-          <p class="card-text">Rp. 12.000</p>
-            <a href="#" class="btn btn-primary">+</a>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
-        <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
-          <p class="card-text">Rp. 12.000</p>
-            <a href="#" class="btn btn-primary">+</a>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
-        <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
-          <p class="card-text">Rp. 12.000</p>
-            <a href="#" class="btn btn-primary">+</a>
-        </div>
-      </div>
-    </td>
-    <td>
-      <div class="card" style="width: 18rem;">
-        <img src="img/menu_minuman.jpg" class="card-img-top" alt="img/menu_minuman.jpg">
-        <div class="card-body">
-          <h5 class="card-title">Minuman</h5>
-          <p class="card-text">Rp. 12.000</p>
-            <a href="#" class="btn btn-primary">+</a>
-        </div>
-      </div>
-    </td>
-  </tr>
 </table>
 
   </body>

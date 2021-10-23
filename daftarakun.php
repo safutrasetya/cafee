@@ -22,7 +22,7 @@
           <div class="row">
             <div class="col-sm-2">
             </div>
-            <div class="col-sm-10">
+            <div class="col-sm-6">
               <form>
                 <div class="row">
                   <div class="col">
@@ -30,6 +30,9 @@
                   </div>
                   <div class="col">
                     <button type="submit" class="btn btn-primary my-2">Search</button>
+                  </div>
+                  <div class="col" style="margin-right: -750px">
+                  <button type="submit" class="btn btn-danger my-2">+</button>
                   </div>
                 </div>
               </form>
