@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <?php include('temp_navbar.php'); ?>
   <div class="jumbotron p-3 h-100" style="height: 750px;">
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">

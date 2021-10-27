@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="css/profil.css">
   </head>
   <body class="bg-light">
+    <?php include('temp_navbar.php'); ?>
     <div class="container-fluid">
       <div class="container bg-info text-light text-center header">
       <h1>Profil</h1>

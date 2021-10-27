@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <!-- Bootstrap  -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
+
     <!-- css kita -->
     <link href = "css/halmakanan.css" rel = "stylesheet">
     <title>Halaman Makanan</title>
   </head>
 
   <body>
+    <?php include("temp_navbar.php");?>
   <div class="jumbotron p-3 h-100" style="height: 750px;">
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
