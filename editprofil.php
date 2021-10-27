@@ -3,48 +3,71 @@
   <head>
     <meta charset="utf-8">
     <title>Edit Profil</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="css/editprofil.css">
+  <style>
+  .header
+  {
+    margin-top: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  .gambar
+  {
+    padding-top: 10px ;
+    padding-bottom: 20px;
+    padding-left: 20px;
+  }
+
+  .up
+  {
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+
+  }
+
+  .fm
+  {
+    margin : 10px;
+  }
+
+  .editprofil
+  {
+      padding-left: 30px;
+  }
+  .tmbl
+  {     float: right;
+        padding-top: 50px;
+        padding-bottom: 30px;
+  }
+
+  </style>
   </head>
   <body class="bg-light">
     <?php include("temp_navbar.php");?>
     <div class="container-fluid">
-      <div class="container bg-info text-light text-center header">
-        <h1>Edit Profil</h1>
+      <div class="container bg-info text-center header ">
+        <h1>Edit Profile</h1>
       </div>
-      <div class="container bg-warning text light isi">
+      <div class="container shadow p-3 mb-5 bg-body rounded isi">
         <div class="row">
-          <div class="col-md-12">
-            <div class="exitbutton">
-              <button type="button" class="btn btn-outline-light active" name="exit"><i class="fas fa-door-open"></i></button>
-            </div>
-          </div>
-          <div class="col-md-4">
-          <div class="container gambar">
-          <img src="img/pfp1.jpg" alt="Foto Profil" class="rounded-circle" width="200px" height="200px">
+          <div class="col-sm-4">
+          <div class="gambar">
+          <img src="img/pfp1.jpg" alt="Foto Profil" width="250px">
         </div>
       </div>
       <div class="col-md-6">
-        <div class="container up">
-          <form action="upload.php" method="post" enctype="multipart/form-data">
-            Pilih Gambar :
-          <input type="file" name="fileToUpload" id="fileToUpload">
-          <input type="submit" value="Upload Gambar" name="submit">
-        </form>
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="container editprofil">
+        <div class="editprofil">
           <form>
             <div class="form-group">
-              <div class="row fm">
+              <div class="row fm ">
                 <div class="col-md-2">
                   <label for="inputNama">Nama</label>
                 </div>
-                <div class="col-md-6 inpt">
+                <div class="col-md-10">
                   <input type="text" id="inputNama"name="nama"class="form-control" placeholder="Masukkan Nama">
                 </div>
               </div>
@@ -54,7 +77,7 @@
                 <div class="col-md-2">
                   <label for="inputEmail">Email</label>
                 </div>
-                <div class="col-md-6 inpt">
+                <div class="col-md-10">
                   <input type="text" id="inputEmail" name="email"class="form-control" placeholder="Masukkan Email">
                 </div>
               </div>
@@ -63,7 +86,7 @@
                 <div class="col-md-2">
                   <label for="inputNoHp">No Hp</label>
                 </div>
-                <div class="col-md-6 inpt">
+                <div class="col-md-10">
                   <input type="text" id="inputNoHp" name="noHp"class="form-control" placeholder="Masukkan No Hp">
                 </div>
               </div>
@@ -71,7 +94,7 @@
                 <div class="col-md-2">
                   <label for="inputPassword">Password</label>
                 </div>
-                <div class="col-md-6 inpt">
+                <div class="col-md-10">
                   <input type="password" id="inputPassword" name="password"class="form-control" placeholder="Masukkan Password">
                 </div>
               </div>
@@ -79,19 +102,28 @@
                 <div class="col-md-2">
                   <label for="inputReEnter">Re Enter Password</label>
                 </div>
-                <div class="col-md-6 inpt">
+                <div class="col-md-10">
                   <input type="password" id="inputReEnter" name="reEnter"class="form-control" placeholder="Masukkan ulang Password">
                 </div>
               </div>
-              <div class="row tmbl">
-                <div class="col-md-12">
-                  <button type="reset" class="btn btn-danger" name="reset">Reset</button>
-                  <button type="submit" class="btn btn-success"name="submit">Save</button>
-                </div>
               </div>
             </div>
-          </form>
+            <div class="col-sm-12">
+              <div class="up">
+                <form action="upload.php" method="post" enctype="multipart/form-data">
+                <input type="file" name="fileToUpload" id="fileToUpload">
+                <div class="row tmbl">
+                  <div class="col-md-12">
+                    <button type="reset" class="btn btn-danger" name="reset">Reset</button>
+                    <button type="submit" class="btn btn-success"name="submit">Save</button>
+                  </div>
+                </div>
 
+              </form>
+              </div>
+            </div>
+
+          </form>
         </div>
 
       </div>
@@ -101,6 +133,5 @@
       </div>
     </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
   </body>
 </html>
