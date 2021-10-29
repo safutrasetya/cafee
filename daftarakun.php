@@ -13,6 +13,7 @@
     <!--END BOSTTSTRAP AND CKEDITOR-->
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/akun.css">
+    <link rel="stylesheet" href="css/cafee.css">
     <!--end css kita sendiri-->
     <title>cafee</title>
   </head>
@@ -31,13 +32,13 @@
               <form>
                 <div class="row">
                   <div class="col">
-                    <input type="text" class="form-control my-2" placeholder"Search">
+                    <input type="text" class="form-control my-2" placeholder="Cari Akun...">
                   </div>
                   <div class="col">
                     <button type="submit" class="btn btn-primary my-2">Search</button>
                   </div>
                   <div class="col" style="margin-right: -750px">
-                  <button type="submit" class="btn btn-danger my-2">+</button>
+                  <a href="tambahakun.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahakun-icon2.png" style="height:30px; width:30px;"> Tambah akun</button></a>
                   </div>
                 </div>
               </form>

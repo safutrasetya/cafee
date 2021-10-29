@@ -46,11 +46,14 @@
             <div class="col-sm-10">
               <form>
                 <div class="row">
-                  <div class="col">
-                    <input type="text" class="form-control my-2" placeholder"Search">
+                  <div class="col-sm-5">
+                    <input type="text" class="form-control my-2" placeholder="Cari Menu...">
                   </div>
-                  <div class="col">
+                  <div class="col-sm-3">
                     <button type="submit" class="btn btn-primary my-2">Search</button>
+                  </div>
+                  <div class="col text-end me-3" style="">
+                    <a href="tambahmenu.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahmenu-icon.png" style="height:30px; width:30px;"> Tambah Menu</button></a>
                   </div>
                 </div>
               </form>
