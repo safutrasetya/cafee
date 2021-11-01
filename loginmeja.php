@@ -33,7 +33,7 @@
             <button type="submit" class="btn btn-primary">Login Meja</button>
             </div>
                 </form>
-                <p><a href="daftar.php">Login Staff</a></p>
+                <p><a href="login.php">Login Staff</a></p>
             </div>
         </div>
      </div>

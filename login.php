@@ -1,3 +1,13 @@
+<?php require_once 'includes/koneksi.php';
+
+// if(isset($_SESSION['nama'])){
+//     if($SESSION['level']==1){
+//       header ("daftarakun.php");
+//     }elseif($SESSION['level']==2){
+//       header ("daftarmenu.php");
+//     }
+// }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,6 +23,7 @@
     <title>Login</title>
   </head>
   <body>
+    <?php include ("functionlogin.php");?>
      <div class = "container">
         <div class = "card login-form">
             <div class = "card-body">
@@ -20,20 +31,20 @@
             </div>
             <div class="card-text">
               <!--form ussername & password-->
-                <form>
+                <form method="POST" action="">
               <div class="mb-4">
-                <label for="ussername" class="form-label">Username</label>
-                <input type="text" class="form-control" id="ussername">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" name="username" id="username">
               </div>
               <div class="mb-4">
                 <label for="InputPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="InputPassword">
+                <input type="password" class="form-control" name="pass" id="InputPassword">
               </div>
               <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button name="btnLogin" type="submit" class="btn btn-primary">Login</button>
             </div>
                 </form>
-                <p><a href="daftar.php">Login Meja</a></p>
+                <p><a href="loginmeja.php">Login Meja</a></p>
             </div>
         </div>
      </div>
