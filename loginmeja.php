@@ -16,13 +16,13 @@
      <div class = "container">
         <div class = "card login-form">
             <div class = "card-body">
-                <h1 class = "card-title text-center">LOGIN STAFF</h1>
+                <h1 class = "card-title text-center">LOGIN MEJA</h1>
             </div>
             <div class="card-text">
               <!--form ussername & password-->
                 <form>
               <div class="mb-4">
-                <label for="ussername" class="form-label">Username</label>
+                <label for="ussername" class="form-label">id Meja</label>
                 <input type="text" class="form-control" id="ussername">
               </div>
               <div class="mb-4">
@@ -30,10 +30,10 @@
                 <input type="password" class="form-control" id="InputPassword">
               </div>
               <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-primary">Login Meja</button>
             </div>
                 </form>
-                <p><a href="daftar.php">Login Meja</a></p>
+                <p><a href="daftar.php">Login Staff</a></p>
             </div>
         </div>
      </div>
