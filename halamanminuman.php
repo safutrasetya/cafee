@@ -18,6 +18,7 @@
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h2 class="text-dark">Orari Restaurant</h2>
+          <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
       <div class="my-4 ps-3 shadow">
         <form class="row g-3">
           <div class="col-sm-3">
