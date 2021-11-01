@@ -47,6 +47,7 @@
   </style>
   </head>
   <body class="bg-light">
+    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
     <?php include("temp_navbar.php");?>
     <div class="container-fluid">
       <div class="container bg-info text-center header ">

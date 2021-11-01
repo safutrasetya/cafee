@@ -13,6 +13,7 @@
     <title>Edit Menu</title>
   </head>
   <body class="bg-light">
+    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">

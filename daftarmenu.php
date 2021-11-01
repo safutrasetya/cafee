@@ -13,6 +13,7 @@
     <title>Daftar Menu</title>
   </head>
   <body class="bg-light">
+    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
     <!--MODAL HAPUS-->
   	<div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   	  <div class="modal-dialog">

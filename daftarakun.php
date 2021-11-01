@@ -18,6 +18,7 @@
     <title>cafee</title>
   </head>
   <body class="bg-light">
+    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
