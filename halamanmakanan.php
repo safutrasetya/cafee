@@ -12,12 +12,14 @@
   </head>
 
   <body>
+    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
     <?php include('temp_navbar.php'); ?>
   <div class="jumbotron p-3 h-100" style="height: 750px;">
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h2 class="text-dark">Orari Restaurant</h2>
+          <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
       <div class="my-4 ps-3 shadow">
         <form class="row g-3">
           <div class="col-sm-3">
@@ -41,7 +43,7 @@
           </ul>
         </nav>
       </div>
-<table >
+<table>
   <tr>
     <td>
       <div class="card" style="width: 18rem;">
