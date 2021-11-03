@@ -27,7 +27,9 @@
         <i class="fas fa-times" id="cancel"></i>
     </label>
     <div class="sidebar">
-        <header>Cafe</header>
+        <div class="head">
+          <header>Cafe</header>
+        </div>
         <ul>
             <li><a href=""><i class="far fa-address-card">Edit Akun</i></a></li>
             <li><a href=""><i class="far fa-address-book">Daftar Akun</i></a></li>

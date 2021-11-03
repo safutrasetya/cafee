@@ -10,7 +10,7 @@ body{
 }
 
 .second{
-    margin-top: 40px;
+    margin-top: 0px;
 }
 
 .sidebar{
@@ -22,6 +22,10 @@ body{
     background: #00ab6b;
     transition: all .5s ease;
 }
+.head{
+
+}
+
 .sidebar header{
     font-size: 22px;
     color: whitesmoke;
@@ -54,7 +58,7 @@ ul li:hover a{
     display: none;
 }
 label #btn, label #cancel{
-    position: absolute;
+    position: fixed;
     cursor: pointer;
     background: #00c9a7;
     border-radius: 3px;
@@ -69,6 +73,7 @@ label #btn{
 }
 
 label #cancel{
+
     z-index: 1111;
     left: -195px;
     top: 80px;
