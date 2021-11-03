@@ -1,19 +1,32 @@
-.container-dua{
-    max-width: 800px;
-    margin: 50px auto;
-    flex-wrap: wrap;
-    justify-content: center;
+html, body{
+    margin: 0;
+    padding: 0;
 }
 
-.layanan{
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: darkgrey;
+    line-height: 1.5;
+    padding-bottom: 500px;
+
+}
+.container-dua{
+    max-width: 1000px;
+    margin: 50px auto;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+}
+
+.pesanan{
+    width: 200px;
     padding: 20px;
     box-sizing: border-box;
+    background-color: aquamarine;
+    margin-top: 20px;
+    margin: 20px;
 }
-
-/* .layanan.satu{background-color: rgb(101, 101, 241);}
-.layanan.dua{background-color: rgb(240, 95, 95);}
-.layanan.tiga{background-color: greenyellow;} */
-
 @media( min-width : 600px){
     .container-dua{
         display: flex;
@@ -27,4 +40,8 @@
     .thumbnail{
         width: 25%;
     }
+}
+
+.header{
+    padding-top: 50px;
 }
