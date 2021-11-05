@@ -20,7 +20,7 @@ if(isset($_POST['addMakanan'])){
 
       $count=count($_SESSION['keranjang']);
       $item_array = array(
-        'menu_id'=>$_POST['id_pesanan_baru'], 'menu_quantity'=>2
+        'menu_id'=>$_POST['id_pesanan_baru'], 'menu_quantity'=>1
       );
       $_SESSION['keranjang'][$count] = $item_array;
       echo "<div class='alert alert-info' role='alert'><i class='bi bi-check-lg'></i> Pesanan dimasukkan ke keranjang!</div>";
@@ -31,7 +31,7 @@ if(isset($_POST['addMakanan'])){
   }else{
 
     $item_array = array(
-      'menu_id'=>$_POST['id_pesanan_baru'], 'menu_quantity'=>2
+      'menu_id'=>$_POST['id_pesanan_baru'], 'menu_quantity'=>1
     );
     $_SESSION['keranjang'][0]=$item_array;
     // print_r($_SESSION['keranjang']);
