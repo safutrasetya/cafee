@@ -40,7 +40,7 @@ if(!empty($user_login) && (!empty($pass_login))){
 
 
         }else {
-            echo "USER TIDAK DITEMUKAN";
+            echo "<div class='alert alert-warning' role='alert'><i class='bi bi-exclamation-circle-fill'></i> User tidak ditemukan!</div>";
         }
     }
 }

@@ -1,12 +1,7 @@
 <?php require_once 'includes/koneksi.php';
-
-// if(isset($_SESSION['nama'])){
-//     if($SESSION['level']==1){
-//       header ("daftarakun.php");
-//     }elseif($SESSION['level']==2){
-//       header ("daftarmenu.php");
-//     }
-// }
+ if(isset($_SESSION['nama'])){
+   header ("Location:daftarmenu.php");
+ }
 ?>
 <!doctype html>
 <html lang="en">

@@ -1,3 +1,8 @@
+<?php require_once 'includes/koneksi.php';
+ if(isset($_SESSION['meja'])){
+   header ("Location:halamanmakanan.php");
+ }
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,6 +18,7 @@
     <title>Login</title>
   </head>
   <body>
+    <?php include ("functionloginmeja.php");?>
      <div class = "container">
         <div class = "card login-form">
             <div class = "card-body">
@@ -20,17 +26,17 @@
             </div>
             <div class="card-text">
               <!--form ussername & password-->
-                <form>
+                <form method="POST" action="">
               <div class="mb-4">
-                <label for="ussername" class="form-label">id Meja</label>
-                <input type="text" class="form-control" id="ussername">
+                <label for="idmeja" class="form-label">id Meja</label>
+                <input type="text" class="form-control" name="idmejapost" id="idmeja">
               </div>
               <div class="mb-4">
                 <label for="InputPassword" class="form-label">Password</label>
-                <input type="password" class="form-control" id="InputPassword">
+                <input type="password" class="form-control" name="passmejapost" id="InputPassword">
               </div>
               <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary">Login Meja</button>
+            <button type="submit" name="btnLoginMeja" class="btn btn-primary">Login Meja</button>
             </div>
                 </form>
                 <p><a href="login.php">Login Staff</a></p>

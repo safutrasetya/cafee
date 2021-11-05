@@ -1,3 +1,8 @@
+<?php
+  session_start();
+  include ('functiontotalpesanan.php');
+
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -7,115 +12,138 @@
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-  	<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <!--ini vv untuk tombol-tombol bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
     <!--END BOSTTSTRAP AND CKEDITOR-->
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/cafee.css">
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/navbar.css">
     <!--end css kita sendiri-->
-    <title>Admin : Author</title>
+    <title>Pesanan Anda</title>
   </head>
   <body class="bg-light">
     <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
     <?php include('temp_sidebar.php'); ?>
-    <div class="jumbotron p-3 h-100" style="height: 750px;">
-      <div class="jumbotron bg-light shadow-lg mx-auto p-5" style="height: 750px;">
-        <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-          <h2 class="text-light">Sudah yakin dengan pesanan anda?</h2>
+    <div class="jumbotron pt-2 h-100" style="height: 675px;">
+      <div class="jumbotron bg-light shadow-lg mx-auto" style="height: 675px;">
+        <div class="mx-auto text-center mb-2" style="margin-top:-25px;">
+          <h2 class="text-dark">Sudah yakin dengan pesanan anda?</h2>
         </div>
-        <div class="my-4 ps-3 shadow">
-          <form class="row g-3">
-            <div class="col-sm-3">
-              <input type="text" class="form-control mb-2 mr-sm-2" placeholder"Search">
-            </div>
-            <button type="submit" class="btn btn-primary mb-2 col-sm-1">Search</button>
-          </form>
-        </div>
-        <div class="row">
-          <div class="col-sm-8">
-            <div class="overflow-auto scrollpesanan" >
-              <div class="card shadow my-2">
-                <div class="card-body text-center">
-                    <div class="row">
-                      <div class="col-sm-2 align-self-center">
-                        <img src="img/imgtest1.jpg" class="gambarsize1">
-                        <a href="#" class="stretched-link"></a>
-                      </div>
-                      <div class="col-sm-4 align-self-center">
-                        <p class="font1">H E L P</p>
-                      </div>
-                      <div class="col-sm-2 align-self-center">
-                        <button>-</button><input style="width:25px;" type="text"><button>+</button>
-                      </div>
-                      <div class="col-sm-3 align-self-center">
-                        <p>Rp. 500.000,-</p>
-                      </div>
-                      <div class="col-sm-1 align-self-center">
-                        <button class="btn-close"></button>
-                      </div>
-                    </div>
-                </div>
-              </div>
-              <?php
-                for($i=0;$i<6;++$i){
-                  echo "<div class='card shadow my-2'>
-                    <div class='card-body text-center'>
-                        <div class='row'>
-                          <div class='col-sm-2 align-self-center'>
-                            <img src='img/imgtest1.jpg' class='gambarsize1'>
-                            <a href='#' class='stretched-link'></a>
-                          </div>
-                          <div class='col-sm-4 align-self-center'>
-                            <p class='font1'>H E L P</p>
-                          </div>
-                          <div class='col-sm-2 align-self-center'>
-                            <button>-</button><input style='width:25px;' type='text'><button>+</button>
-                          </div>
-                          <div class='col-sm-3 align-self-center'>
-                            <p>Rp. 500.000,-</p>
-                          </div>
-                          <div class='col-sm-1 align-self-center'>
-                            <button class='btn-close'></button>
-                          </div>
-                        </div>
-                    </div>
-                  </div>";
-                }
-               ?>
-              <!-- AAAAAAAAA-->
-
-              <!--AAAAAAAAAAAAAAaaa-->
+        <div class="ps-3 shadow mx-4">
+          <div class="row my-3">
+            <div class="col-md">
+              <a href="halamanmakanan.php"><button class="btn btn-primary m-2" type="button">Kembali ke daftar menu</button></a>
+              <button class="btn btn-primary m-2 float-end">Pesan!</button>
             </div>
           </div>
-          <div class="col-sm-4">
-            <div class="card shadow">
-              <div class="card-body">
-                <p class="text-center">Jumlah harga</p>
-                <table class="table text-left">
-                  <thead>
-                    <tr>
-                      <td>Nama Makanan/Minuman</td>
-                      <td>Harga</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>TEST NAMA MAKAN <br>10x</td>
-                      <td class="text-center">Rp. 200.000,-</td>
-                    </tr>
-                    <tr>
-                      <td>Total</td>
-                      <td class="text-center">Rp. 200.000,-</td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="row">
-                  <div class="col-sm-6">
-                    <button class="btn btn-danger">Kembali</button>
-                  </div>
-                  <div class="col-sm-6 text-end">
-                    <button class="btn btn-primary px-4">Pesan!</button>
+        </div>
+        <?php include ('functionremovepesanan.php'); ?>
+        <div class="row m-2">
+          <div class="col-md-8">
+            <div class="overflow-auto" style="height: 450px;">
+              <div class="card shadow my-2">
+                <div class="card-body text-center">
+                  <!--DAFTAR PESANAN-->
+                  <?php
+                    $total = 0;
+                    if(isset($_SESSION['keranjang'])){
+                      $pesanan_id = array_column($_SESSION['keranjang'],'menu_id');
+                      $pesanan_quantity_key = array_column($_SESSION['keranjang'],'menu_quantity');
+                      $query2 = "SELECT * FROM menu";
+                      $qresult = mysqli_query($koneksi, $query2);
+                      $keyquantity = key($pesanan_quantity_key);
+                      while($row = mysqli_fetch_array($qresult)){
+
+                        foreach($pesanan_id as $pesanan_id2){
+
+                          // while($varcarikey=current($pesanan_quantity_key)){
+                          //   $keyquantity = key($pesanan_quantity_key);
+                          //   if(key($pesanan_id_key)==key($pesanan_quantity_key)){
+                          //     break;
+                          //   }else{
+                          //
+                          //   }
+                          //   next($pesanan_quantity_key);
+                          // }
+                          $keyquantity = key($pesanan_quantity_key);
+                          if($row['id_menu']== $pesanan_id2){
+                            $keyint = (int)$keyquantity;
+                            tampilttlpesanan($row['gambar'], $row['nama_menu'],$row['harga'], $row['id_menu'], $keyint);
+                            $total = $total + (int)$row['harga'];
+                          }
+                          next($pesanan_quantity_key);
+                        }
+
+                      }
+                    }else{
+                      echo "<h5>Anda belumm memesan apapun</h5>";
+                    }
+                  ?>
+                  <!--END DAFTAR PESANAN-->
+                </div>
+              </div>
+              <!--BATAS ga gunaa sih tpi batasin aja-->
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="row my-2">
+              <div class="col-md">
+                <a href="halamanmakanan.php"><button type="button" class="btn btn-danger m-2">Kembali</button></a>
+                <button class="btn btn-primary m-2 float-end">Pesan!</button>
+              </div>
+            </div>
+            <div class="overflow-auto" style="height: 375px;">
+              <div class="card shadow">
+                <div class="card-body">
+                  <p class="text-center">Jumlah harga</p>
+                  <table class="table text-left">
+                    <thead>
+                      <tr>
+                        <td>Nama Makanan/Minuman</td>
+                        <td>Harga</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!--TABEL STRUK-->
+                      <?php
+                        if(isset($_SESSION['keranjang'])){
+                          $pesanan_id2 = array_column($_SESSION['keranjang'],'menu_id');
+                          $pesanan_quantity_key = array_column($_SESSION['keranjang'],'menu_quantity');
+                          $keyquantity = key($pesanan_quantity_key);
+
+                          $query3 = "SELECT * FROM menu";
+                          $qresult2 = mysqli_query($koneksi, $query3);
+
+                          while($row2 = mysqli_fetch_array($qresult2)){
+                            foreach($pesanan_id2 as $pesanan_id3){
+                              $keyquantity = key($pesanan_quantity_key);
+                              if($row2['id_menu']== $pesanan_id3){
+                                $keyint = (int)$keyquantity;
+                                tampilttlharga($row2['gambar'], $row2['nama_menu'],$row2['harga'],$keyint);
+                              }
+                              next($pesanan_quantity_key);
+                            }
+
+                          }
+                        }else{
+                          echo "<h5>Anda belumm memesan apapun</h5>";
+                        }
+                      ?>
+                      <!--END TABEL STRUK-->
+                    </tbody>
+                  </table>
+                  <!--INI TOTAL HARGA SAMA TOTAL PEMESANAN-->
+                  <?php
+                    require_once('functiontotalharga.php');
+                  ?>
+                  <!--END TOTAL HARGA DAN TOTAL PEMESANAN-->
+                  <div class="row my-2">
+                    <div class="col-md">
+                      <a href="halamanmakanan.php"><button type="button" class="btn btn-danger m-2">Kembali</button></a>
+                      <button class="btn btn-primary m-2 float-end">Pesan!</button>
+                    </div>
                   </div>
                 </div>
               </div>
