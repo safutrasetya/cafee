@@ -96,13 +96,13 @@
                       <td>Rp. 200.000,-</td>
                       <td></td>
                       <td>
-                        <form action="#">
+                        <form action="editmenu.php">
                           <input type="text" value="" hidden>
                           <button class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</button>
                         </form>
                       </td>
                       <td>
-                        <form action="editmenu.php">
+                        <form action="functionhapusmenu.php">
                           <input type="text" value="" hidden>
                           <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusmenu"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</button>
                         </form>
@@ -118,13 +118,13 @@
                           <td>Rp. 200.000,-</td>
                           <td>Ada</td>
                           <td>
-                            <form action='#'>
+                            <form action='editmenu.php'>
                               <input type='text' value='' hidden>
                               <button class='btn btn-success'><img src='img/edit-icon.png' style='height:20px; width:20px;'> Edit</button>
                             </form>
                           </td>
                           <td>
-                            <form action='editmenu.php'>
+                            <form action='functionhapusmenu.php'>
                               <input type='text' value='' hidden>
                               <button type='submit' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#hapusmenu'><img src='img/trash-can.png' style='height:20px; width:15px;'> Hapus</button>
                             </form>

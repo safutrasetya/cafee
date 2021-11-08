@@ -4,27 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!--BOOSTRAP CSS AND CKEDITOR-->
-    <link rel="stylesheet" href="css/sidebar.css">
-    <link rel="stylesheet" href="css/navbar.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   	<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
     <!--END BOSTTSTRAP AND CKEDITOR-->
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/akun.css">
-    <link rel="stylesheet" href="css/cafee.css">
     <!--end css kita sendiri-->
     <title>cafee</title>
   </head>
   <body class="bg-light">
-    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
-    <?php include("temp_sidebar.php");?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h2 class="text-dark">Daftar Akun</h2>
-          <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
         </div>
         <div class="my-4 ps-3 shadow">
           <div class="row">
@@ -34,13 +26,13 @@
               <form>
                 <div class="row">
                   <div class="col">
-                    <input type="text" class="form-control my-2" placeholder="Cari Akun...">
+                    <input type="text" class="form-control my-2" placeholder"Search">
                   </div>
                   <div class="col">
                     <button type="submit" class="btn btn-primary my-2">Search</button>
                   </div>
-                  <div class="col" style="margin-right: -750px">
-                  <a href="tambahakun.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahakun-icon2.png" style="height:30px; width:30px;"> Tambah akun</button></a>
+                  <div class="col" style="margin-right: -500px">
+                  <button type="submit" class="btn btn-danger mb-2 col-sm-1"></button>
                   </div>
                 </div>
               </form>
