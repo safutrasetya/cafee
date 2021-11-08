@@ -18,7 +18,9 @@
     <title>cafee</title>
   </head>
   <body class="bg-light">
-    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
+    <?php include("includes/koneksi.php"); include("includes/logincheck.php");
+    $data = mysqli_query($koneksi,"SELECT * FROM akun ORDER BY id");
+    ?>
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
@@ -71,46 +73,40 @@
                     </tr>
                   </thead>
                   <tbody>
+                    <?php while ($d = mysqli_fetch_array($data)){
+                      ?>
                     <tr>
-                      <td>1</td>
+                      <td><?php echo $d['id'];?></td>
                       <td><img src="img/imgtest1.jpg" class="gambarsize1"></td>
-                      <td>User1@gmail.com</td>
-                      <td>08237794698</td>
+                      <td><?php echo $d['email'];?></td>
+                      <td><?php echo $d['No_Hp'];?></td>
                       <td>
                         <form action="#">
                           <input type="text" value="" hidden>
-                          <button class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</button>
-                        </form>
-                      </td>
-                      <td>
-                        <form action="#">
-                          <input type="text" value="" hidden>
-                              <button class="btn btn-danger"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</button>
+                          <a class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
+                          <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item')" href="hapusakun.php?id=<?php echo $d['id'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
                         </form>
                       </td>
                     </tr>
                     <?php
-                      for($i=0;$i<6;++$i){
-                        echo "<tr>
-                          <td>1</td>
-                          <td><img src='img/imgtest1.jpg' class='gambarsize1'></td>
-                          <td>User1@gmail.com</td>
-                          <td>08237794698</td>
-                          <td>
-                            <form action='#'>
-                              <input type='text' value='' hidden>
-                              <button class='btn btn-success'><img src='img/edit-icon.png' style='height:20px; width:20px;'> Edit</button>
-                            </form>
-                            </td>
-                            <td>
-                            <form action='#'>
-                              <input type='text' value='' hidden>
-                              <button class='btn btn-danger'><img src='img/trash-can.png' style='height:20px; width:15px;'> Hapus</button>
-                            </form>
-                          </td>
-                        </tr>";
                       }
-                     ?>
+                    ?>
+                       <!-- for($i=0;$i<6;++$i){
+                         echo "<tr>
+                          <td>1</td>
+                           <td><img src='img/imgtest1.jpg' class='gambarsize1'></td>
+                           <td>User1@gmail.com</td>
+                           <td>08237794698</td>
+                         <td>
+                             <form action='#'>
+                               <input type='text' value='' hidden>
+                               <button class='btn btn-success'><img src='img/edit-icon.png' style='height:20px; width:20px;'> Edit</button>
+                               <button class='btn btn-danger'><img src='img/trash-can.png' style='height:20px; width:15px;'> Hapus</button>
+                             </form>
+                           </td>
+                         </tr>";
+                       }
+                      -->
                   </tbody>
                 </table>
                 <ul class="pagination pagination-sm justify-content-center">
