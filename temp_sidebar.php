@@ -6,19 +6,27 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid">
-    <img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: 10px" class="rounded-circle">
-    <a class="navbar-brand" href="#" style ="margin-left: 5px">About Us</a>
+    <a href="aboutus.php"><img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: 10px" class="rounded-circle"></a>
+    <a class="navbar-brand" href="#" style ="" href="aboutus.php">About Us</a>
+    <a class="navbar-brand" href="#" style ="" href="aboutus.php">|</a>
+    <a class="navbar-brand" href="#" style ="" href="halamanmakanan.php">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-
     </div>
   </div>
-    <form class="d-flex">
-        <div style ="margin-top: 5px"><img src="img/img7.jpg" alt="" width="30" height="24" style ="margin-right: 15px"></div>
-        <img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: 15px" class="rounded-circle">
-    </form>
+         <div style ="margin-top: "><a href="halpesanan.php"> <img src="img/img7.jpg" alt="" width="30" height="24" style ="margin-right:" href></a></div>
+    <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: 15px" class="rounded-circle">
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                <li><a class="dropdown-item" href="#">Profil</a></li>
+                <li><a class="dropdown-item" href="#">Admin</a></li>
+                <li><a class="dropdown-item" href="#">Logout</a></li>
+            </ul>
+        </div>
 </nav>
 <div class="second">
     <input type="checkbox" id="check">
@@ -36,6 +44,7 @@
             <li><a href=""><i class="fas fa-clipboard-list">Daftar Makanan</i></a></li>
             <li><a href=""><i class="fas fa-boxes"></i>Daftar Pesanan</a></li>
             <li><a href=""><i class="fas fa-sign-out-alt"></i>Log Out</a></li>
+            <li><a href=""><i class="fas fa-clipboard-check">Riwayat Pemesanan</i></a></li>
         </ul>
     </div>
     </div>
