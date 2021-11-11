@@ -10,14 +10,15 @@ if(isset($_SESSION['keranjang'])){
 
   $query3 = "SELECT * FROM menu";
   $qresult2 = mysqli_query($koneksi, $query3);
-
+  $idUpdate=0;
   while($row2 = mysqli_fetch_array($qresult2)){
     foreach($pesanan_id2 as $pesanan_id3){
       $keyquantity = key($pesanan_quantity_key);
       if($row2['id_menu']== $pesanan_id3){
         $keyint = (int)$keyquantity;
-        $kuantitas = $_SESSION['keranjang'][$keyint]['menu_quantity'];
+        $kuantitas = $_SESSION['keranjang'][$idUpdate]['menu_quantity'];
         $hargatotal = $hargatotal + ((int)$row2['harga'] * (int)$kuantitas);
+        $idUpdate++;
       }
     }
 
