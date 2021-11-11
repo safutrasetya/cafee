@@ -39,60 +39,67 @@
             </div>
           </div>
         </div>
-        <?php include ('functionremovepesanan.php'); ?>
+        <?php  echo var_dump($_SESSION['keranjang']); ?>
+
         <div class="row m-2">
           <div class="col-md-8">
             <div class="overflow-auto" style="height: 450px;">
               <div class="card shadow my-2">
                 <div class="card-body text-center">
+
+<form action="functionupdatekuantitas.php" method="POST">
+
                   <!--DAFTAR PESANAN-->
                   <?php
                     $total = 0;
+
                     if(isset($_SESSION['keranjang'])){
                       $pesanan_id = array_column($_SESSION['keranjang'],'menu_id');
                       $pesanan_quantity_key = array_column($_SESSION['keranjang'],'menu_quantity');
                       $query2 = "SELECT * FROM menu";
                       $qresult = mysqli_query($koneksi, $query2);
                       $keyquantity = key($pesanan_quantity_key);
+                      $idUpdate = 0;
                       while($row = mysqli_fetch_array($qresult)){
 
+                        $keyquantity = key($pesanan_quantity_key);
                         foreach($pesanan_id as $pesanan_id2){
 
-                          // while($varcarikey=current($pesanan_quantity_key)){
-                          //   $keyquantity = key($pesanan_quantity_key);
-                          //   if(key($pesanan_id_key)==key($pesanan_quantity_key)){
-                          //     break;
-                          //   }else{
-                          //
-                          //   }
-                          //   next($pesanan_quantity_key);
-                          // }
-                          $keyquantity = key($pesanan_quantity_key);
+                          // $keyquantity = key($pesanan_quantity_key);
                           if($row['id_menu']== $pesanan_id2){
+
                             $keyint = (int)$keyquantity;
-                            tampilttlpesanan($row['gambar'], $row['nama_menu'],$row['harga'], $row['id_menu'], $keyint);
+                            tampilttlpesanan($row['gambar'], $row['nama_menu'],$row['harga'], $row['id_menu'], $idUpdate, $idUpdate);
                             $total = $total + (int)$row['harga'];
+                            $idUpdate++;
                           }
-                          next($pesanan_quantity_key);
+                          // next($pesanan_quantity_key);
                         }
+                        next($pesanan_quantity_key);
 
                       }
                     }else{
-                      echo "<h5>Anda belumm memesan apapun</h5>";
+                      echo "<h5>Anda belum memesan apapun</h5>";
                     }
                   ?>
                   <!--END DAFTAR PESANAN-->
+
+
                 </div>
               </div>
               <!--BATAS ga gunaa sih tpi batasin aja-->
             </div>
           </div>
           <div class="col-md-4">
-            <div class="row my-2">
+            <div class="row my-2 mx-1">
               <div class="col-md">
-                <a href="halamanmakanan.php"><button type="button" class="btn btn-danger m-2">Kembali</button></a>
-                <button class="btn btn-primary m-2 float-end">Pesan!</button>
+                <button name="btnUpdate" class="btn btn-outline-success my-2  float-start">Update</button>
+</form>
+                <!-- klo udh selesai taroh fungsi update disini -->
+                <button class="btn btn-primary my-2 float-end">Pesan!</button>
+
               </div>
+              <!-- klo udh selesai taroh fungsi update disini -->
             </div>
             <div class="overflow-auto" style="height: 375px;">
               <div class="card shadow">
@@ -115,13 +122,14 @@
 
                           $query3 = "SELECT * FROM menu";
                           $qresult2 = mysqli_query($koneksi, $query3);
-
+                          $idUpdate=0;
                           while($row2 = mysqli_fetch_array($qresult2)){
                             foreach($pesanan_id2 as $pesanan_id3){
                               $keyquantity = key($pesanan_quantity_key);
                               if($row2['id_menu']== $pesanan_id3){
                                 $keyint = (int)$keyquantity;
-                                tampilttlharga($row2['gambar'], $row2['nama_menu'],$row2['harga'],$keyint);
+                                tampilttlharga($row2['gambar'], $row2['nama_menu'],$row2['harga'],$idUpdate);
+                                $idUpdate++;
                               }
                               next($pesanan_quantity_key);
                             }

@@ -1,6 +1,6 @@
 <?php
-  function tampilttlpesanan($pesanangambar, $pesanannama, $pesananharga, $pesananid, $pesananquantity){
-    $kuantitas = $_SESSION['keranjang'][$pesananquantity]['menu_quantity'];
+  function tampilttlpesanan($pesanangambar, $pesanannama, $pesananharga, $pesananid, $pesanankeyquantity, $IDQTTUPDATE){
+    $kuantitas = $_SESSION['keranjang'][$pesanankeyquantity]['menu_quantity'];
     echo "
       <div class='row my-2 py-2 border'>
         <div class='col-md-2 align-self-center'>
@@ -13,14 +13,12 @@
 
         <div class='col-md-2 align-self-center'>
           <div class='row'>
-            <form>
-              <div class='col-md-6 align-self-center'>
-                <input name='kuantitas' type='number' value='$kuantitas' class='float-center' min='1' max='999' style='width:50px; text-align:center;'>
+
+              <div class='col-md align-self-center'>
+              <input name='updatepesanan[$IDQTTUPDATE][pesananidupdate]' value='$pesananid' hidden>
+                <input name='updatepesanan[$IDQTTUPDATE][kuantitasupdate]' type='number' value='$kuantitas' class='float-center' min='1' max='999' style='width:50px; text-align:center;'>
               </div>
-              <div class='col-md-6 align-self-center'>
-                <button class='btn bg-info'>Update</button>
-              </div>
-            </form>
+
           </div>
         </div>
 
@@ -28,15 +26,16 @@
           <p>Rp. $pesananharga,-</p>
         </div>
         <div class='col-md-1 align-self-center'>
-          <form action='halpesanan.php?action=btnRemove&idRemoval=$pesananid' method='POST'>
-            <input hidden type='text' name='idRemoval' value='$pesananid'>
-            <button type='submit' class='btn-close' name='btnRemove' data-bs-toggle='modal' data-bs-target='#myModal'></button>
-          </form>
+
+        <a href=functionremovepesanan0.php?idRemoval=$pesananid><button type='button' class='btn-close' data-bs-toggle='modal' data-bs-target='#myModal'></button></a>
+
         </div>
       </div>
     ";
   }
-
+  // <form action='halpesanan.php?action=btnRemove&idRemoval=$pesananid' method='POST'>
+  //   <input hidden type='text' name='idRemoval' value='$pesananid'>
+  //   <button type='submit' class='btn-close' name='btnRemove' data-bs-toggle='modal' data-bs-target='#myModal'></button>
   function tampilttlharga($pesanangambar, $pesanannama, $pesananharga, $pesananquantity){
     $kuantitas = $_SESSION['keranjang'][$pesananquantity]['menu_quantity'];
     $pesananharga = $pesananharga * (int)$kuantitas;
