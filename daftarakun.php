@@ -19,7 +19,6 @@
   </head>
   <body class="bg-light">
     <?php include("includes/koneksi.php"); include("includes/logincheck.php");
-    $data = mysqli_query($koneksi,"SELECT * FROM akun ORDER BY id");
     ?>
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">
@@ -55,13 +54,13 @@
           <div class="col-sm-10">
             <div class="card shadow">
               <div class="card-body">
-                <ul class="pagination pagination-sm justify-content-center">
+                <!-- <ul class="pagination pagination-sm justify-content-center">
                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                   <li class="page-item"><a class="page-link" href="#">1</a></li>
                   <li class="page-item"><a class="page-link" href="#">2</a></li>
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
+                </ul> -->
                 <table class="table table-bordered table-info">
                   <thead class="h5">
                     <tr>
@@ -73,8 +72,21 @@
                     </tr>
                   </thead>
                   <tbody>
-                    <?php while ($d = mysqli_fetch_array($data)){
-                      ?>
+                    <?php
+                        $perHalaman = 2;
+                        $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman']  : 1;
+                        $halamanAwal = ($halaman>1) ? ($halaman * $perHalaman) - $perHalaman : 0;
+
+                        $prev = $halaman - 1;
+                        $next = $halaman + 1;
+
+                        $akun = mysqli_query($koneksi,"SELECT * FROM akun");
+                        $jumlahAkun = mysqli_num_rows($akun);
+                        $totalHalaman = ceil($jumlahAkun / $perHalaman);
+
+                        $akuns = mysqli_query($koneksi,"SELECT * FROM akun LIMIT $halamanAwal, $perHalaman");
+                        while($d = mysqli_fetch_assoc($akuns)){
+                     ?>
                     <tr>
                       <td><?php echo $d['id'];?></td>
                       <td><img src="img/imgtest1.jpg" class="gambarsize1"></td>
@@ -84,13 +96,11 @@
                         <form action="#">
                           <input type="text" value="" hidden>
                           <a class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
-                          <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item')" href="hapusakun.php?id=<?php echo $d['id'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
+                          <a class="btn btn-danger" onclick="return confirm('Are you sure to delete this account?')" href="hapusakun.php?id=<?php echo $d['id'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
                         </form>
                       </td>
                     </tr>
-                    <?php
-                      }
-                    ?>
+                  <?php  } ?>
                        <!-- for($i=0;$i<6;++$i){
                          echo "<tr>
                           <td>1</td>
@@ -110,11 +120,19 @@
                   </tbody>
                 </table>
                 <ul class="pagination pagination-sm justify-content-center">
-                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                  <li class="page-item">
+                    <a class="page-link" <?php if($halaman > 1){echo "href = '?halaman=$prev'";} ?>>Previous</a>
+                  </li>
+                  <?php
+                  for($x = 1;$x<=$totalHalaman;$x++){ ?>
+                        <li class="page-item">
+                          <a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a>
+                          </li>
+                    <?php
+                    } ?>
+                    <li class="page-item">
+                      <a class="page-link" <?php if($halaman < $totalHalaman){ echo "href='?halaman=$next'";}?>>Next</a>
+                    </li>
                 </ul>
               </div>
             </div>
