@@ -21,39 +21,41 @@
     <link rel="stylesheet" href="css/sidebar.css">
     <link rel="stylesheet" href="css/navbar.css">
     <!--end css kita sendiri-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Pesanan Anda</title>
   </head>
   <body class="bg-light">
     <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
     <?php include('temp_sidebar.php'); ?>
-    <div class="jumbotron pt-2 h-100" style="height: 675px;">
-      <div class="jumbotron bg-light shadow-lg mx-auto" style="height: 675px;">
+    <div class="jumbotron pt-3 mt-5 h-100" >
+      <div class="jumbotron bg-light mx-auto" >
         <div class="mx-auto text-center mb-2" style="margin-top:-25px;">
           <h2 class="text-dark">Sudah yakin dengan pesanan anda?</h2>
         </div>
-        <div class="ps-3 shadow mx-4">
-          <div class="row my-3">
+        <div class="p-2 shadow mx-4">
+          <div class="row">
             <div class="col-md">
-              <a href="halamanmakanan.php"><button class="btn btn-primary m-2" type="button">Kembali ke daftar menu</button></a>
-              <button class="btn btn-primary m-2 float-end">Pesan!</button>
+              <a href="halamanmakanan.php"><button class="btn btn-info m-2" type="button"><i class="bi bi-arrow-left-square"></i> Pesan lagi</button></a>
+              <button class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan Pesanan</button>
             </div>
           </div>
+          <?php include('functionupdatekuantitas.php') ?>
         </div>
-        <?php  echo var_dump($_SESSION['keranjang']); ?>
+        <?php  //echo var_dump($_SESSION['keranjang']); ?>
 
-        <div class="row m-2">
+        <div class="row mt-3 mx-2 pb-4">
           <div class="col-md-8">
-            <div class="overflow-auto" style="height: 450px;">
+            <div class="overflow-auto" style="height: 475px;">
               <div class="card shadow my-2">
                 <div class="card-body text-center">
 
-<form action="functionupdatekuantitas.php" method="POST">
+<form action="" method="POST">
 
                   <!--DAFTAR PESANAN-->
                   <?php
                     $total = 0;
-
-                    if(isset($_SESSION['keranjang'])){
+                    //ADA SESUATU DISINI!!!!! ADA YANG SALAH!!!!
+                    if(isset($_SESSION['keranjang'])&&count($_SESSION['keranjang'])!=0){
                       $pesanan_id = array_column($_SESSION['keranjang'],'menu_id');
                       $pesanan_quantity_key = array_column($_SESSION['keranjang'],'menu_quantity');
                       $query2 = "SELECT * FROM menu";
@@ -63,13 +65,13 @@
                       while($row = mysqli_fetch_array($qresult)){
 
                         $keyquantity = key($pesanan_quantity_key);
-                        foreach($pesanan_id as $pesanan_id2){
+                        foreach($pesanan_id as $key => $pesanan_id2){
 
                           // $keyquantity = key($pesanan_quantity_key);
                           if($row['id_menu']== $pesanan_id2){
 
                             $keyint = (int)$keyquantity;
-                            tampilttlpesanan($row['gambar'], $row['nama_menu'],$row['harga'], $row['id_menu'], $idUpdate, $idUpdate);
+                            tampilttlpesanan($row['gambar'], $row['nama_menu'],$row['harga'], $row['id_menu'], $pesanan_id2, $idUpdate);
                             $total = $total + (int)$row['harga'];
                             $idUpdate++;
                           }
@@ -78,7 +80,8 @@
                         next($pesanan_quantity_key);
 
                       }
-                    }else{
+                    }else if(isset($_SESSION['keranjang'])&&count($_SESSION['keranjang'])==0){
+
                       echo "<h5>Anda belum memesan apapun</h5>";
                     }
                   ?>
@@ -93,18 +96,18 @@
           <div class="col-md-4">
             <div class="row my-2 mx-1">
               <div class="col-md">
-                <button name="btnUpdate" class="btn btn-outline-success my-2  float-start">Update</button>
+                <button name="btnUpdate" class="btn btn-outline-success my-2 float-end ">Update</button>
 </form>
                 <!-- klo udh selesai taroh fungsi update disini -->
-                <button class="btn btn-primary my-2 float-end">Pesan!</button>
 
               </div>
+
               <!-- klo udh selesai taroh fungsi update disini -->
             </div>
-            <div class="overflow-auto" style="height: 375px;">
+            <div class="overflow-auto mb-3" style="height: 400px;">
               <div class="card shadow">
                 <div class="card-body">
-                  <p class="text-center">Jumlah harga</p>
+                  <p class="text-center h6">STRUK PEMBELIAN</p>
                   <table class="table text-left">
                     <thead>
                       <tr>
@@ -128,7 +131,7 @@
                               $keyquantity = key($pesanan_quantity_key);
                               if($row2['id_menu']== $pesanan_id3){
                                 $keyint = (int)$keyquantity;
-                                tampilttlharga($row2['gambar'], $row2['nama_menu'],$row2['harga'],$idUpdate);
+                                tampilttlharga($row2['gambar'], $row2['nama_menu'],$row2['harga'],$row2['id_menu'],$idUpdate);
                                 $idUpdate++;
                               }
                               next($pesanan_quantity_key);
@@ -149,8 +152,8 @@
                   <!--END TOTAL HARGA DAN TOTAL PEMESANAN-->
                   <div class="row my-2">
                     <div class="col-md">
-                      <a href="halamanmakanan.php"><button type="button" class="btn btn-danger m-2">Kembali</button></a>
-                      <button class="btn btn-primary m-2 float-end">Pesan!</button>
+                      <a href="halamanmakanan.php"><button type="button" class="btn btn-info m-2"><i class="bi bi-arrow-left-square"></i> Pesan lagi</button></a>
+                      <button class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan pesanan</button>
                     </div>
                   </div>
                 </div>
@@ -160,6 +163,18 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+    jQuery(function($) {
+      $('#divAlert').delay(4000).fadeOut(400);
+    });
+
+    // close the div in 5 secs
+    // window.setTimeout("closeHelpDiv();", 5000);
+    // function closeHelpDiv(){
+    // document.getElementById("divAlert").style.display=" none";
+    // }
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
+    <?php echo count($_SESSION['keranjang']);?>
   </body>
 </html>
