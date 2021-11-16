@@ -36,7 +36,7 @@
           <div class="row">
             <div class="col-md">
               <a href="halamanmakanan.php"><button class="btn btn-info m-2" type="button"><i class="bi bi-arrow-left-square"></i> Pesan lagi</button></a>
-              <button class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan Pesanan</button>
+              <a href="functiontunggutransaksi.php"><button class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan pesanan</button></a>
             </div>
           </div>
           <?php include('functionupdatekuantitas.php') ?>
@@ -153,7 +153,7 @@
                   <div class="row my-2">
                     <div class="col-md">
                       <a href="halamanmakanan.php"><button type="button" class="btn btn-info m-2"><i class="bi bi-arrow-left-square"></i> Pesan lagi</button></a>
-                      <button class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan pesanan</button>
+                      <a href="functiontunggutransaksi.php"><button class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan pesanan</button></a>
                     </div>
                   </div>
                 </div>
