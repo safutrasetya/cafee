@@ -23,28 +23,32 @@
           <h2 class="text-dark"> <?php include('functiontampilnomeja.php') ?> </h2>
           <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
       <div class="my-4 ps-3 shadow">
-        <form class="row g-3">
-          <div class="col-sm-3">
-            <input type="text" class="form-control mb-2 mr-sm-2" placeholder"Search">
-          </div>
-          <button type="submit" class="btn btn-primary mb-2 col-sm-1">Search</button>
-          <div class="col" style="margin-right: -500px">
-            <a href="halpesanan.php">
-              <button type="button" class="btn btn-danger mb-2 col-sm-1">
-                <span class="badge bg-secondary">
-                  <?php
-                  if(isset($_SESSION['keranjang'])){
-                    $count = count($_SESSION['keranjang']);
-                    echo $count;
-                  }else{
-                    echo 0;
-                  }
-                  ?>
-                </span> Pesanan
-              </button>
-            </a>
-          </div>
-        </form>
+        <div class="row">
+          <form class="row">
+            <div class="col-md-4">
+              <input type="text" class="form-control my-2" placeholder"Search">
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="form-control btn btn-primary my-2 float-start">Search</button>
+            </div>
+            <div class="col-md-6">
+              <a href="halpesanan.php">
+                <button type="button" class="btn btn-danger my-2 float-end">
+                  <span class="badge bg-secondary">
+                    <?php
+                    if(isset($_SESSION['keranjang'])){
+                      $count = count($_SESSION['keranjang']);
+                      echo $count;
+                    }else{
+                      echo 0;
+                    }
+                    ?>
+                  </span> Pesanan
+                </button>
+              </a>
+            </div>
+          </form>
+        </div>
       </div>
   </div>
 

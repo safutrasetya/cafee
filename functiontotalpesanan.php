@@ -1,6 +1,8 @@
 <?php
   function tampilttlpesanan($pesanangambar, $pesanannama, $pesananharga, $pesananid, $pesanankeyquantity, $IDQTTUPDATE){
-    $kuantitas = $_SESSION['keranjang'][$pesanankeyquantity]['menu_quantity'];
+    $idkey = array_search($pesananid, array_column($_SESSION['keranjang'], 'menu_id'));
+    $kuantitas = $_SESSION['keranjang'][$idkey]['menu_quantity'];
+
     echo "
       <div class='row my-2 py-2 border'>
         <div class='col-md-2 align-self-center'>
@@ -36,8 +38,9 @@
   // <form action='halpesanan.php?action=btnRemove&idRemoval=$pesananid' method='POST'>
   //   <input hidden type='text' name='idRemoval' value='$pesananid'>
   //   <button type='submit' class='btn-close' name='btnRemove' data-bs-toggle='modal' data-bs-target='#myModal'></button>
-  function tampilttlharga($pesanangambar, $pesanannama, $pesananharga, $pesananquantity){
-    $kuantitas = $_SESSION['keranjang'][$pesananquantity]['menu_quantity'];
+  function tampilttlharga($pesanangambar, $pesanannama, $pesananharga, $pesananid, $pesananquantity){
+    $idkey = array_search($pesananid, array_column($_SESSION['keranjang'], 'menu_id'));
+    $kuantitas = $_SESSION['keranjang'][$idkey]['menu_quantity'];
     $pesananharga = $pesananharga * (int)$kuantitas;
 
     $theharga = "

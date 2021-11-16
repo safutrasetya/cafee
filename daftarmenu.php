@@ -13,7 +13,10 @@
     <title>Daftar Menu</title>
   </head>
   <body class="bg-light">
-    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
+    <?php include("includes/koneksi.php"); include("includes/logincheck.php");
+    $data = mysqli_query($koneksi,"SELECT * FROM menu ORDER BY id");
+    ?>
+    <?php include("temp_sidebar.php");?>
     <!--MODAL HAPUS-->
   	<div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   	  <div class="modal-dialog">
@@ -84,32 +87,33 @@
                       <td>Info Menu</td>
                       <td>Harga</td>
                       <td>Ketersediaan</td>
-                      <td colspan="2">Action</td>
+                      <td>Action</td>
                     </tr>
                   </thead>
                   <tbody>
+                    <?php
+                      $menu = mysqli_query($koneksi, "SELECT * FROM menu");
+                       while ($d = mysqli_fetch_assoc($menu)){
+                      ?>
                     <tr>
-                      <td>1</td>
+                      <td><?php echo $d['id_menu'];?></td>
                       <td><img src="img/imgtest1.jpg" class="gambarsize1"></td>
-                      <td>T E S T</td>
-                      <td>Sapi, Telur, Tortilla, Blah blah</td>
-                      <td>Rp. 200.000,-</td>
-                      <td></td>
+                      <td><?php echo $d['nama_menu'];?></td>
+                      <td><?php echo $d['info_menu'];?></td>
+                      <td><?php echo $d['harga'];?></td>
+                      <td><?php echo $d['ketersidiaan'];?></td>
                       <td>
-                        <form action="editmenu.php">
+                        <form action="#">
                           <input type="text" value="" hidden>
-                          <button class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</button>
-                        </form>
-                      </td>
-                      <td>
-                        <form action="functionhapusmenu.php">
-                          <input type="text" value="" hidden>
-                          <button type="submit" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusmenu"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</button>
+                          <a class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;" href="editmenu.php"> Edit</a>
+                          <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item')" href="functionhapusmenu.php?id=<?php echo $d['id_menu'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
                         </form>
                       </td>
                     </tr>
                     <?php
-                      for($i=0;$i<6;++$i){
+                  }
+                  ?>
+                    <!--  for($i=0;$i<6;++$i){
                         echo "<tr>
                           <td>1</td>
                           <td><img src='img/imgtest1.jpg' class='gambarsize1'></td>
@@ -132,6 +136,7 @@
                         </tr>";
                       }
                      ?>
+                   -->
                   </tbody>
                 </table>
                 <ul class="pagination pagination-sm justify-content-center">

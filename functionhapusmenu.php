@@ -4,8 +4,8 @@ include("includes/koneksi.php");
 
 $id = $_GET['id'];
 
-mysqli_query($koneksi,"DELETE FROM akun WHERE id='$id'");
+mysqli_query($koneksi,"DELETE FROM menu WHERE id='$id'");
 
 
-header('location:daftarakun.php');
+header('location:daftarmenu.php');
  ?>
