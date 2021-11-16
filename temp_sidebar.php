@@ -6,7 +6,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid">
-  <a href="aboutus.php" class="link-dark" class="fs-4" style="text-decoration: none; font-size: 20px; margin-top: 6px; margin-right: 10px" ><img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: 10px" class="rounded-circle">Home</a>
+  <a href="halamanmakanan.php" class="link-dark" class="fs-4" style="text-decoration: none; font-size: 20px; margin-top: 6px; margin-right: 10px" ><img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: 10px" class="rounded-circle">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,7 +16,7 @@
             <a class="navbar-brand" href="#" style ="" href="halamanmakanan.php" style="margin-right: 15px">Home</a>
         </li> -->
         <li class="nav-item">
-            <a class="navbar-brand" href="#" style ="" href="aboutus.php">About Us</a>
+            <a class="aboutus.php" href="#" style ="" href="aboutus.php">About Us</a>
         </li>
       </ul>
       <div style ="margin-top: "><a href="halpesanan.php">
