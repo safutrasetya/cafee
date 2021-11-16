@@ -18,7 +18,7 @@
   font-size: 18px;
 }
 
-button {
+.button {
   margin-bottom: -20px;
   border: none;
   outline: 0;
@@ -32,10 +32,11 @@ button {
   font-size: 18px;
 }
 
-a {
+.link {
   text-decoration: none;
   font-size: 22px;
   color: black;
+  /* a */
 }
 
 button:hover, a:hover {
@@ -54,7 +55,7 @@ button:hover, a:hover {
   <p class="title">08xx-xxxx-xxxx</p>
   <p>budibudi@gmail.com</p>
   <div class="button">
-    <button>Edit</button>
+    <button class="button">Edit</button>
   </div>
 </div>
 </div>
