@@ -16,6 +16,7 @@
     <?php include("includes/koneksi.php"); include("includes/logincheck.php");
     $data = mysqli_query($koneksi,"SELECT * FROM menu ORDER BY id");
     ?>
+
     <?php include("temp_sidebar.php");?>
     <!--MODAL HAPUS-->
   	<div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -45,7 +45,7 @@ button:hover, a:hover {
 </head>
 <body class="bg-light">
   <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
-  <?php include('temp_navbar.php'); ?>
+  <?php include('temp_sidebar.php'); ?>
 <div class="container-fluid mt-5">
 <h2 style="text-align:center">Profil</h2>
 <div class="card">

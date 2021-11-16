@@ -22,13 +22,13 @@
                 <img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: 15px" class="rounded-circle">
             </button>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                <li><a class="dropdown-item" href="#">Profil</a></li>
-                <li><a class="dropdown-item" href="#">Admin</a></li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+              <li><a class="dropdown-item" href="profil.php">Profil</a></li>
+              <li><a class="dropdown-item" href="daftarakun.php">Admin</a></li>
+              <li><a class="dropdown-item" href="functionlogout.php">Logout</a></li>
             </ul>
         </div>
 </nav>
-<div class="second">
+<div class="second" style ="margin-top: 40px">
     <input type="checkbox" id="check">
     <label for="check">
         <i class="fas fa-bars" id="btn"></i>
@@ -39,12 +39,13 @@
           <header>Cafe</header>
         </div>
         <ul>
-            <li><a href=""><i class="far fa-address-card">Edit Akun</i></a></li>
-            <li><a href=""><i class="far fa-address-book">Daftar Akun</i></a></li>
-            <li><a href=""><i class="fas fa-clipboard-list">Daftar Makanan</i></a></li>
+            <li><a href="editprofil.php"><i class="far fa-address-card">Edit Akun</i></a></li>
+            <li><a href="daftarakun.php"><i class="far fa-address-book">Daftar Akun</i></a></li>
+            <li><a href="daftarmenu.php"><i class="fas fa-clipboard-list">Daftar Makanan</i></a></li>
             <li><a href=""><i class="fas fa-boxes"></i>Daftar Pesanan</a></li>
-            <li><a href=""><i class="fas fa-sign-out-alt"></i>Log Out</a></li>
             <li><a href=""><i class="fas fa-clipboard-check">Riwayat Pemesanan</i></a></li>
+            <li><a href=""><i class="as fa-utensils">Daftar Meja</i></a></li>
+            <li><a href=""><i class="fas fa-sign-out-alt"></i>Log Out</a></li>
         </ul>
     </div>
     </div>

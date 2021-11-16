@@ -32,7 +32,7 @@ CREATE TABLE `akun` (
   `username` varchar(50) NOT NULL,
   `nama` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `No_Hp` varchar(15) NOT NULL,
+  `No_Hp` varchar(15) NOT NULL,s
   `password` varchar(30) NOT NULL,
   `level` varchar(1) NOT NULL,
   `waktu_bergabung` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()

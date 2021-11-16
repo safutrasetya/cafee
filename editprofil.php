@@ -48,7 +48,7 @@
   </head>
   <body class="bg-light">
     <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
-    <?php include("temp_navbar.php");?>
+    <?php include("temp_sidebar.php");?>
     <div class="container-fluid">
       <div class="container bg-info text-center header ">
         <h1>Edit Profile</h1>
