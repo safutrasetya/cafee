@@ -10,7 +10,7 @@
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/cafee.css">
     <!--end css kita sendiri-->
-    <title>Tambah Menu</title>
+    <title>Tambah Akun</title>
   </head>
   <body class="bg-light">
     <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>

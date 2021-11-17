@@ -72,13 +72,13 @@
           <div class="col-sm-10">
             <div class="card shadow">
               <div class="card-body">
-                <ul class="pagination pagination-sm justify-content-center">
+              <!--  <ul class="pagination pagination-sm justify-content-center">
                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                   <li class="page-item"><a class="page-link" href="#">1</a></li>
                   <li class="page-item"><a class="page-link" href="#">2</a></li>
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul>
+                </ul> -->
                 <table class="table table-bordered table-info">
                   <thead class="h6">
                     <tr>
@@ -93,8 +93,23 @@
                   </thead>
                   <tbody>
                     <?php
-                      $menu = mysqli_query($koneksi, "SELECT * FROM menu");
+                      $perHalaman = 5;
+                      $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman']  : 1;
+                      $halamanAwal = ($halaman>1) ? ($halaman * $perHalaman) - $perHalaman : 0;
+
+                      $prev = $halaman - 1;
+                      $next = $halaman + 1;
+
+                      $menu = mysqli_query($koneksi,"SELECT * FROM menu");
+                      $jumlahMenu = mysqli_num_rows($menu);
+                      $totalHalaman = ceil($jumlahMenu / $perHalaman);
+
+                      $menus = mysqli_query($koneksi,"SELECT * FROM menu LIMIT $halamanAwal, $perHalaman");
+                      while($d = mysqli_fetch_assoc($menus)){
+
+                  /* $menu = mysqli_query($koneksi, "SELECT * FROM menu");
                        while ($d = mysqli_fetch_assoc($menu)){
+                        */
                       ?>
                     <tr>
                       <td><?php echo $d['id_menu'];?></td>
@@ -104,11 +119,12 @@
                       <td><?php echo $d['harga'];?></td>
                       <td><?php echo $d['ketersidiaan'];?></td>
                       <td>
-                        <form action="#">
-                          <input type="text" value="" hidden>
-                          <a class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;" href="editmenu.php"> Edit</a>
-                          <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item')" href="functionhapusmenu.php?id=<?php echo $d['id_menu'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
-                        </form>
+                          <form action="editmenu.php">
+                            <input type="text" value="" hidden>
+
+                            <a class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;" href="editmenu.php"> Edit</a>
+                            <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item')" href="functionhapusmenu.php?id=<?php echo $d['id_menu'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
+                          </form>
                       </td>
                     </tr>
                     <?php
@@ -141,11 +157,24 @@
                   </tbody>
                 </table>
                 <ul class="pagination pagination-sm justify-content-center">
-                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                  <li class="page-item">
+                    <a class="page-link" <?php if($halaman > 1){echo "href = '?halaman=$prev'";} ?>>Previous</a>
+                  </li>
+                  <?php
+                  for($x = 1;$x<=$totalHalaman;$x++){ ?>
+                        <li class="page-item">
+                          <a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a>
+                          </li>
+                    <?php
+                    } ?>
+                    <li class="page-item">
+                      <a class="page-link" <?php if($halaman < $totalHalaman){ echo "href='?halaman=$next'";}?>>Next</a>
+                  <!--<li class="page-item"><a class="page-link" href="#">Previous</a></li>
                   <li class="page-item"><a class="page-link" href="#">1</a></li>
                   <li class="page-item"><a class="page-link" href="#">2</a></li>
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                -->
                 </ul>
               </div>
             </div>
