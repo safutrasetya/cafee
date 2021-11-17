@@ -24,18 +24,14 @@
   <body class="bg-light">
     <?php
 
+    $hargatotal= 0;
+    $nomeja = (int)$_SESSION['meja'];
+    $date = date('Y-m-d H:i:s');
+    $_SESSION['totalharga']=$hargatotal;
     if(isset($_SESSION['keranjang'])){
-      $date = date('Y-m-d H:i:s');
-      $nomeja = (int)$_SESSION['meja'];
-      $cekriwayat = "SELECT * FROM riwayat_pembelian;";
-      $query = mysqli_query($koneksi, $cekriwayat);
-      $hitungtrnsks = mysqli_num_rows($query);
-      $hitungtrnsks++;
-      $hitungtrnsks++;
-
       //hitung total harga
       $arrquantitas = array_column($_SESSION['keranjang'], 'menu_id');
-      $hargatotal= 0;
+
       $query2 = "SELECT * FROM menu";
       $qresult2 = mysqli_query($koneksi, $query2);
       $idloop=0;
@@ -52,29 +48,41 @@
 
       }
       //end hitung total harga
-
-      if(!$query){
+      if(!$query2){
           die("Query gagal" .mysqli_error($koneksi));
       }
       $arridsesi = array_column($_SESSION['keranjang'], 'menu_id');
-
-      $addriwtrnsks = "INSERT INTO riwayat_pembelian (id_meja,total_pembayaran,status_bayar,waktu_pembayaran) VALUES
-      ('$nomeja', '$hargatotal', 1, '$date')";
-
-      $_SESSION['totalharga']= $hargatotal;
-      // $queryadd= mysqli_query($koneksi, $addriwtrnsks);
-      if($koneksi->query($addriwtrnsks)===TRUE){
-
-        header('Location:halpesananberhasil.php');
-
-      }else{
-
-      }
-      $koneksi->close();
+      $_SESSION['totalharga']=$hargatotal;
     }else{
       header('Location:halamanmakanan.php');
     }
 
+    //ADD KE TABEL RIWAYAT PESANAN
+    $addriwtrnsks = "INSERT INTO riwayat_pembelian (id_meja,total_pembayaran,status_bayar,waktu_pembayaran) VALUES
+    ('$nomeja', '$hargatotal', 1, '$date')";
+    if($koneksi->query($addriwtrnsks)===TRUE){
+      $_SESSION['idpembelian'] = $koneksi->insert_id;
+    }else{
+    }
+    $koneksi->close();
+    //END ADD KE TABEL RIWAYAT PESANAN
+    //ADD KE TABEL DAFTAR Pesanan
+
+    if(isset($_SESSION['keranjang'])){
+
+      $arridsesi= array_column($_SESSION['keranjang'], 'menu_id');
+      foreach($arridsesi as $key=>$value){
+
+
+
+      }
+
+    }
+
+
+    //END ADD KE TABEL DAFTAR PESANAN
+
+    header('Location:halpesananberhasil.php');
     ?>
     <script type="text/javascript">
         $(window).on('load', function() {

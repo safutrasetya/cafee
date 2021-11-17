@@ -35,9 +35,10 @@
           </div>
           <div class="modal-body">
             <p>Transaksi sedang berlangsung <span class='spinner-border spinner-border-sm'></span></p>
+            <p class="h6">Id pembayaran : <?php echo $_SESSION['idpembelian']; ?></p>
             <br>
-            <p class='h5'>Total Harga pembayaran = Rp. <?php echo $_SESSION['totalharga'];?> ,-</p>
-            
+            <p class='h5'>Total harga yang dibayar = Rp. <?php echo $_SESSION['totalharga'];?> ,-</p>
+
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan Pesanan</button>

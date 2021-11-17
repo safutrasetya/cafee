@@ -33,9 +33,9 @@ viewBox="0 0 16 16">
         <a href="aboutus.php"><img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: " class="rounded-circle"></a>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><a class="dropdown-item" href="#">Profil</a></li>
-            <li><a class="dropdown-item" href="#">Admin</a></li>
-            <li><a class="dropdown-item" href="#">Logout</a></li>
+          <li><a class="dropdown-item" href="profil.php">Profil</a></li>
+          <li><a class="dropdown-item" href="daftarakun.php">Admin</a></li>
+          <li><a class="dropdown-item" href="functionlogout.php">Logout</a></li>
         </ul>
     </div>
     </div>
@@ -58,7 +58,7 @@ viewBox="0 0 16 16">
               <i class='no-italics'>Daftar Akun</i></a></li>
             <li><a href="daftarmenu.php"><i class="far fa-clipboard"></i>
               <i class='no-italics'>Daftar Makanan</i></a></li>
-            <li><a href=""><i class="far fa-list-alt"></i>
+            <li><a href="daftarpesanan.php"><i class="far fa-list-alt"></i>
               <i class='no-italics'>Daftar Pesanan</i></a></li>
             <li><a href=""><i class="far fa-calendar-alt"></i>
               <i class='no-italics'>Riwayat Pemesanan</i></a></li>
