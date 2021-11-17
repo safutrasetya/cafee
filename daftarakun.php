@@ -8,6 +8,7 @@
   	<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
     <!--END BOSTTSTRAP AND CKEDITOR-->
     <!--CSS KITA SENDIRI-->
+    <link rel="stylesheet" href="css/akun.css">
     <link rel="stylesheet" href="css/cafee.css">
     <!--end css kita sendiri-->
     <title>cafee</title>
@@ -58,8 +59,10 @@
                 </ul> -->
                 <table class="table table-bordered table-info">
                   <thead class="h5">
-                    <tr>
+                    <tr style="text-align:center">
                       <td>Id</td>
+                      <td>Foto</td>
+                      <td>Username</td>
                       <td>Nama</td>
                       <td>Email</td>
                       <td>No. Handphone</td>
@@ -84,7 +87,9 @@
                      ?>
                     <tr>
                       <td><?php echo $d['id'];?></td>
-                      <td><img src="img/imgtest1.jpg" class="gambarsize1"></td>
+                      <td><img src="img/<?php echo $d['gambar']?>" class="gambarsize1"></td>
+                      <td><?php echo $d['username'] ?></td>
+                      <td><?php echo $d['nama'] ?></td>
                       <td><?php echo $d['email'];?></td>
                       <td><?php echo $d['No_Hp'];?></td>
                       <td>
@@ -135,6 +140,5 @@
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
