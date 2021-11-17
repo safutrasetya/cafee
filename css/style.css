@@ -17,6 +17,9 @@ body{
     margin: 50px auto;
     box-sizing: border-box;
     flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+
 }
 
 .pesanan{
@@ -27,7 +30,7 @@ body{
     margin-top: 20px;
     margin: 20px;
 }
-@media( min-width : 600px){
+/* @media( min-width : 600px){
     .container-dua{
         display: flex;
         justify-content: space-between;
@@ -44,4 +47,4 @@ body{
 
 .header{
     padding-top: 50px;
-}
+} */

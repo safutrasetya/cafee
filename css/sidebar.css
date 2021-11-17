@@ -22,9 +22,7 @@ body{
     background: #00ab6b;
     transition: all .5s ease;
 }
-.head{
 
-}
 
 .sidebar header{
     font-size: 22px;
@@ -46,7 +44,14 @@ body{
     border-top: 1px solid rgba(255,255,255,.1);
     border-bottom: 1px solid white;
     transition: .4s;
+    text-decoration: none;
 }
+
+.no-italics {
+    font-style: normal;
+    margin-left: 5px;
+}
+
 .sidebar ul li:hover a{
     padding-left: 50px;
 }

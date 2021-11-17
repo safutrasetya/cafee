@@ -16,7 +16,7 @@
             <a class="navbar-brand" href="#" style ="" href="halamanmakanan.php" style="margin-right: 15px">Home</a>
         </li> -->
         <li class="nav-item">
-            <a class="aboutus.php" href="#" style ="" href="aboutus.php">About Us</a>
+            <a class="aboutus.php" style ="text-decoration: none; font-size: 20px; margin-top: 6px; margin-left: 10px; color: black" href="aboutus.php" class="fs-4" >About Us</a>
         </li>
       </ul>
       <div style ="margin-top: "><a href="halpesanan.php">
@@ -52,13 +52,20 @@ viewBox="0 0 16 16">
           <header>Cafe</header>
         </div>
         <ul>
-            <li><a href="editprofil.php"><i class="far fa-address-card">Edit Akun</i></a></li>
-            <li><a href="daftarakun.php"><i class="far fa-address-book">Daftar Akun</i></a></li>
-            <li><a href="daftarmenu.php"><i class="fas fa-clipboard-list">Daftar Makanan</i></a></li>
-            <li><a href=""><i class="fas fa-boxes"></i>Daftar Pesanan</a></li>
-            <li><a href=""><i class="fas fa-clipboard-check">Riwayat Pemesanan</i></a></li>
-            <li><a href=""><i class="as fa-utensils">Daftar Meja</i></a></li>
-            <li><a href=""><i class="fas fa-sign-out-alt"></i>Log Out</a></li>
+            <li><a href="editprofil.php"><i class="far fa-address-card"></i>
+              <i class='no-italics'>Edit Akun</i></a></li>
+            <li><a href="daftarakun.php"><i class="far fa-address-book"></i>
+              <i class='no-italics'>Daftar Akun</i></a></li>
+            <li><a href="daftarmenu.php"><i class="far fa-clipboard"></i>
+              <i class='no-italics'>Daftar Makanan</i></a></li>
+            <li><a href=""><i class="far fa-list-alt"></i>
+              <i class='no-italics'>Daftar Pesanan</i></a></li>
+            <li><a href=""><i class="far fa-calendar-alt"></i>
+              <i class='no-italics'>Riwayat Pemesanan</i></a></li>
+            <li><a href=""><i class="far fa-square"></i>
+              <i class='no-italics'>Daftar Meja</i></a></li>
+            <li><a href=""><i class="fas fa-sign-out-alt"></i>
+              <i class='no-italics'>Log Out</i></a></li>
         </ul>
     </div>
     </div>

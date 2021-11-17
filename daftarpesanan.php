@@ -14,7 +14,7 @@
     <title></title>
   </head>
   <body>
-    <?php include("temp_sidebar.php");?>
+    <?php include("sidebar.php");?>
       <div class="header">
           <h3 class="text-center">Daftar Pesanan</h3>
       </div>
