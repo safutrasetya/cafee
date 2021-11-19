@@ -107,7 +107,7 @@
                   </div>
                   <div class="mb-3 mt-3 me-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" pattern="{8}" title="Password harus 8 karakter"
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" pattern="{9}" title="Password harus 9 karakter"
                     required>
                   </div>
                   <div class="text-end me-3">
