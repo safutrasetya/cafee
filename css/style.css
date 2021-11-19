@@ -12,6 +12,7 @@ body{
     padding-bottom: 500px;
 
 }
+
 .container-dua{
     max-width: 1000px;
     margin: 50px auto;
@@ -19,8 +20,9 @@ body{
     flex-wrap: wrap;
     display: flex;
     justify-content: space-evenly;
-
 }
+
+
 
 .pesanan{
     width: 200px;
@@ -29,7 +31,15 @@ body{
     background-color: aquamarine;
     margin-top: 20px;
     margin: 20px;
+    overflow: scroll;
 }
+.pesanan > div{
+    align-self: flex-end;
+}
+
+
+
+
 /* @media( min-width : 600px){
     .container-dua{
         display: flex;
