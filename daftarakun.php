@@ -74,7 +74,7 @@
                   </thead>
                   <tbody>
                     <?php
-                        $perHalaman = 2;
+                        $perHalaman = 6;
                         $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman']  : 1;
                         $halamanAwal = ($halaman>1) ? ($halaman * $perHalaman) - $perHalaman : 0;
 
@@ -98,7 +98,7 @@
                       <td>
                         <form action="#">
                           <input type="text" value="" hidden>
-                          <a class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
+                          <a href="editprofil.php?id=<?php echo $d['id'];?>"class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
                           <a class="btn btn-danger" onclick="return confirm('Are you sure to delete this account?')" href="hapusakun.php?id=<?php echo $d['id'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
                         </form>
                       </td>

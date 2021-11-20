@@ -92,12 +92,12 @@
                   </div>
                   <div class="mb-3 mt-3 me-3">
                     <label for="nama" class="form-label">Nama</label>
-                    <input type="text" class="form-control" name="nama" id="nama" pattern="[a-zA-Z][a-zA-z]{2,}" title="Nama hanya boleh terdiri oleh huruf saja"
+                    <input type="text" class="form-control" name="nama" id="nama" pattern="[a-zA-Z\s]{2,}" title="Nama hanya boleh terdiri oleh huruf saja"
                     placeholder="Masukkan Nama" required>
                   </div>
                   <div class="mb-3 mt-3 me-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="text" class="form-control" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Email tidak valid"
+                    <input type="text" class="form-control" name="email" id="email" pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,}$" title="Email tidak valid"
                     placeholder="cth. contoh@test.om" required>
                   </div>
                   <div class="mb-3 mt-3 me-3">
@@ -107,7 +107,7 @@
                   </div>
                   <div class="mb-3 mt-3 me-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" pattern="{9}" title="Password harus 9 karakter"
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" pattern="{6-9}" title="Password harus 6-9 karakter"
                     required>
                   </div>
                   <div class="text-end me-3">
