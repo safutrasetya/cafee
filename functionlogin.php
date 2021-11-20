@@ -20,23 +20,25 @@ if(!empty($user_login) && (!empty($pass_login))){
     }else {
         while ($row=mysqli_fetch_array($query)){
             $id = $row['id'];
+            $gambar = $row['gambar'];
             $user = $row['username'];
-            $pass = $row['password'];
             $nama = $row['nama'];
             $email = $row['email'];
+            $No_Hp = $row['No_Hp'];
+            $pass = $row['password'];
             $level = $row['level'];
-            $nohp = $row['no_hp'];
         }
 
         if($user_login==$user && $pass_login==$pass){
             header("Location:daftarmenu.php");
+            $_SESSION['id'] = $id;
+            $_SESSION['gambar'] = $gambar;
             $_SESSION['username'] = $user;
             $_SESSION['nama'] = $nama;
             $_SESSION['email'] = $email;
-            $_SESSION['level'] = $level;
+            $_SESSION['No_Hp'] = $No_Hp;
             $_SESSION['password'] = $password;
-            $_SESSION['id'] = $id;
-            $_SESSION['nohp'] = $nohp;
+            $_SESSION['level'] = $level;
 
 
         }else {
