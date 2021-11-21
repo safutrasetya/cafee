@@ -35,9 +35,6 @@
       </div>
     ";
   }
-  // <form action='halpesanan.php?action=btnRemove&idRemoval=$pesananid' method='POST'>
-  //   <input hidden type='text' name='idRemoval' value='$pesananid'>
-  //   <button type='submit' class='btn-close' name='btnRemove' data-bs-toggle='modal' data-bs-target='#myModal'></button>
   function tampilttlharga($pesanangambar, $pesanannama, $pesananharga, $pesananid, $pesananquantity){
     $idkey = array_search($pesananid, array_column($_SESSION['keranjang'], 'menu_id'));
     $kuantitas = $_SESSION['keranjang'][$idkey]['menu_quantity'];
@@ -51,17 +48,12 @@
     ";
     echo $theharga;
   }
-  // <div class='col-md-2 align-self-center'>
-  //   <div class='row'>
-  //     <div class='col-md-4 align-self-center'>
-  //       <button class='btn btn-info rounded-circle'><i class='bi bi-file-minus'></i></button>
-  //     </div>
-  //     <div class='col-md-3 align-self-center'>
-  //       <input class='float-center' style='width:25px; text-align:center;' type='text' value='1'>
-  //     </div>
-  //     <div class='col-md-3 align-self-center'>
-  //       <button class='btn bg-info rounded-circle'><i class='bi bi-file-plus'></i></button>
-  //     </div>
-  //   </div>
-  // </div>
+  function hiddenFormPesan($pesananid, $IDQTTUPDATE){
+    $idkey = array_search($pesananid, array_column($_SESSION['keranjang'], 'menu_id'));
+    $kuantitas = $_SESSION['keranjang'][$idkey]['menu_quantity'];
+    echo "
+    <input hidden name='updatepesanan[$IDQTTUPDATE][pesananidupdate]' value='$pesananid'>
+    <input hidden name='updatepesanan[$IDQTTUPDATE][kuantitasupdate]' value='$kuantitas'>
+    ";
+  }
 ?>

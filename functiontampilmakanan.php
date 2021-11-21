@@ -17,7 +17,7 @@ foreach ($hasil as $data){
           <h5 class='card-title'>$data[nama_menu]</h5>
           <p class='card-text'>$data[info_menu]</p>
           <p class='card-text'>$data[harga]</p>
-          <form action='' method='post'>
+          <form action='' method='get'>
             <input type='text' value='$data[id_menu]' hidden name='id_pesanan_baru'>
             <button class='btn btn-primary' type='submit' name='addMakanan'>+</button>
           </form>
@@ -35,7 +35,7 @@ foreach ($hasil as $data){
           <h5 class='card-title'>$data[nama_menu]</h5>
           <p class='card-text'>$data[info_menu]</p>
           <p class='card-text'>$data[harga]</p>
-          <form action='' method='post'>
+          <form action='' method='get'>
             <input type='text' value='$data[id_menu]' hidden name='id_pesanan_baru'>
             <button class='btn btn-primary' type='submit' name='addMakanan'>+</button>
           </form>

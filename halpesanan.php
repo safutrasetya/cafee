@@ -35,48 +35,50 @@
           <div class="row">
             <div class="col-md">
               <a href="halamanmakanan.php"><button class="btn btn-info m-2" type="button"><i class="bi bi-arrow-left-square"></i> Pesan lagi</button></a>
-              <a href="functiontunggutransaksi.php"><button class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan pesanan</button></a>
+              <!-- <?php include('functionformpesan.php'); ?>
+              <form action="functiontunggutransaksi.php" method="POST">
+              <?php //include('functionformpesan.php'); ?>
+                <button name="btnPesan" class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan pesanan</button></a> -->
+                <a href="functiontunggutransaksi.php"><button class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan pesanan</button></a>
+              <!-- </form> -->
+
             </div>
           </div>
           <?php include('functionupdatekuantitas.php') ?>
         </div>
-        <?php  //echo var_dump($_SESSION['keranjang']); ?>
-
         <div class="row mt-3 mx-2 pb-4">
           <div class="col-md-8">
             <div class="overflow-auto" style="height: 475px;">
               <div class="card shadow my-2">
                 <div class="card-body text-center">
 
-<form action="" method="POST">
+<form action="" method="GET">
 
                   <!--DAFTAR PESANAN-->
                   <?php
                     $total = 0;
-                    //ADA SESUATU DISINI!!!!! ADA YANG SALAH!!!!
+
                     if(isset($_SESSION['keranjang'])&&count($_SESSION['keranjang'])!=0){
                       $pesanan_id = array_column($_SESSION['keranjang'],'menu_id');
-                      $pesanan_quantity_key = array_column($_SESSION['keranjang'],'menu_quantity');
                       $query2 = "SELECT * FROM menu";
                       $qresult = mysqli_query($koneksi, $query2);
-                      $keyquantity = key($pesanan_quantity_key);
+                      // $keyquantity = key($pesanan_quantity_key);
                       $idUpdate = 0;
                       while($row = mysqli_fetch_array($qresult)){
 
-                        $keyquantity = key($pesanan_quantity_key);
+                        // $keyquantity = key($pesanan_quantity_key);
                         foreach($pesanan_id as $key => $pesanan_id2){
 
-                          // $keyquantity = key($pesanan_quantity_key);
+
                           if($row['id_menu']== $pesanan_id2){
 
-                            $keyint = (int)$keyquantity;
+                            // $keyint = (int)$keyquantity;
                             tampilttlpesanan($row['gambar'], $row['nama_menu'],$row['harga'], $row['id_menu'], $pesanan_id2, $idUpdate);
                             $total = $total + (int)$row['harga'];
                             $idUpdate++;
                           }
-                          // next($pesanan_quantity_key);
                         }
-                        next($pesanan_quantity_key);
+                        // next($pesanan_quantity_key);
 
                       }
                     }else if(isset($_SESSION['keranjang'])&&count($_SESSION['keranjang'])==0){
@@ -85,8 +87,6 @@
                     }
                   ?>
                   <!--END DAFTAR PESANAN-->
-
-
                 </div>
               </div>
               <!--BATAS ga gunaa sih tpi batasin aja-->
@@ -163,15 +163,9 @@
       </div>
     </div>
     <script type="text/javascript">
-    jQuery(function($) {
-      $('#divAlert').delay(4000).fadeOut(400);
-    });
-
-    // close the div in 5 secs
-    // window.setTimeout("closeHelpDiv();", 5000);
-    // function closeHelpDiv(){
-    // document.getElementById("divAlert").style.display=" none";
-    // }
+      jQuery(function($) {
+        $('#divAlert').delay(4000).fadeOut(400);
+      });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
     <?php echo count($_SESSION['keranjang']);?>

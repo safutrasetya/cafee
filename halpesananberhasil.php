@@ -1,5 +1,6 @@
 <?php
   include("includes/koneksi.php"); include("includes/logincheck.php");
+  include('functiontotalpesanan.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -34,12 +35,54 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p>Transaksi sedang berlangsung <span class='spinner-border spinner-border-sm'></span></p>
-            <p class="h6">Id pembayaran : <?php echo $_SESSION['idpembelian']; ?></p>
-            <br>
-            <p class='h5'>Total harga yang dibayar = Rp. <?php echo $_SESSION['totalharga'];?> ,-</p>
+                <p class="h5">Transaksi sedang berlangsung <span class='spinner-border spinner-border-sm'></span></p>
+                <p class='h5'>Total harga yang dibayar = Rp. <?php echo $_SESSION['totalharga'];?> ,-</p>
+                <p class="h5 text-center">Struk Pembelian</p>
+                <div class="overflow-auto mb-3" style="height: 400px;">
+                  <table class="table text-left">
+                    <thead>
+                      <tr>
+                        <td>Nama Makanan/Minuman</td>
+                        <td>Harga</td>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!--TABEL STRUK-->
+                      <?php
+                        if(isset($_SESSION['keranjang'])){
+                          $pesanan_id2 = array_column($_SESSION['keranjang'],'menu_id');
+                          $pesanan_quantity_key = array_column($_SESSION['keranjang'],'menu_quantity');
+                          $keyquantity = key($pesanan_quantity_key);
 
-          </div>
+                          $query3 = "SELECT * FROM menu";
+                          $qresult2 = mysqli_query($koneksi, $query3);
+                          $idUpdate=0;
+                          while($row2 = mysqli_fetch_array($qresult2)){
+                            foreach($pesanan_id2 as $pesanan_id3){
+                              $keyquantity = key($pesanan_quantity_key);
+                              if($row2['id_menu']== $pesanan_id3){
+                                $keyint = (int)$keyquantity;
+                                tampilttlharga($row2['gambar'], $row2['nama_menu'],$row2['harga'],$row2['id_menu'],$idUpdate);
+                                $idUpdate++;
+                              }
+                              next($pesanan_quantity_key);
+                            }
+                          }
+                        }else{
+                          echo "<h5>Anda belumm memesan apapun</h5>";
+                        }
+                      ?>
+                      <tr>
+                        <td class="h6">Total harga</td>
+                        <td>Rp. <?php echo $_SESSION['totalharga'];?> ,-</td>
+                      </tr>
+                      <!--END TABEL STRUK-->
+                    </tbody>
+                  </table>
+                </div>
+
+            </div>
+
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan Pesanan</button>
           </div>
@@ -51,6 +94,40 @@
         $(window).on('load', function() {
             $('#modalMenungguTransakasi').modal('show');
         });
+
+    //     function checkOrderStatus(){
+    //  // Instantiate an new XHR Object
+    //     const xhr = new XMLHttpRequest();
+    //
+    //     // we call the file responsible for checking the db
+    //     xhr.open("GET","functioncheckorder.php", true);
+    //
+    //     // When response is ready
+    //     xhr.onload = function () {
+    //         if (this.status === 200) {
+    //             // we check the data return
+    //             if(this.responseText === 1){
+    //                 // Getting the element where we will display our response message
+    //             let feedback = getElementsByClassName("h5");
+    //             feedback.innerHTML = "Payment Received";
+    //             clearInterval(timer); // we stop checking the database
+    //              } else {
+    //                 console.log('Still waiting...');
+    //            };
+    //
+    //         }
+    //         else {
+    //             console.log("Something went wrong!");
+    //         }
+    //     }
+    //
+    //     // At last send the request
+    //     xhr.send();
+    // }
+}
+
+// now we want call this function every 3 seconds
+let timer = setInterval(() => checkOrderStatus(), 3000);
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
