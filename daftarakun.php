@@ -6,6 +6,9 @@
     <!--BOOSTRAP CSS AND CKEDITOR-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   	<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
+
     <!--END BOSTTSTRAP AND CKEDITOR-->
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/akun.css">
@@ -71,7 +74,7 @@
                   </thead>
                   <tbody>
                     <?php
-                        $perHalaman = 2;
+                        $perHalaman = 6;
                         $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman']  : 1;
                         $halamanAwal = ($halaman>1) ? ($halaman * $perHalaman) - $perHalaman : 0;
 
@@ -95,7 +98,7 @@
                       <td>
                         <form action="#">
                           <input type="text" value="" hidden>
-                          <a class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
+                          <a href="editprofil.php?id=<?php echo $d['id'];?>"class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
                           <a class="btn btn-danger" onclick="return confirm('Are you sure to delete this account?')" href="hapusakun.php?id=<?php echo $d['id'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
                         </form>
                       </td>

@@ -64,7 +64,7 @@ viewBox="0 0 16 16">
               <i class='no-italics'>Riwayat Pemesanan</i></a></li>
             <li><a href=""><i class="far fa-square"></i>
               <i class='no-italics'>Daftar Meja</i></a></li>
-            <li><a href=""><i class="fas fa-sign-out-alt"></i>
+            <li><a href="functionlogout.php"><i class="fas fa-sign-out-alt"></i>
               <i class='no-italics'>Log Out</i></a></li>
         </ul>
     </div>

@@ -46,14 +46,18 @@ button:hover, a:hover {
 </head>
 <body class="bg-light">
   <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
-  <?php include('temp_sidebar.php'); ?>
+  <?php include('temp_sidebar.php');
+  // if(empty($_SESSION['nama'])){
+  //   header("Location:error.php");
+  // }
+  ?>
 <div class="container-fluid mt-5">
 <h2 style="text-align:center">Profil</h2>
 <div class="card">
-  <img src="img/pfp1.jpg" alt="User" style="width:100%">
-  <h1 style="padding-top:15px">Budi Budiman</h1>
-  <p class="title">08xx-xxxx-xxxx</p>
-  <p>budibudi@gmail.com</p>
+<img src="img/<?php echo $_SESSION['gambar'];?>" alt="User" style="width:100%">
+  <h1 style="padding-top:15px"><?php echo $_SESSION['nama']; ?></h1>
+  <p class="title"><?php echo $_SESSION['No_Hp']; ?></p>
+  <p><?php echo $_SESSION['email']; ?></p>
   <div class="button">
     <button class="button">Edit</button>
   </div>
