@@ -26,7 +26,7 @@ if($hasil)
 }else{
   echo"
     <script>
-    alert('Akun berhasil ditambahkan!');
+    alert('Akun gagal ditambahkan!');
     document.location.href = 'tambahakun.php';
     </script>
     ";

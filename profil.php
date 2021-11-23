@@ -47,19 +47,20 @@ button:hover, a:hover {
 <body class="bg-light">
   <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
   <?php include('temp_sidebar.php');
-  // if(empty($_SESSION['nama'])){
-  //   header("Location:error.php");
-  // }
+  $id = $_SESSION['id'];
+
+  $query = mysqli_query($koneksi,"SELECT * FROM akun WHERE id = '$id'");
+  $sql= mysqli_fetch_assoc($query);
   ?>
 <div class="container-fluid mt-5">
 <h2 style="text-align:center">Profil</h2>
 <div class="card">
-<img src="img/<?php echo $_SESSION['gambar'];?>" alt="User" style="width:100%">
-  <h1 style="padding-top:15px"><?php echo $_SESSION['nama']; ?></h1>
-  <p class="title"><?php echo $_SESSION['No_Hp']; ?></p>
-  <p><?php echo $_SESSION['email']; ?></p>
+<img src="img/<?php echo $sql['gambar'];?>" alt="User" style="width:100%">
+  <h1 style="padding-top:15px"><?php echo $sql['nama']; ?></h1>
+  <p class="title"><?php echo $sql['No_Hp']; ?></p>
+  <p><?php echo $sql['email']; ?></p>
   <div class="button">
-    <button class="button">Edit</button>
+    <a href="editprofil.php?id=<?= $_SESSION['id']?>"><button class="button">Edit</button></a>
   </div>
 </div>
 </div>
