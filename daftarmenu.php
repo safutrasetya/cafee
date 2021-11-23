@@ -14,9 +14,8 @@
   </head>
   <body class="bg-light">
     <?php include("includes/koneksi.php"); include("includes/logincheck.php");
-    $data = mysqli_query($koneksi,"SELECT * FROM menu ORDER BY id");
+    $data = mysqli_query($koneksi,"SELECT * FROM menu ORDER BY id_menu");
     ?>
-
     <?php include("temp_sidebar.php");?>
     <!--MODAL HAPUS-->
   	<div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -33,7 +32,7 @@
   	      </div>
   	      <div class="modal-footer">
   	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-  	        <button type="button" class="btn btn-danger">Delete</button>
+  	        <a  href="functionhapusmenu.php?"><button type="button" class="btn btn-danger">Delete</button><a>
   	      </div>
   	    </div>
   	  </div>
@@ -43,7 +42,7 @@
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h2 class="text-dark">Daftar Menu</h2>
-          <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
+          <a href="functionlogout.php?id=<?php echo $d['id_menu'];?> "><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
         </div>
         <div class="my-4 ps-3 shadow">
           <div class="row">
@@ -87,7 +86,8 @@
                       <td>Nama Menu</td>
                       <td>Info Menu</td>
                       <td>Harga</td>
-                      <td>Ketersediaan</td>
+                      <td>kategori</td>
+                      <td>ketersidiaan</td>
                       <td>Action</td>
                     </tr>
                   </thead>
@@ -107,24 +107,27 @@
                       $menus = mysqli_query($koneksi,"SELECT * FROM menu LIMIT $halamanAwal, $perHalaman");
                       while($d = mysqli_fetch_assoc($menus)){
 
-                  /* $menu = mysqli_query($koneksi, "SELECT * FROM menu");
+                  /*$menu = mysqli_query($koneksi, "SELECT * FROM menu");
                        while ($d = mysqli_fetch_assoc($menu)){
                         */
                       ?>
                     <tr>
                       <td><?php echo $d['id_menu'];?></td>
-                      <td><img src="img/imgtest1.jpg" class="gambarsize1"></td>
+                      <td><img src="img/<?php echo $d['gambar']?>" class="gambarsize1"></td>
                       <td><?php echo $d['nama_menu'];?></td>
                       <td><?php echo $d['info_menu'];?></td>
                       <td><?php echo $d['harga'];?></td>
-                      <td><?php echo $d['ketersidiaan'];?></td>
-                      <td>
-                          <form action="editmenu.php">
-                            <input type="text" value="" hidden>
-
-                            <a class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;" href="editmenu.php"> Edit</a>
-                            <a class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this item')" href="functionhapusmenu.php?id=<?php echo $d['id_menu'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
-                          </form>
+                      <td><?php echo $d['kategori'] ?></td>
+                      <td><?php  $d['ketersidiaan'];
+                      if ($d >=  1) echo "Ada";
+                      else if ($d < 1) echo "Habis";
+                      ?></td>
+                      <td colspan="2">
+                        <form action="#">
+                          <input type="text" value="" hidden>
+                          <a href="editmenu.php?id=<?php echo $d['id_menu'];?>"class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
+                          <button action="#hapusmenu" type='submit' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#hapusmenu'><img src='img/trash-can.png' style='height:20px; width:15px;'> Hapus</button>
+                        </form>
                       </td>
                     </tr>
                     <?php
