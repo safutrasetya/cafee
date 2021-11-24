@@ -20,6 +20,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <title></title>
+    <style>
+.text-center{
+  margin-top: 30px;
+}
+    </style>
   </head>
   <body>
     <?php include("temp_sidebar.php");?>

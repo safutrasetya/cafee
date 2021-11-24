@@ -62,7 +62,7 @@ viewBox="0 0 16 16">
               <i class='no-italics'>Daftar Pesanan</i></a></li>
             <li><a href="daftarriwayattrnsks.php"><i class="far fa-calendar-alt"></i>
               <i class='no-italics'>Riwayat Pemesanan</i></a></li>
-            <li><a href=""><i class="far fa-square"></i>
+            <li><a href="daftarmeja.php"><i class="far fa-square"></i>
               <i class='no-italics'>Daftar Meja</i></a></li>
             <li><a href="functionlogout.php"><i class="fas fa-sign-out-alt"></i>
               <i class='no-italics'>Log Out</i></a></li>
