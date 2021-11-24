@@ -25,7 +25,7 @@
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h2 class="text-dark">Orari Restaurant</h2>
           <h2 class="text-dark"> <?php include('functiontampilnomeja.php') ?> </h2>
-          <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
+          <!-- <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a> -->
       <div class="my-4 ps-3 shadow">
         <div class="row">
           <form class="row">

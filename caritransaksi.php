@@ -5,14 +5,14 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--AJAX-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--BOOSTRAP CSS AND CKEDITOR-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/akun.css">
     <link rel="stylesheet" href="css/cafee.css">
-    <!--AJAX-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Riwayat Transaksi</title>
   </head>
   <body class="bg-light">
@@ -71,7 +71,29 @@
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
         <div class="mx-auto text-center mb-2" style="margin-top:-25px;">
           <h2 class="text-dark">Riwayat Transaksi</h2>
-          <!-- <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a> -->
+        </div>
+        <div class="row">
+          <div class="col-sm-2">
+          </div>
+          <div class="col-sm-10">
+            <div class="mb-3 ps-3 shadow">
+              <div class="row">
+                <div class="col-sm-12">
+                  <div class="row">
+                    <div class="col-sm-1">
+                      <a href="daftarriwayattrnsks.php"><button type="button"class="btn btn-outline-info my-2"><i class="bi bi-caret-left-fill"></i></button></a>
+                    </div>
+                    <div class="col-sm-9">
+                      <input name="search_box" id="search_box" type="text" class="form-control my-2" placeholder="Cari Transaksi...">
+                    </div>
+                    <div class="col-sm-2 pe-4">
+                      <button type="button" class="btn btn-primary my-2 form-control">Search</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="row">
           <div class="col-sm-2">
@@ -79,19 +101,41 @@
           <div class="col-sm-10">
             <div class="card shadow">
               <div class="card-body">
-                <a href="caritransaksi.php"><button type="button" class="btn btn-outline-primary my-2"><i class="bi bi-search"></i> Cari</button></a>
                 <?php include('functionupdttrnsks.php'); ?>
-                <!-- ^^fungsi untuk update transaksi -->
-                <?php include('functionhapustrnsks.php'); ?>
-                <!-- ^^fungsi untuk hapus transaksi -->
-                <?php include('functiondaftartrnsks.php'); ?>
-                <!-- ^^ fungsi tampilkan daftar transaksi-->
+                <div id="search_result"></div>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      $(document).ready(function(){
+        load_data(1);
+        function load_data(page, query = ''){
+          $.ajax({
+            url:"functioncari.php",
+            method:"POST",
+            data:{page:page, query,query},
+            success:function(data){
+              $('#search_result').html(data);
+            }
+          });
+        }
+
+        $(document).on('click', '.page-link', function(){
+          var page = $(this).data('page_number');
+          var query = $('#search_box').val();
+          load_data(page, query);
+        });
+
+        $('#search_box').keyup(function(){
+          var query = $('#search_box').val();
+          load_data(1, query);
+        });
+      });
+
+    </script>
     <script>
       jQuery(function($) {
         $('#divAlert').delay(3000).fadeOut(500);
@@ -119,7 +163,6 @@
           document.getElementById("belum").checked = true;
         }
       })
-
     </script>
     <script>
       jQuery(function($) {
@@ -141,24 +184,6 @@
         modalTitle.textContent = 'Hapus Transaksi :  ' + idforhapus
         modalBodyInput.value = idforhapus
       })
-    </script>
-    <script>
-      $(document.ready(function(){
-        $('#search_text').keyup(function(){
-          var txt = $(this).val();
-          if(txt != ''){
-            $.ajax({
-              url:"functioncari.php",
-              method:"post",
-              data:{search:txt},
-              dataType:"text",
-              success:function(data){
-                $('#search_result').html(data);
-              }
-            });
-          }
-        });
-      }));
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>

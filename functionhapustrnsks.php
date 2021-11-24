@@ -1,14 +1,12 @@
 <?php
   require_once("includes/koneksi.php"); require_once("includes/logincheck.php");
-  if(isset($_POST['btnUpdt'])){
-    $idtrnsks = $_POST['idtrnsks'];
-    $stattrnsks = $_POST['statustrnsks'];
-    $stattrnsks = (int)$stattrnsks;
-    $query = "UPDATE riwayat_pembelian SET status_bayar = '{$stattrnsks}' WHERE id_transaksi = '{$idtrnsks}'";
+  if(isset($_POST['btnDel'])){
+    $idtrnsks = $_POST['idhapustrnsks'];
+    $query = "DELETE FROM riwayat_pembelian WHERE id_transaksi = '{$idtrnsks}'";
 
     if($koneksi->query($query)===TRUE){
       // header('Location:daftarriwayattrnsks.php');
-      echo "<div id='divAlert' name='divAlert' class='alert alert-success' role='alert'><i class='bi bi-exclamation-circle-fill'></i> Pesanan $idtrnsks telah diupdate</div>";
+      echo "<div id='divAlertHapus' name='divAlertHapus' class='alert alert-warning' role='alert'><i class='bi bi-exclamation-circle-fill'></i> Pesanan $idtrnsks telah dihapus</div>";
       ///ATUR INIIIII BINGUN W vvvvvvvvvv
       echo "<script>$(document).ready(function(){
     //Check if the current URL contains '#'
