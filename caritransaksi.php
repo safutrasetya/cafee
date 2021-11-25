@@ -119,7 +119,7 @@
           $.ajax({
             url:"functioncari.php",
             method:"POST",
-            data:{page:page, query,query},
+            data:{page:page, query:query},
             success:function(data){
               $('#search_result').html(data);
             }

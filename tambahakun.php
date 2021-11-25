@@ -109,7 +109,7 @@
                     required>
                   </div>
                   <div class="text-end me-3">
-                    <a href="daftarakun.ph" onclick="return confirm('Anda yakin ingin keluar?')"><button type="button" class="btn btn-danger">Cancel</button></a>
+                    <a href="daftarakun.php" onclick="return confirm('Anda yakin ingin keluar?')"><button type="button" class="btn btn-danger">Cancel</button></a>
                     <button type="submit" name="submit" value="submit" class="btn btn-success">Tambah!</button>
                   </div>
                 </form>
