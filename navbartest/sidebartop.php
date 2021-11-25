@@ -11,19 +11,19 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page"><i class="me-2 bi bi-person-lines-fill"></i>
+        <a href="daftarakun.php" class="nav-link" aria-current="page"><i class="me-2 bi bi-person-lines-fill"></i>
             Daftar Akun
         </a>
       </li>
       <hr>
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page"><i class="me-2 bi bi-journal-bookmark-fill"></i>
-            Daftar Makanan
+        <a href="daftarmenu" class="nav-link" aria-current="page"><i class="me-2 bi bi-journal-bookmark-fill"></i>
+            Daftar Menu
         </a>
       </li>
       <hr>
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page"><i class="me-2 bi bi-list-check"></i>
+        <a href="daftarpesanan.php" class="nav-link" aria-current="page"><i class="me-2 bi bi-list-check"></i>
             Daftar Pesanan
         </a>
       </li>
@@ -35,7 +35,7 @@
       </li>
       <hr>
       <li class="nav-item">
-        <a href="#" class="nav-link" aria-current="page"><i class="me-2 bi bi-layers-fill"></i>
+        <a href="daftarmeja.php" class="nav-link" aria-current="page"><i class="me-2 bi bi-layers-fill"></i>
             Daftar Meja
         </a>
       </li>
