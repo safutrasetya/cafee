@@ -1,3 +1,4 @@
+<?php   require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php"); ?>
 <table class="table table-bordered table-info">
   <thead class="h5">
     <tr style="text-align:center">

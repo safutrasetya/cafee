@@ -1,5 +1,5 @@
 <?php
-  require_once("includes/koneksi.php"); require_once("includes/logincheck.php");
+require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
   $connect = new PDO("mysql:host=localhost; dbname=orari", "root", "");
 //halaman
   $limit=8;

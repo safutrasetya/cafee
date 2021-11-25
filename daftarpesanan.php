@@ -1,3 +1,4 @@
+<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -21,9 +22,9 @@
 
     <title></title>
     <style>
-.text-center{
-  margin-top: 30px;
-}
+      .text-center{
+        margin-top: 30px;
+      }
     </style>
   </head>
   <body>

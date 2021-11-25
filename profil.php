@@ -5,47 +5,47 @@
 <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <style>
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 300px;
-  margin: auto;
-  text-align: center;
-  font-family: arial;
-}
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+  }
 
-.title {
-  color: grey;
-  font-size: 18px;
-}
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
 
-.button {
-  margin-bottom: -20px;
-  border: none;
-  outline: 0;
-  display: inline-block;
-  padding: 5px;
-  color: white;
-  background-color: green;
-  text-align: center;
-  cursor: pointer;
-  width: 100%;
-  font-size: 18px;
-}
+  .button {
+    margin-bottom: -20px;
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 5px;
+    color: white;
+    background-color: green;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
 
-.link {
-  text-decoration: none;
-  font-size: 22px;
-  color: black;
-  /* a */
-}
+  .link {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+    /* a */
+  }
 
-button:hover, a:hover {
-  opacity: 0.7;
-}
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
 </style>
 </head>
 <body class="bg-light">
-  <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
+  <?php require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");?>
   <?php include('temp_sidebar.php');
   $id = $_SESSION['id'];
 

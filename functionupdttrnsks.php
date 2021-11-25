@@ -1,5 +1,5 @@
 <?php
-  require_once("includes/koneksi.php"); require_once("includes/logincheck.php");
+require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
   if(isset($_POST['btnUpdt'])){
     $idtrnsks = $_POST['idtrnsks'];
     $stattrnsks = $_POST['statustrnsks'];

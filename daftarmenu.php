@@ -1,3 +1,4 @@
+<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -13,9 +14,6 @@
     <title>Daftar Menu</title>
   </head>
   <body class="bg-light">
-    <?php include("includes/koneksi.php"); include("includes/logincheck.php");
-
-    ?>
     <?php include("temp_sidebar.php");?>
     <!--MODAL HAPUS-->
   	<div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

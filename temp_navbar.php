@@ -46,8 +46,14 @@
           <a href="aboutus.php"><img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: " class="rounded-circle"></a>
           </button>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a class="dropdown-item" href="profil.php">Profil</a></li>
-              <li><a class="dropdown-item" href="daftarakun.php">Admin</a></li>
+              <?php
+                if (isset($_SESSION['nama'])){
+                  echo "<li><a class='dropdown-item' href='profil.php'>Profil</a></li>";
+                  echo "<li><a class='dropdown-item' href='daftarakun.php'>Admin</a></li>";
+                }else{
+
+                }
+              ?>
               <li><a class="dropdown-item" href="functionlogout.php">Logout</a></li>
           </ul>
       </div>

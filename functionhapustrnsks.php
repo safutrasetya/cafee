@@ -1,5 +1,5 @@
 <?php
-  require_once("includes/koneksi.php"); require_once("includes/logincheck.php");
+require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
   if(isset($_POST['btnDel'])){
     $idtrnsks = $_POST['idhapustrnsks'];
     $query = "DELETE FROM riwayat_pembelian WHERE id_transaksi = '{$idtrnsks}'";
