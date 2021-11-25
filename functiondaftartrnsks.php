@@ -47,7 +47,7 @@
       <td><?php echo $d['tanggal_pembayaran'];?></td>
       <td><?php echo $d['waktu_pembayaran'];?></td>
       <td>
-        <button name="hapustransaksi" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapustransaksi" data-bs-whatever="<?php echo $d['id_transaksi'];?>"><i class="bi bi-trash"></i> Hapus</button>
+        <button name="hapustransaksi" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapustransaksi" data-bs-hapus="<?php echo $d['id_transaksi'];?>"><i class="bi bi-trash"></i> Hapus</button>
       </td>
     </tr>
   <?php  } ?>

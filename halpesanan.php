@@ -25,7 +25,7 @@
   </head>
   <body class="bg-light">
     <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
-    <?php include('temp_sidebar.php'); ?>
+    <?php include('temp_navbar.php'); ?>
     <div class="jumbotron pt-3 mt-5 h-100" >
       <div class="jumbotron bg-light mx-auto" >
         <div class="mx-auto text-center mb-2" style="margin-top:-25px;">

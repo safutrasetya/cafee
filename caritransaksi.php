@@ -4,14 +4,15 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!--AJAX-->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!--BOOSTRAP CSS AND CKEDITOR-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/akun.css">
     <link rel="stylesheet" href="css/cafee.css">
+    <link rel="stylesheet" href="css/sidebartest.css">
+    <!--AJAX-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Riwayat Transaksi</title>
   </head>
   <body class="bg-light">
@@ -64,45 +65,48 @@
         </div>
       </div>
     </div>
-    <!--END MODAL GANTI STATUS PESANAN-->
-    <?php include("temp_sidebar.php");?>
-    <div class="jumbotron p-3 h-100" style="height: 750px;">
-      <div class="jumbotron bg-light shadow-lg mx-auto p-5">
-        <div class="mx-auto text-center mb-2" style="margin-top:-25px;">
-          <h2 class="text-dark">Riwayat Transaksi</h2>
+    <?php include("navbartest/sidebartop.php");?>
+    <div class="jumbotron h-100" style="height: 750px;">
+      <div class="row">
+        <div class="col-sm-2">
         </div>
-        <div class="row">
-          <div class="col-sm-2">
+        <div class="col-sm-10">
+          <div class="mx-auto my-3" style="">
+            <h2 class="text-dark display-5">Riwayat Transaksi</h2>
           </div>
-          <div class="col-sm-10">
-            <div class="mb-3 ps-3 shadow">
-              <div class="row">
-                <div class="col-sm-12">
-                  <div class="row">
-                    <div class="col-sm-1">
-                      <a href="daftarriwayattrnsks.php"><button type="button"class="btn btn-outline-info my-2"><i class="bi bi-caret-left-fill"></i></button></a>
-                    </div>
-                    <div class="col-sm-9">
-                      <input name="search_box" id="search_box" type="text" class="form-control my-2" placeholder="Cari Transaksi...">
-                    </div>
-                    <div class="col-sm-2 pe-4">
-                      <button type="button" class="btn btn-primary my-2 form-control">Search</button>
-                    </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-10">
+          <div class="mb-3 ps-3 shadow">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-1">
+                    <a href="daftarriwayattrnsks.php"><button type="button"class="btn btn-outline-info my-2"><i class="bi bi-caret-left-fill"></i></button></a>
+                  </div>
+                  <div class="col-sm-9">
+                    <input name="search_box" id="search_box" type="text" class="form-control my-2" placeholder="Cari Transaksi...">
+                  </div>
+                  <div class="col-sm-2 pe-4">
+                    <button type="button" class="btn btn-primary my-2 form-control">Search</button>
                   </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-2">
-          </div>
-          <div class="col-sm-10">
-            <div class="card shadow">
-              <div class="card-body">
-                <?php include('functionupdttrnsks.php'); ?>
-                <div id="search_result"></div>
-              </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-10">
+          <div class="card shadow">
+            <div class="card-body">
+              <?php include('functionupdttrnsks.php'); ?>
+              <div id="search_result"></div>
             </div>
           </div>
         </div>
@@ -137,7 +141,24 @@
     </script>
     <script>
       jQuery(function($) {
+        $('#divAlertHapus').delay(3000).fadeOut(500);
         $('#divAlert').delay(3000).fadeOut(500);
+      });
+      var formodalhapus = document.getElementById('hapustransaksi')
+      formodalhapus.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var idforhapus = button.getAttribute('data-bs-hapus')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalTitle = formodalhapus.querySelector('.modal-title')
+        var modalBodyInput = formodalhapus.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'Hapus Transaksi :  ' + idforhapus
+        modalBodyInput.value = idforhapus
       });
       var formodal = document.getElementById('gantistatus')
       formodal.addEventListener('show.bs.modal', function (event) {
@@ -161,29 +182,9 @@
         }else if (statusbayar==0){
           document.getElementById("belum").checked = true;
         }
-      })
-    </script>
-    <script>
-      jQuery(function($) {
-        $('#divAlertHapus').delay(3000).fadeOut(500);
       });
-      var formodal = document.getElementById('hapustransaksi')
-      formodal.addEventListener('show.bs.modal', function (event) {
-        // Button that triggered the modal
-        var button = event.relatedTarget
-        // Extract info from data-bs-* attributes
-        var idforhapus = button.getAttribute('data-bs-whatever')
-        // If necessary, you could initiate an AJAX request here
-        // and then do the updating in a callback.
-        //
-        // Update the modal's content.
-        var modalTitle = formodal.querySelector('.modal-title')
-        var modalBodyInput = formodal.querySelector('.modal-body input')
-
-        modalTitle.textContent = 'Hapus Transaksi :  ' + idforhapus
-        modalBodyInput.value = idforhapus
-      })
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>

@@ -1,4 +1,4 @@
-<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>?>
+<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -10,6 +10,7 @@
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/akun.css">
     <link rel="stylesheet" href="css/cafee.css">
+    <link rel="stylesheet" href="css/sidebartest.css">
     <!--AJAX-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Riwayat Transaksi</title>
@@ -53,7 +54,7 @@
             <p>Transaksi ini tidak bisa dikembalikan</p>
             <form method="POST" action="">
               <div class="mb-3">
-                <input name="idhapustrnsks" type="text" class="form-control" id="idhapustrnsks"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
+                <input hidden name="idhapustrnsks" type="text" class="form-control" id="idhapustrnsks"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
               </div>
               <div class="mt-2">
                 <button type="button" class="btn btn-outline-secondary float-start" data-bs-dismiss="modal">Batal</button>
@@ -65,27 +66,30 @@
       </div>
     </div>
     <!--END MODAL GANTI STATUS PESANAN-->
-    <?php include("temp_sidebar.php");?>
-    <div class="jumbotron p-3 h-100" style="height: 750px;">
-      <div class="jumbotron bg-light shadow-lg mx-auto p-5">
-        <div class="mx-auto text-center mb-2" style="margin-top:-25px;">
-          <h2 class="text-dark">Riwayat Transaksi</h2>
-          <!-- <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a> -->
+    <?php include("navbartest/sidebartop.php");?>
+    <div class="jumbotron h-100" style="height: 750px;">
+      <div class="row">
+        <div class="col-sm-2">
         </div>
-        <div class="row">
-          <div class="col-sm-2">
+        <div class="col-sm-10">
+          <div class="mx-auto my-3" style="">
+            <h2 class="text-dark display-5">Riwayat Transaksi</h2>
           </div>
-          <div class="col-sm-10">
-            <div class="card shadow">
-              <div class="card-body">
-                <a href="caritransaksi.php"><button type="button" class="btn btn-outline-primary my-2"><i class="bi bi-search"></i> Cari</button></a>
-                <?php include('functionupdttrnsks.php'); ?>
-                <!-- ^^fungsi untuk update transaksi -->
-                <?php include('functionhapustrnsks.php'); ?>
-                <!-- ^^fungsi untuk hapus transaksi -->
-                <?php include('functiondaftartrnsks.php'); ?>
-                <!-- ^^ fungsi tampilkan daftar transaksi-->
-              </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-10">
+          <div class="card shadow">
+            <div class="card-body">
+              <a href="caritransaksi.php"><button type="button" class="btn btn-outline-primary my-2"><i class="bi bi-search"></i> Cari</button></a>
+              <?php include('functionupdttrnsks.php'); ?>
+              <!-- ^^fungsi untuk update transaksi -->
+              <?php include('functionhapustrnsks.php'); ?>
+              <!-- ^^fungsi untuk hapus transaksi -->
+              <?php include('functiondaftartrnsks.php'); ?>
+              <!-- ^^ fungsi tampilkan daftar transaksi-->
             </div>
           </div>
         </div>
@@ -93,7 +97,24 @@
     </div>
     <script>
       jQuery(function($) {
+        $('#divAlertHapus').delay(3000).fadeOut(500);
         $('#divAlert').delay(3000).fadeOut(500);
+      });
+      var formodalhapus = document.getElementById('hapustransaksi')
+      formodalhapus.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var idforhapus = button.getAttribute('data-bs-hapus')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalTitle = formodalhapus.querySelector('.modal-title')
+        var modalBodyInput = formodalhapus.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'Hapus Transaksi :  ' + idforhapus
+        modalBodyInput.value = idforhapus
       });
       var formodal = document.getElementById('gantistatus')
       formodal.addEventListener('show.bs.modal', function (event) {
@@ -117,48 +138,10 @@
         }else if (statusbayar==0){
           document.getElementById("belum").checked = true;
         }
-      })
-
-    </script>
-    <script>
-      jQuery(function($) {
-        $('#divAlertHapus').delay(3000).fadeOut(500);
       });
-      var formodal = document.getElementById('hapustransaksi')
-      formodal.addEventListener('show.bs.modal', function (event) {
-        // Button that triggered the modal
-        var button = event.relatedTarget
-        // Extract info from data-bs-* attributes
-        var idforhapus = button.getAttribute('data-bs-whatever')
-        // If necessary, you could initiate an AJAX request here
-        // and then do the updating in a callback.
-        //
-        // Update the modal's content.
-        var modalTitle = formodal.querySelector('.modal-title')
-        var modalBodyInput = formodal.querySelector('.modal-body input')
+    </script>
 
-        modalTitle.textContent = 'Hapus Transaksi :  ' + idforhapus
-        modalBodyInput.value = idforhapus
-      })
-    </script>
-    <script>
-      $(document.ready(function(){
-        $('#search_text').keyup(function(){
-          var txt = $(this).val();
-          if(txt != ''){
-            $.ajax({
-              url:"functioncari.php",
-              method:"post",
-              data:{search:txt},
-              dataType:"text",
-              success:function(data){
-                $('#search_result').html(data);
-              }
-            });
-          }
-        });
-      }));
-    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
