@@ -141,7 +141,7 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
       $next_id = $page_array[$count] + 1;
       if($next_id >= $total_links){
         $next_link = '
-        <li class="page-item">
+        <li class="page-item disabled">
           <a class="page-link" href="#">Next</a>
         </li>
           ';
