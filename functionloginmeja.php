@@ -15,7 +15,7 @@ if(!$query){
 }
 if(!empty($idmeja_login) && (!empty($passmeja_login))){
     if($count==0){
-        echo " USERNAME NOT FOUND";
+      echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Cek kembali id meja dan password meja.</div>";
 
     }else {
         while ($row=mysqli_fetch_array($query)){
@@ -32,7 +32,7 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
 
 
         }else {
-          echo "<div class='alert alert-warning' role='alert'><i class='bi bi-exclamation-circle-fill'></i> Meja tidak ditemukan!</div>";
+          echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Cek kembali id meja dan password meja.</div>";
 
         }
     }

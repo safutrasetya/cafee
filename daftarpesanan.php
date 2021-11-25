@@ -1,3 +1,4 @@
+<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -20,6 +21,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
 
     <title></title>
+    <style>
+      .text-center{
+        margin-top: 30px;
+      }
+    </style>
   </head>
   <body>
     <?php include("temp_sidebar.php");?>

@@ -15,7 +15,7 @@ if(!$query){
 }
 if(!empty($user_login) && (!empty($pass_login))){
     if($count==0){
-        echo " USERNAME NOT FOUND";
+      echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Cek kembali username dan password anda.</div>";
 
     }else {
         while ($row=mysqli_fetch_array($query)){
@@ -42,7 +42,7 @@ if(!empty($user_login) && (!empty($pass_login))){
 
 
         }else {
-            echo "<div class='alert alert-warning' role='alert'><i class='bi bi-exclamation-circle-fill'></i> User tidak ditemukan!</div>";
+          echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Cek kembali username dan password anda.</div>";
         }
     }
 }

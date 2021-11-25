@@ -1,3 +1,4 @@
+<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -17,14 +18,12 @@
     <title>cafee</title>
   </head>
   <body class="bg-light">
-    <?php include("includes/koneksi.php"); include("includes/logincheck.php");
-    ?>
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h2 class="text-dark">Daftar Akun</h2>
-          <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
+          <!-- <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a> -->
         </div>
         <div class="my-4 ps-3 shadow">
           <div class="row">
@@ -99,7 +98,7 @@
                         <form action="#">
                           <input type="text" value="" hidden>
                           <a href="editprofil.php?id=<?php echo $d['id'];?>"class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
-                          <a class="btn btn-danger" onclick="return confirm('Are you sure to delete this account?')" href="hapusakun.php?id=<?php echo $d['id'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
+                          <a class="btn btn-danger" onclick="return confirm('Are you sure to delete this account?')" href="functionhapusakun.php?id=<?php echo $d['id'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
                         </form>
                       </td>
                     </tr>
@@ -143,5 +142,7 @@
         </div>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
   </body>
 </html>

@@ -23,21 +23,16 @@
     <title>Pesanan anda telah dibuat!</title>
   </head>
   <body class="bg-light">
-    <?php
-
-    ?>
-    <!-- Modal tunggu transaksi-->
-    <div class="modal" id="modalMenungguTransakasi" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="">Menunggu Konfirmasi</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-                <p class="h5">Transaksi sedang berlangsung <span class='spinner-border spinner-border-sm'></span></p>
-                <p class='h5'>Total harga yang dibayar = Rp. <?php echo $_SESSION['totalharga'];?> ,-</p>
-                <p class="h5 text-center">Struk Pembelian</p>
+    <div class="jumbotron">
+      <div class="card text-center my-4 mx-5 shadow-lg">
+        <div class="card-body">
+          <p class="display-5">Menunggu Konfirmasi <span class='spinner-border spinner-border-md'></span></h5>
+          <p class="h5">Struk Pembelian <?php echo $_SESSION['idpembelian']; ?></p>
+          <?php include("functioncheckorder.php");?>
+          <div class="d-flex justify-content-center">
+            <div class="card" style="width: 400px;">
+              <div class="card-body">
+                <!--TABEL STRUK-->
                 <div class="overflow-auto mb-3" style="height: 400px;">
                   <table class="table text-left">
                     <thead>
@@ -46,8 +41,8 @@
                         <td>Harga</td>
                       </tr>
                     </thead>
-                    <tbody>
-                      <!--TABEL STRUK-->
+                    <tbody class="text-start">
+                      <!--PHP TABEL STRUK-->
                       <?php
                         if(isset($_SESSION['keranjang'])){
                           $pesanan_id2 = array_column($_SESSION['keranjang'],'menu_id');
@@ -76,58 +71,27 @@
                         <td class="h6">Total harga</td>
                         <td>Rp. <?php echo $_SESSION['totalharga'];?> ,-</td>
                       </tr>
-                      <!--END TABEL STRUK-->
+                      <!--END PHP TABEL STRUK-->
                     </tbody>
                   </table>
                 </div>
-
+                <!--END TABEL STRUK-->
+              </div>
             </div>
-
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batalkan Pesanan</button>
           </div>
         </div>
       </div>
     </div>
-    <!-- END Modal tunggu transaksi-->
+
+    <meta http-equiv="refresh" content="7" />
+
     <script type="text/javascript">
-        $(window).on('load', function() {
-            $('#modalMenungguTransakasi').modal('show');
-        });
+      jQuery(function($) {
+        $('#divAlert').delay(5000).fadeOut(400);
 
-    //     function checkOrderStatus(){
-    //  // Instantiate an new XHR Object
-    //     const xhr = new XMLHttpRequest();
-    //
-    //     // we call the file responsible for checking the db
-    //     xhr.open("GET","functioncheckorder.php", true);
-    //
-    //     // When response is ready
-    //     xhr.onload = function () {
-    //         if (this.status === 200) {
-    //             // we check the data return
-    //             if(this.responseText === 1){
-    //                 // Getting the element where we will display our response message
-    //             let feedback = getElementsByClassName("h5");
-    //             feedback.innerHTML = "Payment Received";
-    //             clearInterval(timer); // we stop checking the database
-    //              } else {
-    //                 console.log('Still waiting...');
-    //            };
-    //
-    //         }
-    //         else {
-    //             console.log("Something went wrong!");
-    //         }
-    //     }
-    //
-    //     // At last send the request
-    //     xhr.send();
-    // }
-}
+      });
 
-// now we want call this function every 3 seconds
-let timer = setInterval(() => checkOrderStatus(), 3000);
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
