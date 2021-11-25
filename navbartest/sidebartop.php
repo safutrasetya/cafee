@@ -17,7 +17,7 @@
       </li>
       <hr>
       <li class="nav-item">
-        <a href="daftarmenu" class="nav-link" aria-current="page"><i class="me-2 bi bi-journal-bookmark-fill"></i>
+        <a href="daftarmenu.php" class="nav-link" aria-current="page"><i class="me-2 bi bi-journal-bookmark-fill"></i>
             Daftar Menu
         </a>
       </li>
