@@ -42,8 +42,8 @@
           <div class="tm-paging-links">
             <nav>
               <ul>
-                <li class="tm-paging-item"><a href="halamancarimenu.php" class="tm-paging-link">Cari menu</a></li>
-                <li class="tm-paging-item"><a href="halamanminuman.php" class="tm-paging-link active">Minuman</a></li>
+                <li class="tm-paging-item"><a href="halamancarimenu.php" class="tm-paging-link active">Cari menu</a></li>
+                <li class="tm-paging-item"><a href="halamanminuman.php" class="tm-paging-link ">Minuman</a></li>
                 <li class="tm-paging-item"><a href="halamanmakanan.php" class="tm-paging-link">Makanan</a></li>
                 <li class="tm-paging-item"><a href="halamancemilan.php" class="tm-paging-link">Cemilan</a></li>
                 <li class="tm-paging-item"><a href="halamanpaket.php" class="tm-paging-link">Paket</a></li>
@@ -53,7 +53,7 @@
           <?php include('functionpesanmenu.php'); ?>
           <table>
             <tbody>
-              <?php include('functiontampilminuman.php'); ?>
+              <?php include('functiontampilmakanan.php'); ?>
             </tbody>
           </table>
         </div>
