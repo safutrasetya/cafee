@@ -15,6 +15,7 @@
   </head>
   <body class="bg-light">
     <?php include("temp_sidebar.php");?>
+    
     <!--MODAL HAPUS-->
   	<div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   	  <div class="modal-dialog">
