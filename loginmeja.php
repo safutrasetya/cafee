@@ -18,11 +18,11 @@
     <title>Login</title>
   </head>
   <body>
-    <?php include ("functionloginmeja.php");?>
      <div class = "container">
         <div class = "card login-form">
             <div class = "card-body">
                 <h1 class = "card-title text-center">LOGIN MEJA</h1>
+                <?php include ("functionloginmeja.php");?>
             </div>
             <div class="card-text">
               <!--form ussername & password-->

@@ -54,7 +54,7 @@
             <p>Transaksi ini tidak bisa dikembalikan</p>
             <form method="POST" action="">
               <div class="mb-3">
-                <input hidden name="idhapustrnsks" type="text" class="form-control" id="idhapustrnsks"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
+                <input name="idhapustrnsks" type="text" class="form-control" id="idhapustrnsks"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
               </div>
               <div class="mt-2">
                 <button type="button" class="btn btn-outline-secondary float-start" data-bs-dismiss="modal">Batal</button>
@@ -65,7 +65,6 @@
         </div>
       </div>
     </div>
-    <!--END MODAL GANTI STATUS PESANAN-->
     <?php include("navbartest/sidebartop.php");?>
     <div class="jumbotron h-100" style="height: 750px;">
       <div class="row">
@@ -81,20 +80,65 @@
         <div class="col-sm-2">
         </div>
         <div class="col-sm-10">
+          <div class="mb-3 ps-3 shadow">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="row">
+                  <div class="col-sm-1">
+                    <a href="daftarriwayattrnsks.php"><button type="button"class="btn btn-outline-info my-2"><i class="bi bi-caret-left-fill"></i></button></a>
+                  </div>
+                  <div class="col-sm-9">
+                    <input name="search_box" id="search_box" type="text" class="form-control my-2" placeholder="Cari Transaksi...">
+                  </div>
+                  <div class="col-sm-2 pe-4">
+                    <button type="button" class="btn btn-primary my-2 form-control">Search</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+        </div>
+        <div class="col-sm-10">
           <div class="card shadow">
             <div class="card-body">
-              <a href="caritransaksi.php"><button type="button" class="btn btn-outline-primary my-2"><i class="bi bi-search"></i> Cari</button></a>
               <?php include('functionupdttrnsks.php'); ?>
-              <!-- ^^fungsi untuk update transaksi -->
-              <?php include('functionhapustrnsks.php'); ?>
-              <!-- ^^fungsi untuk hapus transaksi -->
-              <?php include('functiondaftartrnsks.php'); ?>
-              <!-- ^^ fungsi tampilkan daftar transaksi-->
+              <div id="search_result"></div>
             </div>
           </div>
         </div>
       </div>
     </div>
+    <script>
+      $(document).ready(function(){
+        load_data(1);
+        function load_data(page, query = ''){
+          $.ajax({
+            url:"functioncari.php",
+            method:"POST",
+            data:{page:page, query,query},
+            success:function(data){
+              $('#search_result').html(data);
+            }
+          });
+        }
+
+        $(document).on('click', '.page-link', function(){
+          var page = $(this).data('page_number');
+          var query = $('#search_box').val();
+          load_data(page, query);
+        });
+
+        $('#search_box').keyup(function(){
+          var query = $('#search_box').val();
+          load_data(1, query);
+        });
+      });
+
+    </script>
     <script>
       jQuery(function($) {
         $('#divAlertHapus').delay(3000).fadeOut(500);
@@ -140,7 +184,6 @@
         }
       });
     </script>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>

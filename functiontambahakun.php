@@ -1,6 +1,6 @@
 <?php
 
-include("includes/koneksi.php");
+require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
 
 $gambar = $_POST["gambar"];
 $level = $_POST["level"];

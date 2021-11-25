@@ -1,6 +1,6 @@
 <?php
 if(isset($_GET['btnHapus'])){
-include("includes/koneksi.php");
+  require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
 
 $id = $_GET['id_menu'];
 

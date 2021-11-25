@@ -1,4 +1,6 @@
 <?php
+require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
+
         // koneksi database
      $conn = mysqli_connect("localhost","root","","orari");
 
