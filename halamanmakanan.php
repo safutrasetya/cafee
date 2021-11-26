@@ -25,6 +25,7 @@
             <h2 class="text-dark"> <?php include('functiontampilnomeja.php') ?> </h2>
             <!-- <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a> -->
           </div>
+          
           <div class="tm-paging-links">
             <nav>
               <ul>

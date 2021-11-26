@@ -13,7 +13,14 @@
     <title>Edit Menu</title>
   </head>
   <body class="bg-light">
-    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
+    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>>
+    <?php include("temp_sidebar.php");?>
+    <?php
+    $id = $_GET['id'];
+
+    $u = mysqli_query($koneksi,"SELECT * FROM akun WHERE id=$id");
+    $data = mysqli_fetch_assoc($u);
+     ?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
@@ -23,23 +30,31 @@
           <div class="row">
 
               <div class="col-sm-3">
-                <form>
+                <form action="functioneditmenu.php" method="post">
                   <div class="mb-3 mt-3 me-3">
                     <label for="gambarmenu" class="form-label">Gambar Menu</label>
-                    <input type="file" class="form-control" name="gambarmenu">
+                    <input type="file" class="form-control" name="gambarmenu" value="img/<?php echo $data['gambar'] ?>"
+                     onchange="loadfile(event)" required>
+
+                     <script type="text/javascript">
+                       function loadfile(event){
+                         var output = document.getElementById('preview');
+                         output.src=URL.createObjectURL(event.target.files[0]);
+                       }
+                      </script>
                   </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="ketersediaanmenu" class="form-label">Ketersediaan</label>
-                    <input type="radio" id="ada" name="ketersediaan" value="1">
+                    <input type="radio" id="ada" name="ketersediaan" value="1 <?php echo $data['ketersidiaan']; ?>">
                     <label for="ada" class="form-label">Ada</label>
-                    <input type="radio" id="habis" name="ketersediaan">
+                    <input type="radio" id="habis" name="ketersediaan" value=" <?php echo $data['ketersidiaan']; ?>" >
                     <label for="habis" class="form-label" value="0">Habis</label>
                   </div>
                 </div>
                 <div class="col-sm-9">
                   <div class="mb-3 mt-3 me-3">
                     <label for="namamenu" class="form-label">Nama Menu</label>
-                    <input type="text" class="form-control" name="namamenu" placeholder="cth. Nasi gorenng spesial">
+                    <input type="text" class="form-control" name="namamenu" id="nama_menu" value="<?php echo $data['nama_menu']; ?>">
                   </div>
                   <div class="row">
                     <div class="col-sm-6">
