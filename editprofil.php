@@ -71,7 +71,7 @@
               <div class="mb-3 mt-3 me-3">
                 <label for="gambar" class="form-label">Foto Profil</label>
                 <input type="file" class="form-control" name="gambar" id="gambar" value="img/<?php echo $data['gambar'] ?>"
-                 onchange="loadfile(event)" required>
+                 onchange="loadfile(event)">
                 <img id="preview" style="padding-top:30px;" width="250px" src="img/<?php echo $data['gambar']?>">
                 <script type="text/javascript">
                   function loadfile(event){

@@ -10,7 +10,7 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
   $No_Hp = $_POST['No_Hp'];
   $password = $_POST['password'];
 
-  if($koneksi){
+  if(!empty($gambar)){
     $sql="UPDATE akun SET gambar='$gambar',username='$username',nama='$nama',email='$email',No_Hp='$No_Hp',password='$password' WHERE id='$id'";
       mysqli_query($koneksi,$sql);
       echo "
@@ -19,6 +19,15 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
         document.location.href = 'daftarakun.php';
         </script>
         ";
+    }elseif(empty($gambar)){
+      $sql="UPDATE akun SET username='$username',nama='$nama',email='$email',No_Hp='$No_Hp',password='$password' WHERE id='$id'";
+        mysqli_query($koneksi,$sql);
+        echo "
+          <script>
+          alert('Akun berhasil diperbarui!');
+          document.location.href = 'daftarakun.php';
+          </script>
+          ";
     }elseif($koneksi->connect_error){
       echo"
         <script>
