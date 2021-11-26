@@ -1,4 +1,3 @@
-<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -14,6 +13,7 @@
     <title>Daftar Menu</title>
   </head>
   <body class="bg-light">
+  <?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
     <?php include("temp_sidebar.php");?>
     <!--MODAL HAPUS-->
   	<div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -30,7 +30,7 @@
   	      </div>
   	      <div class="modal-footer">
   	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-  	        <a href="functionhapusmenu.php"><button type="submit" name='btnHapus' class="btn btn-danger">Delete</button><a>
+  	        <a href=""><button type="submit" name='btnHapus' class="btn btn-danger">Delete</button><a>
   	      </div>
   	    </div>
   	  </div>
@@ -40,7 +40,7 @@
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h2 class="text-dark">Daftar Menu</h2>
-          <!-- <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a> -->
+          <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
         </div>
         <div class="my-4 ps-3 shadow">
           <div class="row">
@@ -124,7 +124,8 @@
                         <form action="#">
                           <input type="text" value="" hidden>
                           <a href="editmenu.php?id=<?php echo $d['id_menu'];?>"class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
-                          <button type='submit' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#hapusmenu'><img src='img/trash-can.png' style='height:20px; width:15px;'> Hapus</button>
+                          <a class="btn btn-danger" onclick="return confirm('Are you sure to delete this account?')" href="functionhapusmenu.php?id=<?php echo $d['id_menu'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
+                        </form>
                         </form>
                       </td>
                     </tr>
