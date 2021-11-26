@@ -22,6 +22,7 @@ include("includes/koneksi.php"); include("includes/logincheck.php");include("inc
     <title>Daftar Meja</title>
   </head>
   <body class="bg-light">
+      <?php include("temp_sidebar.php");?>
     <!-- Modal hapus -->
     <div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   	  <div class="modal-dialog">
@@ -90,13 +91,14 @@ include("includes/koneksi.php"); include("includes/logincheck.php");include("inc
                       <td>No Meja</td>
                       <td>Password</td>
                       <td>Reservasi</td>
+                      <td>Action</td>
                      </tr>
                 </thead>
                 <tbody>
                     <?php foreach($tampilmeja as $tampil) { ?>
                   <tr>
                       <td><?php echo $tampil["id_meja"]; ?></td>
-                      <td><?php echo $tampil["no_meja"]; ?></td>
+                      <td><?php echo $tampil["meja"]; ?></td>
                       <td><?php echo $tampil["pass_meja"]; ?></td>
                       <?php if($tampil["reservasi"] == 0){ ?>
                       <td>Kosong</td>

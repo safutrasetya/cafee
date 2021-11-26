@@ -124,7 +124,7 @@
                         <form action="#">
                           <input type="text" value="" hidden>
                           <a href="editmenu.php?id=<?php echo $d['id_menu'];?>"class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
-                          <a class="btn btn-danger" onclick="return confirm('Are you sure to delete this account?')" href="functionhapusmenu.php?id=<?php echo $d['id_menu'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
+                          <a class="btn btn-danger" onclick="return confirm('Are you sure to delete this menu?')" href="functionhapusmenu.php?id=<?php echo $d['id_menu'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
                         </form>
                         </form>
                       </td>
