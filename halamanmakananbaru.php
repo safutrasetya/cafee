@@ -69,75 +69,63 @@
 
   <div class="container" style="margin-left:40px">
       <div class="row">
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-3 col-sm-6" >
               <div class="product-grid">
                   <div class="product-image">
-                    <div class='card' style='width: 14rem; padding: 12px;'>
-                      <img src='img/menu_makanan.jpg' class='card-img-top' alt='img/menu_makanan.jpg'>
-                      <div class='card-body'>
-                        <h5 class='card-title'>Nama Menu</h5>
-                        <p class='card-text'>Info menu</p>
+                    <div class='card' style='width: 14rem; padding: 10px;'>
+                      <img src='img/menu_makanan.jpg' class='card-img-top' alt='img/menu_makanan.jpg' style="width: 100%" >
+                        <h6 class='card-title'>Nama Menu</h6>
                         <p class='card-text'>Harga</p>
                         <form action='' method='get'>
                           <input type='text' value='$data[id_menu]' hidden name='id_pesanan_baru'>
                           <button class='btn btn-primary' type='submit' name='addMakanan'>+</button>
                         </form>
-                      </div>
                     </div>
                   </div>
               </div>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-3 col-sm-6" >
               <div class="product-grid">
                   <div class="product-image">
-                    <div class='card' style='width: 14rem; padding: 12px;'>
-                      <img src='img/menu_makanan.jpg' class='card-img-top' alt='img/menu_makanan.jpg'>
-                      <div class='card-body'>
-                        <h5 class='card-title'>Nama Menu</h5>
-                        <p class='card-text'>Info menu</p>
+                    <div class='card' style='width: 14rem; padding: 10px;'>
+                      <img src='img/menu_makanan.jpg' class='card-img-top' alt='img/menu_makanan.jpg' style="width: 100%" >
+                        <h6 class='card-title'>Nama Menu</h6>
                         <p class='card-text'>Harga</p>
                         <form action='' method='get'>
                           <input type='text' value='$data[id_menu]' hidden name='id_pesanan_baru'>
                           <button class='btn btn-primary' type='submit' name='addMakanan'>+</button>
                         </form>
-                      </div>
                     </div>
                   </div>
               </div>
           </div>
 
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-3 col-sm-6" >
               <div class="product-grid">
                   <div class="product-image">
-                    <div class='card' style='width: 14rem; padding: 12px;'>
-                      <img src='img/menu_makanan.jpg' class='card-img-top' alt='img/menu_makanan.jpg'>
-                      <div class='card-body'>
-                        <h5 class='card-title'>Nama Menu</h5>
-                        <p class='card-text'>Info menu</p>
+                    <div class='card' style='width: 14rem; padding: 10px;'>
+                      <img src='img/menu_makanan.jpg' class='card-img-top' alt='img/menu_makanan.jpg' style="width: 100%" >
+                        <h6 class='card-title'>Nama Menu</h6>
                         <p class='card-text'>Harga</p>
                         <form action='' method='get'>
                           <input type='text' value='$data[id_menu]' hidden name='id_pesanan_baru'>
                           <button class='btn btn-primary' type='submit' name='addMakanan'>+</button>
                         </form>
-                      </div>
                     </div>
                   </div>
               </div>
           </div>
-          <div class="col-md-3 col-sm-6">
+          <div class="col-md-3 col-sm-6" >
               <div class="product-grid">
                   <div class="product-image">
-                    <div class='card' style='width: 14rem; padding: 12px;'>
-                      <img src='img/menu_makanan.jpg' class='card-img-top' alt='img/menu_makanan.jpg'>
-                      <div class='card-body'>
-                        <h5 class='card-title'>Nama Menu</h5>
-                        <p class='card-text'>Info menu</p>
+                    <div class='card' style='width: 14rem; padding: 10px;'>
+                      <img src='img/menu_makanan.jpg' class='card-img-top' alt='img/menu_makanan.jpg' style="width: 100%" >
+                        <h6 class='card-title'>Nama Menu</h6>
                         <p class='card-text'>Harga</p>
                         <form action='' method='get'>
                           <input type='text' value='$data[id_menu]' hidden name='id_pesanan_baru'>
                           <button class='btn btn-primary' type='submit' name='addMakanan'>+</button>
                         </form>
-                      </div>
                     </div>
                   </div>
               </div>

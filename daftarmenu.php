@@ -30,7 +30,7 @@
   	      </div>
   	      <div class="modal-footer">
   	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-  	        <a href="functionhapusmenu.php"><button type="submit" name='btnHapus' class="btn btn-danger">Delete</button><a>
+  	        <a href=""><button type="submit" name='btnHapus' class="btn btn-danger">Delete</button><a>
   	      </div>
   	    </div>
   	  </div>
@@ -124,7 +124,8 @@
                         <form action="#">
                           <input type="text" value="" hidden>
                           <a href="editmenu.php?id=<?php echo $d['id_menu'];?>"class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
-                          <button type='submit' class='btn btn-danger' data-bs-toggle='modal' data-bs-target='#hapusmenu'><img src='img/trash-can.png' style='height:20px; width:15px;'> Hapus</button>
+                          <a class="btn btn-danger" onclick="return confirm('Are you sure to delete this account?')" href="functionhapusmenu.php?id=<?php echo $d['id_menu'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
+                        </form>
                         </form>
                       </td>
                     </tr>
