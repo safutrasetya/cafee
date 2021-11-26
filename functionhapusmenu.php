@@ -2,8 +2,8 @@
 
 require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
 
-$id = $_GET['id_menu'];
-$sql ="DELETE FROM menu WHERE id='$id_menu'";
+$id_menu = $_GET['id'];
+$sql ="DELETE FROM menu WHERE id_menu='$id_menu'";
 $result=mysqli_query($koneksi,$sql);
 
 
