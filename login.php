@@ -18,7 +18,7 @@
     <title>Login</title>
   </head>
   <body>
-    
+
      <div class = "container">
         <div class = "card login-form">
             <div class = "card-body">
@@ -40,7 +40,12 @@
             <button name="btnLogin" type="submit" class="btn btn-primary">Login</button>
             </div>
                 </form>
-                <p><a href="loginmeja.php">Login Meja</a></p>
+                <div class="row">
+
+                    <p><a class="" href="loginmeja.php">Login Meja</a></p>
+                    <p><a class="" href="forgotpassword.php">Lupa password?</a></p>
+
+                </div>
             </div>
         </div>
      </div>
