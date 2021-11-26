@@ -3,6 +3,22 @@
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-uWxY/CJNBR+1zjPWmfnSnVxwRheevXITnMqoEIeG1LJrdI0GlVs/9cVSyPYXdcSF" crossorigin="anonymous">
 
+<style>
+
+
+.sidebar{
+    position: fixed;
+    left: 0;
+    left: -270px;
+    width: 270px;
+    height: 100%;
+    background: #00ab6b;
+    transition: all .5s ease;
+}
+.sidebar ul li:hover a{
+    padding-left: 30px;
+}
+</style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid">
@@ -65,8 +81,6 @@
           <header>Cafe</header>
         </div>
         <ul>
-            <li><a href="editprofil.php"><i class="far fa-address-card"></i>
-              <i class='no-italics'>Edit Akun</i></a></li>
             <li><a href="daftarakun.php"><i class="far fa-address-book"></i>
               <i class='no-italics'>Daftar Akun</i></a></li>
             <li><a href="daftarmenu.php"><i class="far fa-clipboard"></i>
