@@ -1,4 +1,5 @@
-<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -7,8 +8,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- File CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/scroll.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="scroll.css"> -->
 
     <!-- Bootstrap CSS -->
 
@@ -22,9 +23,28 @@
 
     <title></title>
     <style>
-      .text-center{
-        margin-top: 30px;
-      }
+.text-center{
+  margin-top: 30px;
+}
+
+.container-dua{
+    max-width: 1500px;
+    margin: 50px auto;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: baseline;
+}
+.pesanan{
+    width: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: aquamarine;
+    margin-top: 20px;
+    margin: 20px;
+
+}
     </style>
   </head>
   <body>
