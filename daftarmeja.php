@@ -98,7 +98,7 @@ include("includes/koneksi.php"); include("includes/logincheck.php");include("inc
                     <?php foreach($tampilmeja as $tampil) { ?>
                   <tr>
                       <td><?php echo $tampil["id_meja"]; ?></td>
-                      <td><?php echo $tampil["no_meja"]; ?></td>
+                      <td><?php echo $tampil["meja"]; ?></td>
                       <td><?php echo $tampil["pass_meja"]; ?></td>
                       <?php if($tampil["reservasi"] == 0){ ?>
                       <td>Kosong</td>
