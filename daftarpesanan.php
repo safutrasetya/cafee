@@ -1,4 +1,8 @@
+<?php
+require 'functions.php';
 
+$pesanan = query("SELECT nama_pesanan, banyak_psn FROM `pesanan` WHERE id_transaksi = 20;");
+?>
 
 <!doctype html>
 <html lang="en">
@@ -36,15 +40,7 @@
     justify-content: space-evenly;
     align-items: baseline;
 }
-.pesanan{
-    width: 200px;
-    padding: 20px;
-    box-sizing: border-box;
-    background-color: aquamarine;
-    margin-top: 20px;
-    margin: 20px;
 
-}
     </style>
   </head>
   <body>
