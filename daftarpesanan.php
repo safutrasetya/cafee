@@ -37,6 +37,15 @@
     align-items: baseline;
 }
 
+.pesanan{
+    width: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: aquamarine;
+    margin-top: 20px;
+    margin: 20px;
+
+}
     </style>
   </head>
   <body>
