@@ -30,13 +30,16 @@
             <div class="col-sm-2">
             </div>
             <div class="col">
-              <form>
+              <form action="" method="POST">
                 <div class="row">
-                  <div class="col">
-                    <input type="text" class="form-control my-2" placeholder="Cari Akun...">
+                  <!-- <div class=""> -->
+                    <!-- <a href="cariAkun.php"><button type="button" class="btn btn-outline-primary float-end my-2"><i class="bi bi-search"></i> Cari</button></a>
+                  </div> -->
+                  <div class="col-sm-4" style="margin-left:320px;margin-top:7px;">
+                    <input type="text" name="keyword" class="form-control my-2" placeholder="Masukkan ID/Username/Nama..." autocomplete="off">
                   </div>
-                  <div class="col-sm-4">
-                    <button type="submit" class="btn btn-primary my-2">Search</button>
+                  <div class="col-sm-2" style="margin-top:0px;padding:5px;">
+                    <input type="submit" name="cari" class="btn btn-primary my-2 form-control" value="Cari">
                   </div>
                   <div class="col text-end" style="margin-right:5px;">
                   <a href="tambahakun.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahakun-icon2.png" style="height:30px; width:30px;"> Tambah akun</button></a>
@@ -84,7 +87,13 @@
                         $jumlahAkun = mysqli_num_rows($akun);
                         $totalHalaman = ceil($jumlahAkun / $perHalaman);
 
-                        $akuns = mysqli_query($koneksi,"SELECT * FROM akun LIMIT $halamanAwal, $perHalaman");
+                        if(!isset($_POST['cari'])){
+                          $akuns = mysqli_query($koneksi,"SELECT * FROM akun LIMIT $halamanAwal, $perHalaman");
+                        }elseif(isset($_POST['cari'])){
+                          $cari = $_POST['keyword'];
+                          $akuns = mysqli_query($koneksi,"SELECT * FROM akun WHERE nama LIKE '%$cari%' OR
+                                   username LIKE '%$cari%' LIMIT $halamanAwal,$perHalaman");
+                        }
                         while($d = mysqli_fetch_assoc($akuns)){
                      ?>
                     <tr>
@@ -143,6 +152,32 @@
       </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <!-- <script>
+      $(document).ready(function(){
+        load_data(1);
+        function load_data(page, query = ''){
+          $.ajax({
+            url:"functioncari.php",
+            method:"POST",
+            data:{page:page, query:query},
+            success:function(data){
+              $('#search_result').html(data);
+            }
+          });
+        }
 
+        $(document).on('click', '.page-link', function(){
+          var page = $(this).data('page_number');
+          var query = $('#search_box').val();
+          load_data(page, query);
+        });
+
+        $('#search_box').keyup(function(){
+          var query = $('#search_box').val();
+          load_data(1, query);
+        });
+      });
+
+    </script> -->
   </body>
 </html>
