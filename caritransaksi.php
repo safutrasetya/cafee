@@ -1,4 +1,8 @@
-<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
+<?php include("includes/koneksi.php");
+ include("includes/logincheck.php");
+ include("includes/admincheck.php");
+ ?>
+ 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -153,7 +157,7 @@
         // Button that triggered the modal
         var button = event.relatedTarget
         // Extract info from data-bs-* attributes
-        var idforhapus = button.getAttribute('data-bs-hapus')
+        var idforhapus = button.getAttribute('data-bs-whatever')
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
         //

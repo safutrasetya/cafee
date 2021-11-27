@@ -1,9 +1,18 @@
-<?php include("includes/koneksi.php");
- include("includes/logincheck.php");
- include("includes/admincheck.php");
+<?php
+include("includes/koneksi.php");
+include("includes/logincheck.php");
+include("includes/admincheck.php");
+include 'functiontambahmeja.php';
+
+// Menampilkan halaman daftar meja
+$tampilmeja = query("SELECT*FROM meja");
+
+// Ketika tombol carimeja ditekan
+// if(isset($_POST["carimeja"])){
+//     $tampilmeja = carimeja($_POST["keyword"]);
+// }
 
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,7 +31,8 @@
     <link rel="stylesheet" href="css/scroll.css">
     <!--AJAX-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Riwayat Transaksi</title>
+    <title>Daftar Meja</title>
+
     <style>
       .text-center{
         margin-top: 30px;
@@ -35,41 +45,42 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="">Ganti status pesanan</h5>
+            <h5 class="modal-title" id="">Ganti status Meja</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
             <form method="POST" action="">
               <div class="mb-3">
-                <input hidden name="idtrnsks" type="text" class="form-control" id="idupdttrnsks"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
-                <input class="" type="radio" name="statustrnsks" id="sudah" value="1">
-                <label class="form-check-label" for="sudah">Sudah dibayar</label>
-                <input class="" type="radio" name="statustrnsks" id="belum" value="0">
-                <label class="form-check-label" for="belum">Belum dibayar</label>
+                <input hidden name="idmeja" type="text" class="form-control" id="idupdttrnsks"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
+                <input class="" type="radio" name="statusmeja" id="penuh" value="1">
+                <label class="form-check-label" for="penuh">Penuh</label>
+                <input class="" type="radio" name="statusmeja" id="kosong" value="0">
+                <label class="form-check-label" for="kosong">Kosong</label>
+                <input class="" type="radio" name="statusmeja" id="dibooking" value="2">
+                <label class="form-check-label" for="dibooking">Telah Dibooking</label>
               </div>
               <div class="mt-2">
                 <button type="button" class="btn btn-outline-secondary float-start" data-bs-dismiss="modal">Batal</button>
-                <button type="submit" name="btnUpdt" class="btn btn-primary float-end" data-bs-dismiss="modal">Simpan</button>
+                <button type="submit" name="btnUpdate" class="btn btn-primary float-end" data-bs-dismiss="modal">Simpan</button>
               </div>
             </form>
           </div>
         </div>
       </div>
     </div>
-
-    <div class="modal" id="hapustransaksi" tabindex="-1">
+    <div class="modal" id="hapusmeja" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="">Hapus Pesanan</h5>
+            <h5 class="modal-title" id="">Hapus Meja</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p class="h6">Yakin ingin menghapus transaksi ini?</p>
-            <p>Transaksi ini tidak bisa dikembalikan</p>
+            <p class="h6">Yakin ingin menghapus Meja?</p>
+            <p>Meja ini tidak bisa dikembalikan</p>
             <form method="POST" action="">
               <div class="mb-3">
-                <input name="idhapustrnsks" type="text" class="form-control" id="idhapustrnsks"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
+                <input name="idhapusmeja" type="text" class="form-control" id="idhapusmeja"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
               </div>
               <div class="mt-2">
                 <button type="button" class="btn btn-outline-secondary float-start" data-bs-dismiss="modal">Batal</button>
@@ -80,8 +91,6 @@
         </div>
       </div>
     </div>
-
-
     <!--END MODAL GANTI STATUS PESANAN-->
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron h-100" style="height: 750px;">
@@ -90,7 +99,7 @@
         </div>
         <div class="col-sm-11">
           <div class="mx-auto my-3" style="">
-            <h2 class="text-dark text-center display-5">Riwayat Transaksi</h2>
+            <h2 class="text-dark text-center display-5">DAFTAR MEJA</h2>
           </div>
         </div>
       </div>
@@ -100,13 +109,53 @@
         <div class="col-sm-11">
           <div class="jumbotron shadow p-3">
             <div class="">
-              <a href="caritransaksi.php"><button type="button" class="btn btn-outline-primary float-end my-2"><i class="bi bi-search"></i> Cari</button></a>
-              <?php include('functionupdttrnsks.php'); ?>
-              <!-- ^^fungsi untuk update transaksi -->
-              <?php include('functionhapustrnsks.php'); ?>
+               <form action="" method="post">
+                    <input type="text" name="keyword"class="form-control my-2" placeholder="Cari Meja..."autofocus autocomplete="off">
+                    <button type="submit" name="carimeja" class="btn btn-primary my-2">Search...</button>
+               </form>
+              <?php include('functioneditmeja.php'); ?>
+              <!-- ^^fungsi untuk update MEJA -->
+              <?php include('functionhapusmeja.php'); ?>
               <!-- ^^fungsi untuk hapus transaksi -->
-              <?php include('functiondaftartrnsks.php'); ?>
+              <table class="table table-bordered table-info">
+                <thead class="h6">
+                    <tr>
+                      <td>Id Meja</td>
+                      <td>No Meja</td>
+                      <td>Password</td>
+                      <td>Reservasi</td>
+                      <td>Action</td>
+                     </tr>
+                </thead>
+                <tbody>
+                    <?php foreach($tampilmeja as $tampil) { ?>
+                  <tr>
+                      <td><?php echo $tampil["id_meja"]; ?></td>
+                      <td><?php echo $tampil["meja"]; ?></td>
+                      <td><?php echo $tampil["pass_meja"]; ?></td>
+                      <?php if($tampil["reservasi"] == 0){ ?>
+                      <td>Kosong</td>
+                      <?php }else if ($tampil["reservasi"] == 1){ ?>
+                      <td>Penuh</td>
+                      <?php }else{ ?>
+                      <td>Telah Dibooking</td>
+                      <?php } ?>
+                      <td>
+                        <button name="gantistatus" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#gantistatus" data-bs-whatever="<?php echo $tampil['id_meja'];?>" reservasi="<?php echo $tampil['reservasi']?>"><img src="img/edit-icon.png" style="height:20px; width:20px;">Edit</button>
+
+                        <button name="hapusmeja" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusmeja" data-bs-hapus="<?php echo $tampil['id_meja'];?>"><i class="bi bi-trash"></i> Hapus</button>
+
+                     </td>
+                      </tr>
+                     <?php }; ?>
+
+                    </tbody>
+                 </table>
+              </div>
               <!-- ^^ fungsi tampilkan daftar transaksi-->
+              <div class="col text-end me-3" style="">
+                  <a href="tambahmeja.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahmeja-ikon.png" style="height:30px; width:30px;">Tambah Meja</button></a>
+                </div>
             </div>
           </div>
         </div>
@@ -117,12 +166,12 @@
         $('#divAlertHapus').delay(3000).fadeOut(500);
         $('#divAlert').delay(3000).fadeOut(500);
       });
-      var formodalhapus = document.getElementById('hapustransaksi')
+      var formodalhapus = document.getElementById('hapusmeja')
       formodalhapus.addEventListener('show.bs.modal', function (event) {
         // Button that triggered the modal
         var button = event.relatedTarget
         // Extract info from data-bs-* attributes
-        var idforhapus = button.getAttribute('data-bs-whatever')
+        var idforhapus = button.getAttribute('data-bs-hapus')
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
         //
@@ -139,7 +188,7 @@
         var button = event.relatedTarget
         // Extract info from data-bs-* attributes
         var idforupdt = button.getAttribute('data-bs-whatever')
-        var statusbayar = button.getAttribute('statusbayar')
+        var statusmeja = button.getAttribute('statusmeja')
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
         //
@@ -147,18 +196,18 @@
         var modalTitle = formodal.querySelector('.modal-title')
         var modalBodyInput = formodal.querySelector('.modal-body input')
 
-        modalTitle.textContent = 'Ubah status transaksi :  ' + idforupdt
+        modalTitle.textContent = 'Ubah status Meja :  ' + idforupdt
         modalBodyInput.value = idforupdt
 
-        if (statusbayar ==1){
+        if (statusmeja ==1){
           document.getElementById("sudah").checked = true;
-        }else if (statusbayar==0){
+        }else if (statusmeja==0){
           document.getElementById("belum").checked = true;
         }
       });
     </script>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
