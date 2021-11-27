@@ -1,4 +1,8 @@
-<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
+<?php include("includes/koneksi.php");
+ include("includes/logincheck.php");
+ include("includes/admincheck.php");
+ ?>
+ 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

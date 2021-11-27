@@ -49,12 +49,12 @@ $tampilmeja = query("SELECT*FROM meja");
             <form method="POST" action="">
               <div class="mb-3">
                 <input hidden name="idmeja" type="text" class="form-control" id="idupdttrnsks"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
-                <input class="" type="radio" name="statusmeja" id="statusmeja" value="1">
-                <label class="form-check-label" for="statusmeja">Penuh</label>
-                <input class="" type="radio" name="statusmeja" id="statusmeja" value="0">
-                <label class="form-check-label" for="statusmeja">Kosong</label>
-                <input class="" type="radio" name="statusmeja" id="statusmeja" value="2">
-                <label class="form-check-label" for="statusmeja">Telah Dibooking</label>
+                <input class="" type="radio" name="statusmeja" id="statusmeja1" value="1">
+                <label class="form-check-label" for="statusmeja1">Penuh</label>
+                <input class="" type="radio" name="statusmeja" id="statusmeja2" value="0">
+                <label class="form-check-label" for="statusmeja2">Kosong</label>
+                <input class="" type="radio" name="statusmeja" id="statusmeja3" value="2">
+                <label class="form-check-label" for="statusmeja3">Telah Dibooking</label>
               </div>
               <div class="mt-2">
                 <button type="button" class="btn btn-outline-secondary float-start" data-bs-dismiss="modal">Batal</button>
