@@ -147,6 +147,9 @@ $tampilmeja = query("SELECT*FROM meja");
                  </table>
               </div>
               <!-- ^^ fungsi tampilkan daftar transaksi-->
+              <div class="col text-end me-3" style="">
+                  <a href="tambahmeja.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahmeja-ikon.png" style="height:30px; width:30px;">Tambah Meja</button></a>
+                </div>
             </div>
           </div>
         </div>
