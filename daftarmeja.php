@@ -11,25 +11,23 @@ $tampilmeja = query("SELECT*FROM meja");
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--BOOSTRAP CSS AND CKEDITOR-->
+    <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
 
-    <!-- File CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+    <!--CSS KITA SENDIRI-->
+    <link rel="stylesheet" href="css/akun.css">
+    <link rel="stylesheet" href="css/cafee.css">
+    <link rel="stylesheet" href="css/sidebartest.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/scroll.css">
-
-    <!-- Bootstrap CSS -->
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
-
+    <!--AJAX-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Daftar Meja</title>
+
     <style>
       .text-center{
         margin-top: 30px;
@@ -49,12 +47,12 @@ $tampilmeja = query("SELECT*FROM meja");
             <form method="POST" action="">
               <div class="mb-3">
                 <input hidden name="idmeja" type="text" class="form-control" id="idupdttrnsks"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
-                <input class="" type="radio" name="statusmeja" id="statusmeja1" value="1">
-                <label class="form-check-label" for="statusmeja1">Penuh</label>
-                <input class="" type="radio" name="statusmeja" id="statusmeja2" value="0">
-                <label class="form-check-label" for="statusmeja2">Kosong</label>
-                <input class="" type="radio" name="statusmeja" id="statusmeja3" value="2">
-                <label class="form-check-label" for="statusmeja3">Telah Dibooking</label>
+                <input class="" type="radio" name="statusmeja" id="penuh" value="1">
+                <label class="form-check-label" for="penuh">Penuh</label>
+                <input class="" type="radio" name="statusmeja" id="kosong" value="0">
+                <label class="form-check-label" for="kosong">Kosong</label>
+                <input class="" type="radio" name="statusmeja" id="dibooking" value="2">
+                <label class="form-check-label" for="dibooking">Telah Dibooking</label>
               </div>
               <div class="mt-2">
                 <button type="button" class="btn btn-outline-secondary float-start" data-bs-dismiss="modal">Batal</button>
@@ -77,7 +75,7 @@ $tampilmeja = query("SELECT*FROM meja");
             <p>Meja ini tidak bisa dikembalikan</p>
             <form method="POST" action="">
               <div class="mb-3">
-                <input hidden name="idhapusmeja" type="text" class="form-control" id="idhapusmeja"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
+                <input name="idhapusmeja" type="text" class="form-control" id="idhapusmeja"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
               </div>
               <div class="mt-2">
                 <button type="button" class="btn btn-outline-secondary float-start" data-bs-dismiss="modal">Batal</button>
@@ -106,7 +104,7 @@ $tampilmeja = query("SELECT*FROM meja");
         <div class="col-sm-11">
           <div class="jumbotron shadow p-3">
             <div class="">
-              <a href="caritransaksi.php"><button type="button" class="btn btn-outline-primary float-end my-2"><i class="bi bi-search"></i> Cari</button></a>
+              <a href="carimeja.php"><button type="button" class="btn btn-outline-primary float-end my-2"><i class="bi bi-search"></i> Cari</button></a>
               <?php include('functioneditmeja.php'); ?>
               <!-- ^^fungsi untuk update MEJA -->
               <?php include('functionhapusmeja.php'); ?>

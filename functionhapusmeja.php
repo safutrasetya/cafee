@@ -5,7 +5,7 @@
 
   if(isset($_POST['btnDel'])){
     $idmeja = $_POST['idhapusmeja'];
-    $query = "DELETE FROM riwayat_pembelian WHERE id_transaksi = '{$idmeja}'";
+    $query = "DELETE FROM meja WHERE id_meja = '{$idmeja}'";
 
     if($koneksi->query($query)===TRUE){
       // header('Location:daftarriwayattrnsks.php');
