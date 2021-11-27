@@ -1,89 +1,116 @@
 <?php
-include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");
-     // koneksi kefunction
-   include 'functiontambahmeja.php';
+include("includes/koneksi.php");
+include("includes/logincheck.php");
+include("includes/admincheck.php");
+include 'functiontambahmeja.php';
 
-     // Menampilkan halaman daftar meja
-   $tampilmeja = query("SELECT*FROM meja");
+// Menampilkan halaman daftar meja
+$tampilmeja = query("SELECT*FROM meja");
 
- ?>
-<!DOCTYPE html>
- <html lang="en" dir="ltr">
+?>
+<!doctype html>
+<html lang="en">
   <head>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <!--BOOSTRAP CSS AND CKEDITOR-->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-     	<script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
-    <!--END BOSTTSTRAP AND CKEDITOR-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!--CSS KITA SENDIRI-->
-      <link rel="stylesheet" href="css/cafee.css">
-    <!--end css kita sendiri-->
+    <!-- File CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/scroll.css">
+
+    <!-- Bootstrap CSS -->
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/f6dcf461c1.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js"></script>
+
     <title>Daftar Meja</title>
+    <style>
+      .text-center{
+        margin-top: 30px;
+      }
+    </style>
   </head>
-  <body class="bg-light">
-      <?php include("temp_sidebar.php");?>
-    <!-- Modal hapus -->
-    <div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  	  <div class="modal-dialog">
-  	    <div class="modal-content">
-  	      <div class="modal-header">
-  	        <h5 class="modal-title" id="exampleModalLabel">Yakin delete menu ini?</h5>
-  	        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-  	      </div>
-  	      <div class="modal-body">
-  	      	Jika menekan tombol delete, menu tidak dapat dikembalikan!
-  	        <div class="mb-3">
-  	        </div>
-  	      </div>
-  	      <div class="modal-footer">
-  	        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-  	        <button type="button" class="btn btn-danger">Delete</button>
-  	      </div>
-  	    </div>
-  	  </div>
-  	</div>
-      <!-- MODAL END -->
-    <div class="jumbotron p-3 h-100" style="height: 750px;">
-      <div class="jumbotron bg-light shadow-lg mx-auto p-5">
-        <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-          <h2 class="text-dark">Daftar Meja</h2>
-          <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
-        </div>
-        <div class="my-4 ps-3 shadow">
-          <div class="row">
-            <div class="col-sm-2">
-            </div>
-            <div class="col-sm-10">
-              <form>
-                <div class="row">
-                  <div class="col-sm-5">
-                    <input type="text" class="form-control my-2" placeholder="Cari Meja...">
-                  </div>
-                  <div class="col-sm-3">
-                    <button type="submit" class="btn btn-primary my-2">Search</button>
-                  </div>
-                  <div class="col text-end me-3" style="">
-                    <a href="tambahmeja.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahmeja-ikon.png" style="height:30px; width:30px;">Tambah Meja</button></a>
-                  </div>
-                </div>
-              </form>
-            </div>
+  <body>
+    <!--MODAL GANTI SATUS PESANAN-->
+    <div class="modal" id="gantistatus" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="">Ganti status Meja</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form method="POST" action="">
+              <div class="mb-3">
+                <input hidden name="idmeja" type="text" class="form-control" id="idupdttrnsks"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
+                <input class="" type="radio" name="statusmeja" id="statusmeja" value="1">
+                <label class="form-check-label" for="statusmeja">Penuh</label>
+                <input class="" type="radio" name="statusmeja" id="statusmeja" value="0">
+                <label class="form-check-label" for="statusmeja">Kosong</label>
+                <input class="" type="radio" name="statusmeja" id="statusmeja" value="2">
+                <label class="form-check-label" for="statusmeja">Telah Dibooking</label>
+              </div>
+              <div class="mt-2">
+                <button type="button" class="btn btn-outline-secondary float-start" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" name="btnUpdate" class="btn btn-primary float-end" data-bs-dismiss="modal">Simpan</button>
+              </div>
+            </form>
           </div>
         </div>
-        <div class="row">
-          <div class="col-sm-2">
+      </div>
+    </div>
+    <div class="modal" id="hapusmeja" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="">Hapus Meja</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-          <div class="col-sm-10">
+          <div class="modal-body">
+            <p class="h6">Yakin ingin menghapus Meja?</p>
+            <p>Meja ini tidak bisa dikembalikan</p>
+            <form method="POST" action="">
+              <div class="mb-3">
+                <input hidden name="idhapusmeja" type="text" class="form-control" id="idhapusmeja"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
+              </div>
+              <div class="mt-2">
+                <button type="button" class="btn btn-outline-secondary float-start" data-bs-dismiss="modal">Batal</button>
+                <button name="btnDel" class="btn btn-primary float-end" data-bs-dismiss="modal">Hapus</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--END MODAL GANTI STATUS PESANAN-->
+    <?php include("temp_sidebar.php");?>
+    <div class="jumbotron h-100" style="height: 750px;">
+      <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-11">
+          <div class="mx-auto my-3" style="">
+            <h2 class="text-dark text-center display-5">DAFTAR MEJA</h2>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-11">
+          <div class="jumbotron shadow p-3">
             <div class="">
-              <div class="">
-              <!--  <ul class="pagination pagination-sm justify-content-center">
-                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul> -->
+              <a href="caritransaksi.php"><button type="button" class="btn btn-outline-primary float-end my-2"><i class="bi bi-search"></i> Cari</button></a>
+              <?php include('functioneditmeja.php'); ?>
+              <!-- ^^fungsi untuk update MEJA -->
+              <?php include('functionhapusmeja.php'); ?>
+              <!-- ^^fungsi untuk hapus transaksi -->
               <table class="table table-bordered table-info">
                 <thead class="h6">
                     <tr>
@@ -108,8 +135,10 @@ include("includes/koneksi.php"); include("includes/logincheck.php");include("inc
                       <td>Telah Dibooking</td>
                       <?php } ?>
                       <td>
-                        <a href="edit.php?id=<?php echo $baru["id_meja"]; ?>">edit</a> |
-                       <a href="hapus.php?id=<?php echo $baru["id_meja"]; ?> " onclick="return confirm('yakin ingin menghapus <?php echo $baru["nama"]; ?>?');">hapus</a>
+                        <button name="gantistatus" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#gantistatus" data-bs-whatever="<?php echo $tampil['id_meja'];?>" reservasi="<?php echo $tampil['reservasi']?>"><img src="img/edit-icon.png" style="height:20px; width:20px;">Edit</button>
+
+                        <button name="hapusmeja" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusmeja" data-bs-hapus="<?php echo $tampil['id_meja'];?>"><i class="bi bi-trash"></i> Hapus</button>
+
                      </td>
                       </tr>
                      <?php }; ?>
@@ -117,14 +146,59 @@ include("includes/koneksi.php"); include("includes/logincheck.php");include("inc
                     </tbody>
                  </table>
               </div>
+              <!-- ^^ fungsi tampilkan daftar transaksi-->
             </div>
           </div>
         </div>
       </div>
     </div>
-     <!-- SCRIPT modal -->
-       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-       <!-- SCRIPT MODAL END -->
-       <!-- WYSIWYG untuk editor sinopsis -->
+    <script>
+      jQuery(function($) {
+        $('#divAlertHapus').delay(3000).fadeOut(500);
+        $('#divAlert').delay(3000).fadeOut(500);
+      });
+      var formodalhapus = document.getElementById('hapusmeja')
+      formodalhapus.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var idforhapus = button.getAttribute('data-bs-hapus')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalTitle = formodalhapus.querySelector('.modal-title')
+        var modalBodyInput = formodalhapus.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'Hapus Transaksi :  ' + idforhapus
+        modalBodyInput.value = idforhapus
+      });
+      var formodal = document.getElementById('gantistatus')
+      formodal.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var idforupdt = button.getAttribute('data-bs-whatever')
+        var statusmeja = button.getAttribute('statusmeja')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalTitle = formodal.querySelector('.modal-title')
+        var modalBodyInput = formodal.querySelector('.modal-body input')
+
+        modalTitle.textContent = 'Ubah status Meja :  ' + idforupdt
+        modalBodyInput.value = idforupdt
+
+        if (statusmeja ==1){
+          document.getElementById("sudah").checked = true;
+        }else if (statusmeja==0){
+          document.getElementById("belum").checked = true;
+        }
+      });
+    </script>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>
