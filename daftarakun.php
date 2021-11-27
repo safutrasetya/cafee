@@ -1,4 +1,3 @@
-<?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -18,27 +17,28 @@
     <title>cafee</title>
   </head>
   <body class="bg-light">
+    <?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
         <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
           <h2 class="text-dark">Daftar Akun</h2>
-          <!-- <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a> -->
+          <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
         </div>
         <div class="my-4 ps-3 shadow">
           <div class="row">
             <div class="col-sm-2">
             </div>
-            <div class="col-sm-6">
+            <div class="col">
               <form>
                 <div class="row">
                   <div class="col">
                     <input type="text" class="form-control my-2" placeholder="Cari Akun...">
                   </div>
-                  <div class="col">
+                  <div class="col-sm-4">
                     <button type="submit" class="btn btn-primary my-2">Search</button>
                   </div>
-                  <div class="col" style="margin-right: -750px">
+                  <div class="col text-end" style="margin-right:5px;">
                   <a href="tambahakun.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahakun-icon2.png" style="height:30px; width:30px;"> Tambah akun</button></a>
                   </div>
                 </div>
@@ -50,8 +50,8 @@
           <div class="col-sm-2">
           </div>
           <div class="col-sm-10">
-            <div class="card shadow">
-              <div class="card-body">
+            <div class="shadow">
+              <div class="body">
                 <!-- <ul class="pagination pagination-sm justify-content-center">
                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                   <li class="page-item"><a class="page-link" href="#">1</a></li>
