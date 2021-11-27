@@ -70,10 +70,10 @@
           <div class="row">
 
               <div class="col-sm-3">
-                  <form action="functiontambahakun.php" method="post">
+                  <form action="functiontambahakun.php" method="post" enctype="multipart/form-data">
                   <div class="mb-3 mt-3 me-3">
                     <label for="gambar" class="form-label">Foto Profil</label>
-                    <input type="file" class="form-control" name="gambar" id="gambar">
+                    <input type="file" class="form-control" name="gambar" id="gambar" required>
                   </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="ketersediaanmenu" class="form-label">Level</label>
@@ -100,7 +100,7 @@
                   </div>
                   <div class="mb-3 mt-3 me-3">
                     <label for="nohp" class="form-label">No.Hp</label>
-                    <input type="text" class="form-control" name="No_Hp" id="nohp" pattern="[0-9]{10,}" title="Nomor HP hanya boleh diisi angka saja"
+                    <input type="text" class="form-control" name="No_Hp" id="nohp" pattern="[0-9]{8,}" title="Nomor Hp/Telpon tidak valid "
                     placeholder="cth. 081234567899" required>
                   </div>
                   <div class="mb-3 mt-3 me-3">
