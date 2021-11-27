@@ -81,8 +81,6 @@
           <header>Cafe</header>
         </div>
         <ul>
-            <li><a href="editprofil.php"><i class="far fa-address-card"></i>
-              <i class='no-italics'>Edit Akun</i></a></li>
             <li><a href="daftarakun.php"><i class="far fa-address-book"></i>
               <i class='no-italics'>Daftar Akun</i></a></li>
             <li><a href="daftarmenu.php"><i class="far fa-clipboard"></i>

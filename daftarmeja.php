@@ -75,8 +75,8 @@ include("includes/koneksi.php"); include("includes/logincheck.php");include("inc
           <div class="col-sm-2">
           </div>
           <div class="col-sm-10">
-            <div class="card shadow">
-              <div class="card-body">
+            <div class="">
+              <div class="">
               <!--  <ul class="pagination pagination-sm justify-content-center">
                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                   <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -107,6 +107,10 @@ include("includes/koneksi.php"); include("includes/logincheck.php");include("inc
                       <?php }else{ ?>
                       <td>Telah Dibooking</td>
                       <?php } ?>
+                      <td>
+                        <a href="edit.php?id=<?php echo $baru["id_meja"]; ?>">edit</a> |
+                       <a href="hapus.php?id=<?php echo $baru["id_meja"]; ?> " onclick="return confirm('yakin ingin menghapus <?php echo $baru["nama"]; ?>?');">hapus</a>
+                     </td>
                       </tr>
                      <?php }; ?>
 
