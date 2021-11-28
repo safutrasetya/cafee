@@ -25,26 +25,27 @@
               <div class="col-sm-3">
                 <form action="functiontambahmenu.php" method="post">
                   <div class="mb-3 mt-3 me-3">
-                    <label for="gambarmenu" class="form-label">Gambar Menu</label>
+                    <label for="gambar" class="form-label">Gambar Menu</label>
                     <input type="file" class="form-control" name="gambar" id="gambar" required>
                   </div>
                   <div class="mb-3 mt-5 me-3">
-                    <label for="ketersediaanmenu" class="form-label">Ketersediaan</label>
+                    <label for="ketersediaan" class="form-label">Ketersediaan</label>
                     <input type="radio" id="ada" name="ketersidiaan" value="1">
                     <label for="ada" class="form-label">Ada</label>
-                    <input type="radio" id="habis" name="ketersidiaan">
+                    <input type="radio" id="habis" name="ketersidiaan" value="0">
                     <label for="habis" class="form-label" value="0">Habis</label>
                   </div>
                 </div>
                 <div class="col-sm-9">
                   <div class="mb-3 mt-3 me-3">
-                    <label for="namamenu" class="form-label">Nama Menu</label>
-                    <input type="text" class="form-control" name="nama_menu"  placeholder="cth. Nasi gorenng spesial" required>
+                    <label for="nama_menu" class="form-label">Nama Menu</label>
+                    <input type="text" class="form-control" name="nama_menu" id="nama_menu"
+                     placeholder="cth. Nasi gorenng spesial" required>
                   </div>
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="mb-3 me-3">
-                        <label for="infomenu" class="form-label">Info Menu</label>
+                        <label for="info_menu" class="form-label">Info Menu</label>
                         <input type="text" class="form-control" name="info_menu" id="info_menu" placeholder="Nasi, Ayam Penyet" required>
                       </div>
                     </div>

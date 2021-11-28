@@ -11,7 +11,7 @@ $kategori = $_POST['kategori'];
 
 
 $query = "INSERT INTO menu (gambar,ketersidiaan,nama_menu,info_menu,harga,kategori) VALUES
-          ('$gambar','$nama_menu','$ketersidiaan','$info_menu','$harga','$kategori')";
+          ('$gambar','$ketersidiaan', '$nama_menu','$info_menu','$harga','$kategori')";
 
 $hasil = mysqli_query($koneksi,$query);
 

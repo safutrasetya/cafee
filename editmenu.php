@@ -43,13 +43,20 @@
                          output.src=URL.createObjectURL(event.target.files[0]);
                        }
                       </script>
-                  </div>-
+                  </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="ketersediaanmenu" class="form-label">Ketersediaan</label>
-                    <input type="radio" id="ada" name="ketersidiaan" value="1 <?php echo $data['ketersidiaan']; ?>">
-                    <label for="ada" class="form-label">Ada</label>
-                    <input type="radio" id="habis" name="ketersidiaan" value=" <?php echo $data['ketersidiaan']; ?>" >
-                    <label for="habis" class="form-label" value="0">Habis</label>
+                    <?php if($data['ketersidiaan']==1) { ?>
+                      <input type="radio" id="ada" name="ketersidiaan" value="1" checked>
+                      <label for="ada" class="form-label">Ada</label>
+                      <input type="radio" id="habis" name="ketersidiaan" value="0" >
+                      <label for="habis" class="form-label" value="0">Habis</label>
+                    <?php  }elseif($data['ketersidiaan']==0){ ?>
+                      <input type="radio" id="ada" name="ketersidiaan" value="1">
+                      <label for="ada" class="form-label">Ada</label>
+                      <input type="radio" id="habis" name="ketersidiaan" value="0" checked >
+                      <label for="habis" class="form-label" value="0">Habis</label>
+                    <?php  }?>
                   </div>
                 </div>
                 <div class="col-sm-9">
@@ -76,19 +83,43 @@
                   </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="Tipmenu" class="form-label">Tipe Menu : </label>
-                  <?php  if($data['kategori']==1){
-                    <input type="radio" id="menu" name="kategori" value="<?php echo $data['kategori'];?>">
+                  <?php  if($data['kategori']==1){ ?>
+                    <input type="radio" id="menu" name="kategori" value="1" checked>
                     <label for="menu" class="form-label">Makanan</label>
-                  }elseif ($data['kategori']==2) {
-                    <input type="radio" id="minuman" name="kategori" value="<?php echo $data['kategori'];?>">
+                    <input type="radio" id="minuman" name="kategori" value="2">
                     <label for="minuman" class="form-label" value="2">Minuman</label>
-                  }elseif ($data['kategori']==3) {
-                    <input type="radio" id="cemilan" name="kategori" value="<?php echo $data['kategori'];?>">
+                    <input type="radio" id="cemilan" name="kategori" value="3">
                     <label for="cemilan" class="form-label" value="3">Cemilan</label>
-                  }elseif ($data['kategori']==4) {
-                    <input type="radio" id="paket" name="kategori" value="<?php echo $data['kategori'];?>">
+                    <input type="radio" id="paket" name="kategori" value="4">
                     <label for="paket" class="form-label" value="4" >Paket</label>
-                  }?>
+                  <?php }elseif ($data['kategori']==2) { ?>
+                    <input type="radio" id="menu" name="kategori" value="1">
+                    <label for="menu" class="form-label">Makanan</label>
+                    <input type="radio" id="minuman" name="kategori" value="2" checked>
+                    <label for="minuman" class="form-label" value="2">Minuman</label>
+                    <input type="radio" id="cemilan" name="kategori" value="3">
+                    <label for="cemilan" class="form-label" value="3">Cemilan</label>
+                    <input type="radio" id="paket" name="kategori" value="4">
+                    <label for="paket" class="form-label" value="4" >Paket</label>
+                  <?php }elseif ($data['kategori']==3) { ?>
+                    <input type="radio" id="menu" name="kategori" value="1">
+                    <label for="menu" class="form-label">Makanan</label>
+                    <input type="radio" id="minuman" name="kategori" value="2">
+                    <label for="minuman" class="form-label" value="2">Minuman</label>
+                    <input type="radio" id="cemilan" name="kategori" value="3" checked>
+                    <label for="cemilan" class="form-label" value="3">Cemilan</label>
+                    <input type="radio" id="paket" name="kategori" value="4">
+                    <label for="paket" class="form-label" value="4" >Paket</label>
+                  <?php  }elseif ($data['kategori']==4) { ?>
+                    <input type="radio" id="menu" name="kategori" value="1">
+                    <label for="menu" class="form-label">Makanan</label>
+                    <input type="radio" id="minuman" name="kategori" value="2">
+                    <label for="minuman" class="form-label" value="2">Minuman</label>
+                    <input type="radio" id="cemilan" name="kategori" value="3">
+                    <label for="cemilan" class="form-label" value="3">Cemilan</label>
+                    <input type="radio" id="paket" name="kategori" value="4" checked>
+                    <label for="paket" class="form-label" value="4" >Paket</label>
+                  <?php  }?>
 
                   </div>
                   <div class="text-end me-3">
