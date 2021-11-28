@@ -16,7 +16,7 @@
   <?php include("includes/koneksi.php"); include("includes/logincheck.php");include("includes/admincheck.php");?>
     <?php include("temp_sidebar.php");?>
     <!--MODAL HAPUS-->
-  	<div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  	<!-- <div class="modal fade" id="hapusmenu" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   	  <div class="modal-dialog">
   	    <div class="modal-content">
   	      <div class="modal-header">
@@ -34,7 +34,7 @@
   	      </div>
   	    </div>
   	  </div>
-  	</div>
+  	</div> -->
   	<!--MODAL END-->
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
@@ -47,13 +47,13 @@
             <div class="col-sm-2">
             </div>
             <div class="col-sm-10">
-              <form>
+              <form method="POST">
                 <div class="row">
                   <div class="col-sm-5">
-                    <input type="text" class="form-control my-2" placeholder="Cari Menu...">
+                    <input type="text" class="form-control my-2" name="keyword" placeholder="Id_menu/nama_menu..." autocomplete="off">
                   </div>
                   <div class="col-sm-3">
-                    <button type="submit" class="btn btn-primary my-2">Search</button>
+                    <input type="submit" name="cari" class="btn btn-primary my-2" value="cari">
                   </div>
                   <div class="col text-end me-3" style="">
                     <a href="tambahmenu.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahmenu-icon.png" style="height:30px; width:30px;"> Tambah Menu</button></a>
@@ -67,8 +67,8 @@
           <div class="col-sm-2">
           </div>
           <div class="col-sm-10">
-            <div class="card shadow">
-              <div class="card-body">
+            <div class="">
+              <div class="">
               <!--  <ul class="pagination pagination-sm justify-content-center">
                   <li class="page-item"><a class="page-link" href="#">Previous</a></li>
                   <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -102,13 +102,19 @@
                       $jumlahMenu = mysqli_num_rows($menu);
                       $totalHalaman = ceil($jumlahMenu / $perHalaman);
 
-                      $menus = mysqli_query($koneksi,"SELECT * FROM menu LIMIT $halamanAwal, $perHalaman");
+                      if(!isset($_POST['cari'])){
+                        $menus = mysqli_query($koneksi,"SELECT * FROM menu LIMIT $halamanAwal, $perHalaman");
+                      }elseif(isset($_POST['cari'])){
+                        $cari = $_POST['keyword'];
+                        $menus = mysqli_query($koneksi,"SELECT * FROM menu WHERE nama_menu LIKE '%$cari%' OR
+                                 id_menu LIKE '%$cari%' LIMIT $halamanAwal,$perHalaman");
+                      }
                       while($d = mysqli_fetch_assoc($menus)){
+                   ?>
 
-                  /*$menu = mysqli_query($koneksi, "SELECT * FROM menu");
-                       while ($d = mysqli_fetch_assoc($menu)){
-                        */
-                      ?>
+
+
+
                     <tr>
                       <td><?php echo $d['id_menu'];?></td>
                       <td><img src="img/<?php echo $d['gambar']?>" class="gambarsize1"></td>

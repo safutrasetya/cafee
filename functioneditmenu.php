@@ -1,6 +1,6 @@
 <?php
 include("includes/koneksi.php");
-        $id   =$_GET'id_menu'];
+        $id_menu   =$_POST['id'];
         $gambar = $_POST['gambar'];
         $nama_menu = $_POST['nama_menu'];
         $info_menu = $_POST['info_menu'];
@@ -9,12 +9,12 @@ include("includes/koneksi.php");
         $ketersidiaan = $_POST['ketersidiaan'];
 
 if ($koneksi){
-          $sql = "UPDATE menu SET gambar='$gambar',nama_menu='$nama_menu',info_menu='$info_menu',harga='$harga', kategori='$kategori', ketersidiaan='$ketersidiaan' WHERE id=$id_menu";
+          $sql = "UPDATE menu SET gambar='$gambar',nama_menu='$nama_menu',info_menu='$info_menu',harga='$harga', kategori='$kategori', ketersidiaan='$ketersidiaan' WHERE id_menu='$id_menu'";
           mysqli_query($koneksi,$sql);
           echo "
           <script>
           alert('Menu berhasil diperbarui!');
-          document.location.href = 'editmenu.php';
+          document.location.href = 'daftarmenu.php';
           </script>
           ";
         } elseif ($koneksi->connect_error) {

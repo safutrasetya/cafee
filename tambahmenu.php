@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/cafee.css">
     <!--end css kita sendiri-->
     <title>Tambah Menu</title>
+    <script type="text/javascript"></script>
   </head>
   <body class="bg-light">
     <div class="jumbotron p-3 h-100" style="height: 750px;">
@@ -21,43 +22,42 @@
         </div>
         <div class="my-4 ps-3 pb-3 shadow">
           <div class="row">
-
               <div class="col-sm-3">
-                <form>
+                <form action="functiontambahmenu.php" method="post">
                   <div class="mb-3 mt-3 me-3">
                     <label for="gambarmenu" class="form-label">Gambar Menu</label>
-                    <input type="file" class="form-control" name="gambarmenu">
+                    <input type="file" class="form-control" name="gambar" id="gambar" required>
                   </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="ketersediaanmenu" class="form-label">Ketersediaan</label>
-                    <input type="radio" id="ada" name="ketersediaan" value="1">
+                    <input type="radio" id="ada" name="ketersidiaan" value="1">
                     <label for="ada" class="form-label">Ada</label>
-                    <input type="radio" id="habis" name="ketersediaan">
+                    <input type="radio" id="habis" name="ketersidiaan">
                     <label for="habis" class="form-label" value="0">Habis</label>
                   </div>
                 </div>
                 <div class="col-sm-9">
                   <div class="mb-3 mt-3 me-3">
                     <label for="namamenu" class="form-label">Nama Menu</label>
-                    <input type="text" class="form-control" name="namamenu" placeholder="cth. Nasi gorenng spesial">
+                    <input type="text" class="form-control" name="nama_menu"  placeholder="cth. Nasi gorenng spesial" required>
                   </div>
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="mb-3 me-3">
                         <label for="infomenu" class="form-label">Info Menu</label>
-                        <input type="text" class="form-control" name="infomenu" placeholder="Nasi, Ayam Penyet, Cabai, Blah-blah">
+                        <input type="text" class="form-control" name="info_menu" id="info_menu" placeholder="Nasi, Ayam Penyet" required>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="mb-3 me-3">
                         <label for="hargamenu" class="form-label">Harga</label>
-                        <input type="text" class="form-control" name="hargamenu" placeholder="cth. 20000">
+                        <input type="text" class="form-control" name="harga" id="harga" placeholder="cth. 20000" required>
                       </div>
                     </div>
                   </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="Tipmenu" class="form-label">Tipe Menu : </label>
-                    <input type="radio" id="menu" name="kategori" value="1">
+                    <input type="radio" id="makanan" name="kategori" value="1">
                     <label for="menu" class="form-label">Makanan</label>
                     <input type="radio" id="minuman" name="kategori">
                     <label for="minuman" class="form-label" value="2">Minuman</label>
@@ -67,7 +67,7 @@
                     <label for="paket" class="form-label" value="4">Paket</label>
                   </div>
                   <div class="text-end me-3">
-                    <a href="daftarmenu.php"><button type="button" class="btn btn-danger">Cancel</button></a>
+                    <a href="daftarmenu.php" onclick="return confirm('Anda yakin ingin keluar?')"><button type="button" class="btn btn-danger">Cancel</button></a>
                     <button type="submit" class="btn btn-success">Tambah!</button>
                   </div>
                 <form>
