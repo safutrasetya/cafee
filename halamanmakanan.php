@@ -25,7 +25,7 @@
             <h2 class="text-dark"> <?php include('functiontampilnomeja.php') ?> </h2>
             <!-- <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a> -->
           </div>
-          
+
           <div class="tm-paging-links">
             <nav>
               <ul>
@@ -38,11 +38,11 @@
             </nav>
           </div>
           <?php include('functionpesanmenu.php'); ?>
-          <table>
-            <tbody>
+          <div class="container-fluid mb-4">
+            <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
               <?php include('functiontampilmakanan.php'); ?>
-            </tbody>
-          </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
