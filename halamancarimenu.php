@@ -11,6 +11,9 @@
     <!--end css kita sendiri-->
     <!-- css kita -->
     <link href = "css/halmakanan.css" rel = "stylesheet">
+    <!--AJAX--->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Makanan</title>
   </head>
 
@@ -21,11 +24,11 @@
       <div class="jumbotron p-3 h-100" style="height: 750px;">
         <div class="jumbotron bg-light shadow-lg mx-auto p-5">
           <div class="mx-auto text-center pt-1 mb-3" style="margin-top:-25px;">
-            <h2 class="text-dark">Orari Restaurant</h2>
+
             <h2 class="text-dark"> <?php include('functiontampilnomeja.php') ?> </h2>
             <!-- <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a> -->
           </div>
-          <div class="tm-paging-links">
+          <div class="tm-paging-links mb-2">
             <nav>
               <ul>
                 <li class="tm-paging-item"><a href="halamancarimenu.php" class="tm-paging-link active">Cari menu</a></li>
@@ -36,15 +39,41 @@
               </ul>
             </nav>
           </div>
+          <input name="search_box" id="search_box" type="text" class="form-control" placeholder="Cari menu...">
           <?php include('functionpesanmenu.php'); ?>
-          <div class="container-fluid mb-4">
-            <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
-              <?php include('functiontampilmakanan.php'); ?>
-            </div>
-          </div>
+          <div id="search_result"></div>
+
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+      $(document).ready(function(){
+        load_data(1);
+        function load_data(page, query = ''){
+          $.ajax({
+            url:"functionsearchmenu.php",
+            method:"POST",
+            data:{page:page, query:query},
+            success:function(data){
+              $('#search_result').html(data);
+            }
+          });
+        }
+
+        $(document).on('click', '.page-link', function(){
+          var page = $(this).data('page_number');
+          var query = $('#search_box').val();
+          load_data(page, query);
+        });
+
+        $('#search_box').keyup(function(){
+          var query = $('#search_box').val();
+          load_data(1, query);
+        });
+      });
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
