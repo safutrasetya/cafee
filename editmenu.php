@@ -28,14 +28,12 @@
         <div class="my-4 ps-3 pb-3 shadow">
           <div class="row">
               <div class="col-sm-3">
-                <form action="functioneditmenu.php" method="post">
-                  <div class="isi mb-3 mt-3 me-3">
-                      <input type="text" class="form-control" name="id_menu" hidden value="<?php echo $data['id_menu']; ?>">
+                <form action="functioneditmenu.php" method="post" enctype="multipart/form-data">
+                        <input type="hidden" name="gambarLama" value="<?php echo $data['gambar'];?>">
                   </div>
                   <div class="mb-3 mt-3 me-3">
                     <label for="gambarmenu" class="form-label">Gambar Menu</label>
-                    <input type="file" class="form-control" name="gambar" value="img/<?php echo $data['gambar'] ?>"
-                     onchange="loadfile(event)" required>
+                    <input type="file" class="form-control" name="gambar" id="gambar" value="<?php echo $data['gambar']?>" onchange="loadfile(event)">
 
                      <script type="text/javascript">
                        function loadfile(event){
@@ -84,7 +82,7 @@
                   <div class="mb-3 mt-5 me-3">
                     <label for="Tipmenu" class="form-label">Tipe Menu : </label>
                   <?php  if($data['kategori']==1){ ?>
-                    <input type="radio" id="menu" name="kategori" value="1" checked>
+                    <input type="radio" id="makanan" name="kategori" value="1" checked>
                     <label for="menu" class="form-label">Makanan</label>
                     <input type="radio" id="minuman" name="kategori" value="2">
                     <label for="minuman" class="form-label" value="2">Minuman</label>

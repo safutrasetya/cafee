@@ -23,7 +23,7 @@
         <div class="my-4 ps-3 pb-3 shadow">
           <div class="row">
               <div class="col-sm-3">
-                <form action="functiontambahmenu.php" method="post">
+                <form action="functiontambahmenu.php" method="post" enctype="multipart/form-data">
                   <div class="mb-3 mt-3 me-3">
                     <label for="gambar" class="form-label">Gambar Menu</label>
                     <input type="file" class="form-control" name="gambar" id="gambar" required>
@@ -33,7 +33,7 @@
                     <input type="radio" id="ada" name="ketersidiaan" value="1">
                     <label for="ada" class="form-label">Ada</label>
                     <input type="radio" id="habis" name="ketersidiaan" value="0">
-                    <label for="habis" class="form-label" value="0">Habis</label>
+                    <label for="habis" class="form-label" >Habis</label>
                   </div>
                 </div>
                 <div class="col-sm-9">
@@ -59,13 +59,13 @@
                   <div class="mb-3 mt-5 me-3">
                     <label for="Tipmenu" class="form-label">Tipe Menu : </label>
                     <input type="radio" id="makanan" name="kategori" value="1">
-                    <label for="menu" class="form-label">Makanan</label>
-                    <input type="radio" id="minuman" name="kategori">
-                    <label for="minuman" class="form-label" value="2">Minuman</label>
-                    <input type="radio" id="cemilan" name="kategori">
-                    <label for="cemilan" class="form-label" value="3">Cemilan</label>
-                    <input type="radio" id="paket" name="kategori">
-                    <label for="paket" class="form-label" value="4">Paket</label>
+                    <label for="makanan" class="form-label">Makanan</label>
+                    <input type="radio" id="minuman" name="kategori" value="2">
+                    <label for="minuman" class="form-label" >Minuman</label>
+                    <input type="radio" id="cemilan" name="kategori" value="3">
+                    <label for="cemilan" class="form-label" >Cemilan</label>
+                    <input type="radio" id="paket" name="kategori" value="4">
+                    <label for="paket" class="form-label" >Paket</label>
                   </div>
                   <div class="text-end me-3">
                     <a href="daftarmenu.php" onclick="return confirm('Anda yakin ingin keluar?')"><button type="button" class="btn btn-danger">Cancel</button></a>
