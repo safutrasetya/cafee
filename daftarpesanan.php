@@ -104,7 +104,7 @@ while ($d = mysqli_fetch_array($data)){
 
 
             <div class="d-grid gap-2">
-              <a href="funct_psn_update.php?id_kita=<?= $id_kita?>" class="btn btn-dark" onclick="return confirm('Apakah pesanan ini sudah selesai?')"> Selesai</a>
+              <a href="funct_psn_update.php?id_kita=<?= $id_kita?>" class="btn btn-success" onclick="return confirm('Apakah pesanan ini sudah selesai?')"> Selesai</a>
             </div>
         </div>
 
@@ -155,7 +155,7 @@ while ($d = mysqli_fetch_array($data)){
 
           <?php } ?>
           <div class="d-grid gap-2">
-                <a href="funct_psn_kembali.php?id_kita=<?= $id_kita?>" class="btn btn-success"> Kembalikan</a>
+                <a href="funct_psn_kembali.php?id_kita=<?= $id_kita?>" class="btn btn-danger"> Kembalikan</a>
           </div>
 
 
