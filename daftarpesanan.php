@@ -56,7 +56,7 @@ require 'functions.php';
     <?php include("temp_sidebar.php");?>
 
       <div class="header">
-          <h3 class="text-center">Daftar Pesanan</h3>
+          <h3 class="text-center display-5">Daftar Pesanan</h3>
       </div>
     <div class="container-dua border border-white border-3">
 
@@ -95,7 +95,7 @@ while ($d = mysqli_fetch_array($data)){
 
 
             <div class="d-grid gap-2">
-            <a href="funct_psn_update.php?id_kita=<?= $id_kita?>" class="btn btn-success"> Selesai</a>
+              <a href="funct_psn_update.php?id_kita=<?= $id_kita?>" class="btn btn-success" onclick="return confirm('Apakah pesanan ini sudah selesai?')"> Selesai</a>
             </div>
         </div>
 
