@@ -57,7 +57,12 @@ require 'functions.php';
     background-color: #f7d7da;
     margin-top: 20px;
     margin: 20px;
+}
 
+div.meja{
+  margin-bottom: 8px;
+  border-color: black;
+  border-top-style: solid;
 }
     </style>
   </head>
@@ -102,7 +107,9 @@ while ($d = mysqli_fetch_array($data)){
 
         <?php } ?>
 
-
+<div class="meja">
+  Meja : <?= $d["id_meja"]  ?>
+</div>
             <div class="d-grid gap-2">
               <a href="funct_psn_update.php?id_kita=<?= $id_kita?>" class="btn btn-success" onclick="return confirm('Apakah pesanan ini sudah selesai?')"> Selesai</a>
             </div>
@@ -154,6 +161,9 @@ while ($d = mysqli_fetch_array($data)){
           <p><?= $dp['nama_pesanan'] ?> (<?= $dp['banyak_psn']?>)</p>
 
           <?php } ?>
+          <div class="meja">
+            Meja : <?= $d["id_meja"]  ?>
+          </div>
           <div class="d-grid gap-2">
                 <a href="funct_psn_kembali.php?id_kita=<?= $id_kita?>" class="btn btn-danger"> Kembalikan</a>
           </div>
