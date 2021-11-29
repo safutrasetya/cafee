@@ -1,7 +1,7 @@
 <?php
 include("includes/koneksi.php");
         $id_menu   =$_POST['id'];
-        $ketersidiaan =htmlspecialchars($_POST['ketersidiaan']);
+        $ketersidiaan =$_POST['ketersidiaan'];
         $nama_menu = htmlspecialchars ($_POST['nama_menu']);
         $info_menu = htmlspecialchars($_POST['info_menu']);
         $harga = htmlspecialchars ($_POST['harga']);
