@@ -54,7 +54,7 @@ require 'functions.php';
   width: 200px;
     padding: 20px;
     box-sizing: border-box;
-    background-color: #dc3545;
+    background-color: #fe4d4d;
     margin-top: 20px;
     margin: 20px;
 
