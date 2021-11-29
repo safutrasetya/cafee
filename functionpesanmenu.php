@@ -1,6 +1,6 @@
 <?php
 if(isset($_GET['addMakanan'])){
-  
+
   // print_r($_GET['pesanan_baru']);
   if(isset($_SESSION['keranjang'])){
 
@@ -27,8 +27,13 @@ if(isset($_GET['addMakanan'])){
     $_SESSION['keranjang'][0]=$item_array;
     // print_r($_SESSION['keranjang']);
     // print_r(key(array_column($_SESSION['keranjang'],'menu_id')));
-    echo "<div class='alert alert-info' role='alert'><i class='bi bi-check-lg'></i> Pesanan dimasukkan ke keranjang!</div>";
-    echo "<script>window.location = 'halamanmakanan.php</script>";
+    $updtstatmeja = "UPDATE meja SET reservasi = 1 WHERE id_meja='{$_SESSION['meja']}'";
+    if($koneksi->query($updtstatmeja) === TRUE){
+      echo "<div class='alert alert-info' role='alert'><i class='bi bi-check-lg'></i> Pesanan dimasukkan ke keranjang!</div>";
+      echo "<script>window.location = 'halamanmakanan.php</script>";
+    }else{
+      echo "Error: ".$updtstatmeja."<br>".$koneksi->error;
+    }
   }
 }
 ?>

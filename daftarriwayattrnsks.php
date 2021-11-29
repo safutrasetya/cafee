@@ -76,7 +76,6 @@
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron h-100" style="height: 750px;">
       <div class="row">
-
         <div class="col-sm-12">
           <div class="mx-auto my-3" style="">
             <h2 class="text-dark text-center display-5">Riwayat Transaksi</h2>

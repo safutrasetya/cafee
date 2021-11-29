@@ -28,7 +28,7 @@
     <?php include('temp_navbar.php'); ?>
     <div class="jumbotron pt-3 mt-5 h-100" >
       <div class="jumbotron bg-light mx-auto" >
-        <div class="mx-auto text-center mb-2" style="margin-top:-25px;">
+        <div class="mx-auto text-center mb-2">
           <h2 class="text-dark">Sudah yakin dengan pesanan anda?</h2>
         </div>
         <div class="p-2 shadow mx-4">

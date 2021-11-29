@@ -21,7 +21,6 @@
       <div class="jumbotron p-3 h-100" style="height: 750px;">
         <div class="jumbotron bg-light shadow-lg mx-auto p-5">
           <div class="mx-auto text-center pt-1 mb-3" style="margin-top:-25px;">
-            <h2 class="text-dark">Orari Restaurant</h2>
             <h2 class="text-dark"> <?php include('functiontampilnomeja.php') ?> </h2>
             <!-- <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a> -->
           </div>

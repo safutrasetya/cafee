@@ -42,17 +42,17 @@
                   </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="ketersediaanmenu" class="form-label">Ketersediaan</label>
-                    <?php if($data['ketersidiaan']==1) { ?>
-                      <input type="radio" id="ada" name="ketersidiaan" value="1" checked required>
-                      <label for="ada" class="form-label">Ada</label>
-                      <input type="radio" id="habis" name="ketersidiaan" value="0" >
-                      <label for="habis" class="form-label" value="0">Habis</label>
-                    <?php  }elseif($data['ketersidiaan']==0){ ?>
-                      <input type="radio" id="ada" name="ketersidiaan" value="1">
-                      <label for="ada" class="form-label">Ada</label>
-                      <input type="radio" id="habis" name="ketersidiaan" value="0" checked required >
-                      <label for="habis" class="form-label" value="0">Habis</label>
-                    <?php  }?>
+                    <?php if($data['ketersidiaan']>=1){
+                      echo"<input type='radio' id='ada' name='ketersidiaan' value='1' checked required>
+                      <label for='ada' class='form-label'>Ada</label>
+                      <input type='radio' id='habis' name='ketersidiaan' value='0' >
+                      <label for='habis' class='form-label' value='0'>Habis</label>";
+                      }elseif($data['ketersidiaan']==0){
+                      echo "<input type='radio' id='ada' name='ketersidiaan' value='1'>
+                      <label for='ada' class='form-label'>Ada</label>
+                      <input type='radio' id='habis' name='ketersidiaan' value='0' checked required >
+                      <label for='habis' class='form-label' value='0'>Habis</label>";
+                      }?>
                   </div>
                 </div>
                 <div class="p-5 col-sm-9">

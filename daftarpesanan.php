@@ -165,7 +165,7 @@ while ($d = mysqli_fetch_array($data)){
             Meja : <?= $d["id_meja"]  ?>
           </div>
           <div class="d-grid gap-2">
-                <a href="funct_psn_kembali.php?id_kita=<?= $id_kita?>" class="btn btn-danger"> Kembalikan</a>
+                <a href="funct_psn_kembali.php?id_kita=<?= $id_kita?>" class="btn btn-danger" onclick="return confirm('Kembalikan pesanan ini?')"> Kembalikan</a>
           </div>
 
 

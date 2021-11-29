@@ -50,11 +50,11 @@
                 if (isset($_SESSION['nama'])){
                   echo "<li><a class='dropdown-item' href='profil.php'>Profil</a></li>";
                   echo "<li><a class='dropdown-item' href='daftarakun.php'>Admin</a></li>";
-                }else{
-
+                  echo "<li><a class='dropdown-item' href='functionlogout.php'>Logout</a></li>";
+                }elseif(isset($_SESSION['meja'])){
+                  echo '<li><a class="dropdown-item" href="logoutmeja.php">Logout</a></li>';
                 }
               ?>
-              <li><a class="dropdown-item" href="functionlogout.php">Logout</a></li>
           </ul>
       </div>
     </div>

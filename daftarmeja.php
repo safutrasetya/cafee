@@ -180,7 +180,7 @@ $tampilmeja = query("SELECT*FROM meja");
         var button = event.relatedTarget
         // Extract info from data-bs-* attributes
         var idforupdt = button.getAttribute('data-bs-whatever')
-        var statusmeja = button.getAttribute('statusmeja')
+        var statusmeja = button.getAttribute('reservasi')
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
         //
@@ -191,10 +191,12 @@ $tampilmeja = query("SELECT*FROM meja");
         modalTitle.textContent = 'Ubah status Meja :  ' + idforupdt
         modalBodyInput.value = idforupdt
 
-        if (statusmeja ==1){
-          document.getElementById("sudah").checked = true;
+        if (statusmeja==1){
+          document.getElementById("penuh").checked = true;
         }else if (statusmeja==0){
-          document.getElementById("belum").checked = true;
+          document.getElementById("kosong").checked = true;
+        }else if (statusmeja==2){
+          document.getElementById("dibooking").checked = true;
         }
       });
     </script>

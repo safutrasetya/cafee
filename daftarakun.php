@@ -15,161 +15,181 @@
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/akun.css">
     <link rel="stylesheet" href="css/cafee.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <title>Daftar Akun</title>
   </head>
   <body class="bg-light">
-    <?php include("temp_sidebar.php");?>
-    <div class="jumbotron p-3 h-100" style="height: 750px;">
-      <div class="jumbotron bg-light shadow-lg mx-auto p-5">
-        <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-          <h2 class="text-dark">Daftar Akun</h2>
-          <a href="functionlogout.php"><button class="btn btn-info" type="button" name="btnLogout">Temporary Logout Button</button></a>
-        </div>
-        <div class="my-4 ps-3 shadow">
-          <div class="row">
-            <div class="col-sm-2">
-            </div>
-            <div class="col">
-              <form action="" method="POST">
-                <div class="row">
-                  <div class="col-sm-4" style="margin-left:320px;margin-top:7px;">
-                    <input type="text" name="keyword" id="keyword" class="form-control my-2" placeholder="Masukkan ID/Username/Nama..." autocomplete="off">
-                  </div>
-                  <div class="col-sm-2" style="margin-top:0px;padding:5px;">
-                    <button type="submit" id="tombol-cari" name="cari" class="btn btn-primary my-2 form-control">Cari</button>
-                  </div>
-                  <div class="col text-end" style="margin-right:5px;">
-                  <a href="tambahakun.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahakun-icon2.png" style="height:30px; width:30px;"> Tambah akun</button></a>
-                  </div>
-                </div>
-              </form>
-            </div>
+    <div class="modal" id="gantilevel" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="">Ubah Level Akun</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
-        </div>
-        <div class="row">
-          <div class="col-sm-2">
-          </div>
-          <div class="col-sm-10">
-            <div class="">
-              <div class="body" id="container">
-                <!-- <ul class="pagination pagination-sm justify-content-center">
-                  <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                </ul> -->
-                <table class="table table-bordered table-info">
-                  <thead class="h5">
-                    <tr style="text-align:center">
-                      <td>Id</td>
-                      <td>Foto</td>
-                      <td>Username</td>
-                      <td>Nama</td>
-                      <td>Email</td>
-                      <td>No. Handphone</td>
-                      <td>Action</td>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <?php
-                        $perHalaman = 6;
-                        $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman']  : 1;
-                        $halamanAwal = ($halaman>1) ? ($halaman * $perHalaman) - $perHalaman : 0;
-
-                        $prev = $halaman - 1;
-                        $next = $halaman + 1;
-
-                        $akun = mysqli_query($koneksi,"SELECT * FROM akun");
-                        $jumlahAkun = mysqli_num_rows($akun);
-                        $totalHalaman = ceil($jumlahAkun / $perHalaman);
-
-                        $akuns = mysqli_query($koneksi,"SELECT * FROM akun LIMIT $halamanAwal, $perHalaman");
-                        while($d = mysqli_fetch_assoc($akuns)){
-                     ?>
-                    <tr>
-                      <td><?php echo $d['id'];?></td>
-                      <td><img src="img/<?php echo $d['gambar']?>" class="gambarsize1"></td>
-                      <td><?php echo $d['username'] ?></td>
-                      <td><?php echo $d['nama'] ?></td>
-                      <td><?php echo $d['email'];?></td>
-                      <td><?php echo $d['No_Hp'];?></td>
-                      <td>
-                        <form action="#">
-                          <input type="text" value="" hidden>
-                          <a href="editprofil.php?id=<?php echo $d['id'];?>"class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
-                          <a class="btn btn-danger" onclick="return confirm('Are you sure to delete this account?')" href="functionhapusakun.php?id=<?php echo $d['id'];?>"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>
-                        </form>
-                      </td>
-                    </tr>
-                  <?php  } ?>
-                       <!-- for($i=0;$i<6;++$i){
-                         echo "<tr>
-                          <td>1</td>
-                           <td><img src='img/imgtest1.jpg' class='gambarsize1'></td>
-                           <td>User1@gmail.com</td>
-                           <td>08237794698</td>
-                         <td>
-                             <form action='#'>
-                               <input type='text' value='' hidden>
-                               <button class='btn btn-success'><img src='img/edit-icon.png' style='height:20px; width:20px;'> Edit</button>
-                               <button class='btn btn-danger'><img src='img/trash-can.png' style='height:20px; width:15px;'> Hapus</button>
-                             </form>
-                           </td>
-                         </tr>";
-                       }
-                      -->
-                  </tbody>
-                </table>
-                <ul class="pagination pagination-sm justify-content-center">
-                  <li class="page-item">
-                    <a class="page-link" <?php if($halaman > 1){echo "href = '?halaman=$prev'";} ?>>Previous</a>
-                  </li>
-                  <?php
-                  for($x = 1;$x<=$totalHalaman;$x++){ ?>
-                        <li class="page-item">
-                          <a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a>
-                          </li>
-                    <?php
-                    } ?>
-                    <li class="page-item">
-                      <a class="page-link" <?php if($halaman < $totalHalaman){ echo "href='?halaman=$next'";}?>>Next</a>
-                    </li>
-                </ul>
+          <div class="modal-body">
+            <p class="text-danger">PERHATIAN! Mengubah akun staff menjadi admin akan mengakibatkan anda tidak dapat mengedit kembali/menghapus akun tersebut. Ubah jabatan user dengan bijak.</p>
+            <form method="POST" action="">
+              <div class="mb-3">
+                <input hidden name="idupdtlevel" type="text" class="form-control" id="idupdtlevel">
+                <input class="" type="radio" name="levelakun" id="admin" value="1">
+                <label class="form-check-label" for="admin">Admin</label>
+                <input class="" type="radio" name="levelakun" id="staff" value="2">
+                <label class="form-check-label" for="staff">Staff</label>
               </div>
+              <div class="mt-2">
+                <button type="button" class="btn btn-outline-secondary float-start" data-bs-dismiss="modal">Batal</button>
+                <button type="submit" name="btnUpdtLvl" class="btn btn-primary float-end" data-bs-dismiss="modal">Simpan</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <?php include("temp_sidebar.php");?>
+    <div class="jumbotron h-100" style="height: 750px;">
+      <div class="mx-auto my-3" style="">
+        <h2 class="text-dark text-center display-5">Daftar Akun</h2>
+      </div>
+      <div class="row pe-2">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-11">
+          <div class="my-4 ps-3 shadow">
+                <form action="" method="POST">
+                  <div class="row">
+                    <div class="col-sm-8">
+                      <input type="text" name="keyword" id="keyword" class="form-control my-2" placeholder="Masukkan ID/Username/Nama..." autocomplete="off">
+                    </div>
+                    <div class="col-sm-2">
+                      <button type="submit" id="tombol-cari" name="cari" class="btn btn-primary my-2 form-control">Search</button>
+                    </div>
+                    <div class="col-sm-2">
+                      <a href="tambahakun.php"><button type="button" class="btn btn-success my-2 me-3 float-end"><i class="bi bi-person-plus"></i> Tambah akun</button></a>
+                    </div>
+                  </div>
+                </form>
+          </div>
+        </div>
+      </div>
+      <div class="row pe-2">
+        <div class="col-sm-1">
+        </div>
+        <div class="col-sm-11">
+          <div class="mb-3 p-3 shadow">
+            <?php include('functionubahlvl.php'); ?>
+            <div class="body" id="container">
+              <table class="table table-bordered table-info">
+                <thead class="h5">
+                  <tr style="text-align:center">
+                    <td>Id</td>
+                    <td>Foto</td>
+                    <td>Username</td>
+                    <td>Nama</td>
+                    <td>Email</td>
+                    <td>No. Handphone</td>
+                    <td>Level</td>
+                    <td>Action</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                      $perHalaman = 6;
+                      $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman']  : 1;
+                      $halamanAwal = ($halaman>1) ? ($halaman * $perHalaman) - $perHalaman : 0;
+
+                      $prev = $halaman - 1;
+                      $next = $halaman + 1;
+
+                      $akun = mysqli_query($koneksi,"SELECT * FROM akun");
+                      $jumlahAkun = mysqli_num_rows($akun);
+                      $totalHalaman = ceil($jumlahAkun / $perHalaman);
+
+                      $akuns = mysqli_query($koneksi,"SELECT * FROM akun LIMIT $halamanAwal, $perHalaman");
+                      while($d = mysqli_fetch_assoc($akuns)){
+                        $id=$d['id'];
+                        $levelakun = $d['level'];
+                   ?>
+                  <tr>
+                    <td><?php echo $d['id'];?></td>
+                    <td><img src="img/<?php echo $d['gambar']?>" class="gambarsize1"></td>
+                    <td><?php echo $d['username'] ?></td>
+                    <td><?php echo $d['nama'] ?></td>
+                    <td><?php echo $d['email'];?></td>
+                    <td><?php echo $d['No_Hp'];?></td>
+                    <td>
+                      <?php
+                        if($d['level']==1){
+                          echo "Admin";
+                        }elseif($d['level']==2){
+                          echo "Staff";
+                        }
+                      ?>
+                    </td>
+                    <td>
+                      <?php
+                        if($d['level']==2 && $_SESSION['level']==1){
+                          echo "<button name='gantilevel' type='button' class='btn btn-success me-1' data-bs-toggle='modal' data-bs-target='#gantilevel' data-bs-whatever='$id' statuslevel='$levelakun'><img src='img/edit-icon.png' style='height:20px; width:20px;'> Edit</button>";
+                          echo "<a class='btn btn-danger' onclick='return confirm(";
+                          echo '"Are you sure to delete this account?"';
+                          echo ")' href='functionhapusakun.php?id=$id'><img src='img/trash-can.png' style='height:20px; width:15px;'> Hapus</a>";
+                        }
+                       ?>
+                    </td>
+                  </tr>
+                <?php  } ?>
+                </tbody>
+              </table>
+              <ul class="pagination pagination-sm justify-content-center">
+                <li class="page-item">
+                  <a class="page-link" <?php if($halaman > 1){echo "href = '?halaman=$prev'";} ?>>Previous</a>
+                </li>
+                <?php
+                for($x = 1;$x<=$totalHalaman;$x++){ ?>
+                      <li class="page-item">
+                        <a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a>
+                        </li>
+                  <?php
+                  } ?>
+                  <li class="page-item">
+                    <a class="page-link" <?php if($halaman < $totalHalaman){ echo "href='?halaman=$next'";}?>>Next</a>
+                  </li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <!-- <script>
-      $(document).ready(function(){
-        load_data(1);
-        function load_data(page, query = ''){
-          $.ajax({
-            url:"functioncari.php",
-            method:"POST",
-            data:{page:page, query:query},
-            success:function(data){
-              $('#search_result').html(data);
-            }
-          });
-        }
-
-        $(document).on('click', '.page-link', function(){
-          var page = $(this).data('page_number');
-          var query = $('#search_box').val();
-          load_data(page, query);
-        });
-
-        $('#search_box').keyup(function(){
-          var query = $('#search_box').val();
-          load_data(1, query);
-        });
+    <script src="js/searchakun.js"></script>
+    <script>
+      jQuery(function($) {
+        $('#divAlert').delay(3000).fadeOut(500);
       });
+      var formodallvl = document.getElementById('gantilevel')
+      formodallvl.addEventListener('show.bs.modal', function (event) {
+        // Button that triggered the modal
+        var button = event.relatedTarget
+        // Extract info from data-bs-* attributes
+        var idlvlupdt = button.getAttribute('data-bs-whatever')
+        var statuslevel = button.getAttribute('statuslevel')
+        // If necessary, you could initiate an AJAX request here
+        // and then do the updating in a callback.
+        //
+        // Update the modal's content.
+        var modalTitlelvl = formodallvl.querySelector('.modal-title')
+        var modalBodyInput = formodallvl.querySelector('.modal-body input')
 
-    </script> -->
+        modalTitlelvl.textContent = 'Ubah level akun : ' + idlvlupdt
+        modalBodyInput.value = idlvlupdt
+
+        if (statuslevel==1){
+          document.getElementById("admin").checked = true;
+        }else if (statuslevel==2){
+          document.getElementById("staff").checked = true;
+        }
+      });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
-  <script src="js/searchakun.js"></script>
 </html>
