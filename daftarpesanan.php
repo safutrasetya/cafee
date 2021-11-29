@@ -80,7 +80,7 @@ while ($d = mysqli_fetch_array($data)){
 
 ?>
 
-      <div class="pesanan">
+      <div class="pesanan-selesai">
           <h4 style="text-align: center" >
 
           <span class="border-bottom border-white border-3">Pesanan <?= $d['id_transaksi']?></span>
@@ -104,7 +104,7 @@ while ($d = mysqli_fetch_array($data)){
 
 
             <div class="d-grid gap-2">
-              <a href="funct_psn_update.php?id_kita=<?= $id_kita?>" class="btn btn-success" onclick="return confirm('Apakah pesanan ini sudah selesai?')"> Selesai</a>
+              <a href="funct_psn_update.php?id_kita=<?= $id_kita?>" class="btn btn-dark" onclick="return confirm('Apakah pesanan ini sudah selesai?')"> Selesai</a>
             </div>
         </div>
 
@@ -133,7 +133,7 @@ while ($d = mysqli_fetch_array($data)){
 
     ?>
 
-        <div class="pesanan-selesai">
+        <div class="pesanan">
             <h4 style="text-align: center" >
 
             <span class="border-bottom border-white border-3">Pesanan <?= $d['id_transaksi']?></span>
@@ -155,7 +155,7 @@ while ($d = mysqli_fetch_array($data)){
 
           <?php } ?>
           <div class="d-grid gap-2">
-                <a href="funct_psn_kembali.php?id_kita=<?= $id_kita?>" class="btn btn-dark"> Kembalikan</a>
+                <a href="funct_psn_kembali.php?id_kita=<?= $id_kita?>" class="btn btn-success"> Kembalikan</a>
           </div>
 
 
