@@ -22,7 +22,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid">
-  <a href="halamanmakanan.php" class="link-dark" class="fs-4" style="text-decoration: none; font-size: 20px; margin-top: 6px; margin-right: 10px" ><img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: 10px" class="rounded-circle">Home</a>
+  <a href="halamanmakanan.php" class="link-dark" class="fs-4" style="text-decoration: none; font-size: 20px; margin-top: 6px; margin-right: 10px" ><img src="img/img1.jpg" alt="" width="35" height="35" style ="margin-right: 10px" class="rounded-circle">Home</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -59,7 +59,7 @@
       </div>
     <div class="dropdown">
         <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        <a href="aboutus.php"><img src="img/img1.png" alt="" width="35" height="35" style ="margin-right: " class="rounded-circle"></a>
+        <a href="aboutus.php"><img src="img/img1.jpg" alt="" width="35" height="35" style ="margin-right: " class="rounded-circle"></a>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="profil.php">Profil</a></li>

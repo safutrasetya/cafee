@@ -50,6 +50,20 @@ require 'functions.php';
     margin: 20px;
 
 }
+.pesanan-selesai{
+  width: 200px;
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: #f7d7da;
+    margin-top: 20px;
+    margin: 20px;
+}
+
+div.meja{
+  margin-bottom: 8px;
+  border-color: black;
+  border-top-style: solid;
+}
     </style>
   </head>
   <body>
@@ -71,7 +85,7 @@ while ($d = mysqli_fetch_array($data)){
 
 ?>
 
-      <div class="pesanan">
+      <div class="pesanan-selesai">
           <h4 style="text-align: center" >
 
           <span class="border-bottom border-white border-3">Pesanan <?= $d['id_transaksi']?></span>
@@ -93,7 +107,9 @@ while ($d = mysqli_fetch_array($data)){
 
         <?php } ?>
 
-
+<div class="meja">
+  Meja : <?= $d["id_meja"]  ?>
+</div>
             <div class="d-grid gap-2">
               <a href="funct_psn_update.php?id_kita=<?= $id_kita?>" class="btn btn-success" onclick="return confirm('Apakah pesanan ini sudah selesai?')"> Selesai</a>
             </div>
@@ -106,6 +122,64 @@ while ($d = mysqli_fetch_array($data)){
         </div>
 
     </div>
+
+
+        <div class="header">
+            <h3 class="text-center">Daftar Pesanan (Selesai)</h3>
+        </div>
+      <div class="container-dua border border-white border-3">
+
+    <?php
+
+    // foreach($id_trans as $id_tran):
+
+    //   $pesanan = mysql_query("SELECT nama_pesanan, banyak_psn,id_meja FROM pesanan WHERE id_transaksi =  20");
+
+    $data = mysqli_query($connect, "SELECT  * FROM riwayat_pembelian WHERE status_pesanan=1  ");
+    while ($d = mysqli_fetch_array($data)){
+
+    ?>
+
+        <div class="pesanan">
+            <h4 style="text-align: center" >
+
+            <span class="border-bottom border-white border-3">Pesanan <?= $d['id_transaksi']?></span>
+            </h4>
+              <!-- <div class="ex1"> -->
+           <!-- <p>id Transaksi : <?=$d['id_transaksi'] ?></p> -->
+           <?php $id_kita=$d['id_transaksi'] ?>
+
+
+
+          <!-- </div>   -->
+
+          <h5>Nama Pesanan :</h5>
+        <?php
+        $data_pesanan = mysqli_query($connect, "SELECT * from pesanan where id_transaksi = $id_kita AND status_pesanan=0");
+        while ($dp = mysqli_fetch_array($data_pesanan)){
+            ?>
+          <p><?= $dp['nama_pesanan'] ?> (<?= $dp['banyak_psn']?>)</p>
+
+          <?php } ?>
+          <div class="meja">
+            Meja : <?= $d["id_meja"]  ?>
+          </div>
+          <div class="d-grid gap-2">
+                <a href="funct_psn_kembali.php?id_kita=<?= $id_kita?>" class="btn btn-danger"> Kembalikan</a>
+          </div>
+
+
+          </div>
+
+          <?php
+
+              }
+         ?>
+          </div>
+
+      </div>
+
+
 
 
 
