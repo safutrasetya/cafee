@@ -20,21 +20,19 @@
     $sql = mysqli_query($koneksi,"SELECT * FROM menu WHERE id_menu='$id_menu'");
     $data = mysqli_fetch_assoc($sql);
      ?>
-    <div class="jumbotron p-3 h-100" style="height: 750px;">
-      <div class="jumbotron bg-light shadow-lg mx-auto p-5">
-        <div class="mx-auto text-center mb-5" style="margin-top:-25px;">
-          <h2 class="text-dark">Edit Menu</h2>
-        </div>
-        <div class="my-4 ps-3 pb-3 shadow">
+     <div class="container-fluid">
+       <div class="container bg-info text-center header ">
+         <h1>Edit Menu</h1>
+       </div>
+        <div class="container shadow p-3 mb-5 bg-body rounded isi">
           <div class="row">
               <div class="col-sm-3">
                 <form action="functioneditmenu.php" method="post" enctype="multipart/form-data">
-                        <input type="hidden" name="gambarLama" value="<?php echo $data['gambar'];?>">
-                  </div>
+                      <input type="hidden" name="gambarLama" value="<?php echo $data['gambar'];?>" >
                   <div class="mb-3 mt-3 me-3">
                     <label for="gambarmenu" class="form-label">Gambar Menu</label>
-                    <input type="file" class="form-control" name="gambar" id="gambar" value="<?php echo $data['gambar']?>" onchange="loadfile(event)">
-
+                    <input type="file" class="form-control" name="gambar" id="gambar" onchange="loadfile(event)" required>
+                    <img id="preview" style="padding-top:30px;" width="250px" src="img/<?php echo $data['gambar']?>">
                      <script type="text/javascript">
                        function loadfile(event){
                          var output = document.getElementById('preview');
@@ -45,44 +43,42 @@
                   <div class="mb-3 mt-5 me-3">
                     <label for="ketersediaanmenu" class="form-label">Ketersediaan</label>
                     <?php if($data['ketersidiaan']==1) { ?>
-                      <input type="radio" id="ada" name="ketersidiaan" value="1" checked>
+                      <input type="radio" id="ada" name="ketersidiaan" value="1" checked required>
                       <label for="ada" class="form-label">Ada</label>
                       <input type="radio" id="habis" name="ketersidiaan" value="0" >
                       <label for="habis" class="form-label" value="0">Habis</label>
                     <?php  }elseif($data['ketersidiaan']==0){ ?>
                       <input type="radio" id="ada" name="ketersidiaan" value="1">
                       <label for="ada" class="form-label">Ada</label>
-                      <input type="radio" id="habis" name="ketersidiaan" value="0" checked >
+                      <input type="radio" id="habis" name="ketersidiaan" value="0" checked required >
                       <label for="habis" class="form-label" value="0">Habis</label>
                     <?php  }?>
                   </div>
                 </div>
-                <div class="col-sm-9">
-                  <div class="isi mb-3 mt-3 me-3">
-                      <input type="text" class="form-control" name="id" hidden value="<?php echo $data['id_menu']; ?>">
-                  </div>
+                <div class="p-5 col-sm-9">
                   <div class="mb-3 mt-3 me-3">
+                    <input type="text" class="form-control" name="id" hidden value="<?php echo $data['id_menu']; ?>">
                     <label for="namamenu" class="form-label">Nama Menu</label>
-                    <input type="text" class="form-control" name="nama_menu" id="nama_menu" value="<?php echo $data['nama_menu']; ?>">
+                    <input type="text" class="form-control" name="nama_menu" id="nama_menu" value="<?php echo $data['nama_menu']; ?>" required>
                   </div>
                   <div class="row">
-                    <div class="col-sm-6">
+                    <div class="isi mb-3 mt-3 me-3">
                       <div class="mb-3 me-3">
                         <label for="infomenu" class="form-label">Info Menu</label>
-                        <input type="text" class="form-control" name="info_menu" id="info_menu" value="<?php echo $data['info_menu']; ?>">
+                        <input type="text" class="form-control" name="info_menu" id="info_menu" value="<?php echo $data['info_menu']; ?>" required>
                       </div>
                     </div>
-                    <div class="col-sm-6">
+                    <div "isi mb-3 mt-3 me-3">
                       <div class="mb-3 me-3">
                         <label for="hargamenu" class="form-label">Harga</label>
-                        <input type="text" class="form-control" name="harga" id="harga" value="<?php echo $data['harga']; ?>">
+                        <input type="text" class="form-control" name="harga" id="harga" value="<?php echo $data['harga']; ?>" required>
                       </div>
                     </div>
                   </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="Tipmenu" class="form-label">Tipe Menu : </label>
                   <?php  if($data['kategori']==1){ ?>
-                    <input type="radio" id="makanan" name="kategori" value="1" checked>
+                    <input type="radio" id="makanan" name="kategori" value="1" checked required>
                     <label for="menu" class="form-label">Makanan</label>
                     <input type="radio" id="minuman" name="kategori" value="2">
                     <label for="minuman" class="form-label" value="2">Minuman</label>
@@ -93,7 +89,7 @@
                   <?php }elseif ($data['kategori']==2) { ?>
                     <input type="radio" id="menu" name="kategori" value="1">
                     <label for="menu" class="form-label">Makanan</label>
-                    <input type="radio" id="minuman" name="kategori" value="2" checked>
+                    <input type="radio" id="minuman" name="kategori" value="2" checked required>
                     <label for="minuman" class="form-label" value="2">Minuman</label>
                     <input type="radio" id="cemilan" name="kategori" value="3">
                     <label for="cemilan" class="form-label" value="3">Cemilan</label>
@@ -104,7 +100,7 @@
                     <label for="menu" class="form-label">Makanan</label>
                     <input type="radio" id="minuman" name="kategori" value="2">
                     <label for="minuman" class="form-label" value="2">Minuman</label>
-                    <input type="radio" id="cemilan" name="kategori" value="3" checked>
+                    <input type="radio" id="cemilan" name="kategori" value="3" checked required>
                     <label for="cemilan" class="form-label" value="3">Cemilan</label>
                     <input type="radio" id="paket" name="kategori" value="4">
                     <label for="paket" class="form-label" value="4" >Paket</label>
@@ -115,7 +111,7 @@
                     <label for="minuman" class="form-label" value="2">Minuman</label>
                     <input type="radio" id="cemilan" name="kategori" value="3">
                     <label for="cemilan" class="form-label" value="3">Cemilan</label>
-                    <input type="radio" id="paket" name="kategori" value="4" checked>
+                    <input type="radio" id="paket" name="kategori" value="4" checked required>
                     <label for="paket" class="form-label" value="4" >Paket</label>
                   <?php  }?>
 
