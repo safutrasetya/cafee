@@ -30,10 +30,10 @@
                   </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="ketersediaan" class="form-label">Ketersediaan</label>
-                    <input type="radio" id="ada" name="ketersidiaan" value="1">
+                    <input type="radio" id="ada" name="ketersidiaan" value="1" checked>
                     <label for="ada" class="form-label">Ada</label>
                     <input type="radio" id="habis" name="ketersidiaan" value="0">
-                    <label for="habis" class="form-label" >Habis</label>
+                    <label for="habis" class="form-label">Habis</label>
                   </div>
                 </div>
                 <div class="col-sm-9">
@@ -58,13 +58,13 @@
                   </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="Tipmenu" class="form-label">Tipe Menu : </label>
-                    <input type="radio" id="makanan" name="kategori" value="1">
+                    <input type="radio" id="makanan" name="kategori" value="1" required>
                     <label for="makanan" class="form-label">Makanan</label>
-                    <input type="radio" id="minuman" name="kategori" value="2">
+                    <input type="radio" id="minuman" name="kategori" value="2" required>
                     <label for="minuman" class="form-label" >Minuman</label>
-                    <input type="radio" id="cemilan" name="kategori" value="3">
+                    <input type="radio" id="cemilan" name="kategori" value="3" required>
                     <label for="cemilan" class="form-label" >Cemilan</label>
-                    <input type="radio" id="paket" name="kategori" value="4">
+                    <input type="radio" id="paket" name="kategori" value="4" required>
                     <label for="paket" class="form-label" >Paket</label>
                   </div>
                   <div class="text-end me-3">
