@@ -29,7 +29,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="">Ganti status Meja</h5>
+            <h5 class="modal-title" id="">Ubah status Meja</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -164,7 +164,7 @@
         var modalTitle = formodalhapus.querySelector('.modal-title')
         var modalBodyInput = formodalhapus.querySelector('.modal-body input')
 
-        modalTitle.textContent = 'Hapus Transaksi :  ' + idforhapus
+        modalTitle.textContent = 'Hapus Meja :  ' + idforhapus
         modalBodyInput.value = idforhapus
       });
       var formodal = document.getElementById('gantistatus')
@@ -181,7 +181,7 @@
         var modalTitle = formodal.querySelector('.modal-title')
         var modalBodyInput = formodal.querySelector('.modal-body input')
 
-        modalTitle.textContent = 'Ubah status transaksi :  ' + idforupdt
+        modalTitle.textContent = 'Ubah status Meja :  ' + idforupdt
         modalBodyInput.value = idforupdt
 
         if (statusbayar ==1){
