@@ -28,7 +28,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p class="text-danger">PERHATIAN! Mengubah akun staff menjadi admin akan mengakibatkan anda tidak dapat mengedit kembali/menghapus akun tersebut. Ubah jabatan user dengan bijak.</p>
+            <p class="text-danger">PERHATIAN! Mengubah akun staff menjadi admin akan membuat anda tidak dapat mengedit/menghapus akun tersebut. Ubah jabatan user dengan bijak.</p>
             <form method="POST" action="">
               <div class="mb-3">
                 <input hidden name="idupdtlevel" type="text" class="form-control" id="idupdtlevel">

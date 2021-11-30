@@ -81,8 +81,12 @@
           <header>Cafe</header>
         </div>
         <ul>
-            <li><a href="daftarakun.php"><i class="far fa-address-book"></i>
-              <i class='no-italics'>Daftar Akun</i></a></li>
+          <?php
+            if($_SESSION['level']==1){
+              echo '<li><a href="daftarakun.php"><i class="far fa-address-book"></i>
+                <i class="no-italics">Daftar Akun</i></a></li>';
+            }
+          ?>
             <li><a href="daftarmenu.php"><i class="far fa-clipboard"></i>
               <i class='no-italics'>Daftar Makanan</i></a></li>
             <li><a href="daftarpesanan.php"><i class="far fa-list-alt"></i>
@@ -91,6 +95,8 @@
               <i class='no-italics'>Riwayat Pemesanan</i></a></li>
             <li><a href="daftarmeja.php"><i class="far fa-square"></i>
               <i class='no-italics'>Daftar Meja</i></a></li>
+            <li><a href="daftartotaltransaksi.php"><i class="bi bi-cash-stack"></i>
+              <i class='no-italics'>Riwayat Penjualan</i></a></li>
             <li><a href="functionlogout.php"><i class="fas fa-sign-out-alt"></i>
               <i class='no-italics'>Log Out</i></a></li>
         </ul>
