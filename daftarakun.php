@@ -32,12 +32,12 @@
             <div class="col">
               <form action="" method="POST">
                 <div class="row">
-                  <div class="col-sm-4" style="margin-left:320px;margin-top:7px;">
-                    <input type="text" name="keyword" id="keyword" class="form-control my-2" placeholder="Masukkan ID/Username/Nama..." autocomplete="off">
+                  <div class="col-sm-4" style="margin-top:7px;"size="30">
+                    <input type="text" name="keyword" id="keyword" class="form-control my-2" placeholder="Cari ID/Username/Nama..." autocomplete="off">
                   </div>
-                  <div class="col-sm-2" style="margin-top:0px;padding:5px;">
+                  <!-- <div class="col-sm-2" style="margin-top:0px;padding:5px;">
                     <button type="submit" id="tombol-cari" name="cari" class="btn btn-primary my-2 form-control">Cari</button>
-                  </div>
+                  </div> -->
                   <div class="col text-end" style="margin-right:5px;">
                   <a href="tambahakun.php"><button type="button" class="btn btn-success my-2"><img src="img/tambahakun-icon2.png" style="height:30px; width:30px;"> Tambah akun</button></a>
                   </div>
