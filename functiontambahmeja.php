@@ -1,5 +1,7 @@
 <?php
-require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
+require_once("includes/koneksi.php");
+require_once("includes/logincheck.php");
+require_once("includes/admincheck.php");
 
         // koneksi database
      $conn = mysqli_connect("localhost","root","","orari");
@@ -32,5 +34,13 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
 
         return mysqli_affected_rows($conn);
     }
-
+ //FUNCTION Cari
+ function cari($keyword){
+     $query = "SELECT * fROM meja
+          WHERE
+         id_meja LIKE '%$keyword%' OR
+         no_meja Like '%$keyword%'
+         ";
+      return query($query);
+  }
  ?>
