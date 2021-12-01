@@ -57,7 +57,7 @@
 <div class="container-fluid mt-5">
 <h2 style="text-align:center">Profil</h2>
 <div class="card">
-<img src="img/<?php echo $sql['gambar'];?>" alt="User" style="width:100%">
+<img src="img/<?php echo $sql['gambar'];?>" alt="User" style="width: 200px; height: 200px;">
   <h1 style="padding-top:15px"><?php echo $sql['nama']; ?></h1>
   <p class="title"><?php echo $sql['No_Hp']; ?></p>
   <p><?php echo $sql['email']; ?></p>
