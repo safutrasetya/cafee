@@ -11,11 +11,6 @@ $password = $_POST["password"];
 
 $gambar = upload();
 
-// $query = "INSERT INTO akun (gambar,username,nama,email,No_Hp,password,level) VALUES
-//           ('$gambar','$username','$nama','$email','$NoHp','$password','$level')";
-//
-// $hasil = mysqli_query($koneksi,$query);
-
 
 
 if(!empty($gambar))

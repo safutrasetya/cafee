@@ -17,7 +17,7 @@
     <title>Makanan</title>
   </head>
 
-  <body>
+  <body style="background-color:MediumAquaMarine;">
     <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
     <?php include('temp_navbar.php'); ?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">

@@ -22,7 +22,7 @@
 
     <title>Pesanan anda telah dibuat!</title>
   </head>
-  <body class="bg-light">
+  <body style="background-color:MediumAquaMarine;">
     <div class="jumbotron">
       <div class="card text-center my-4 mx-5 shadow-lg">
         <div class="card-body">
@@ -68,7 +68,7 @@
                         }
                       ?>
                       <tr>
-                        <td class="h6">Total harga</td>
+                        <td class="h6">Total harga yang dibayar</td>
                         <td>Rp. <?php echo $_SESSION['totalharga'];?> ,-</td>
                       </tr>
                       <!--END PHP TABEL STRUK-->

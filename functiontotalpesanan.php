@@ -6,7 +6,7 @@
     echo "
       <div class='row my-2 py-2 border'>
         <div class='col-md-2 align-self-center'>
-          <img src='img/imgtest1.jpg' class='gambarsize1'>
+          <img src='img/$pesanangambar' class='gambarsize1'>
           <a href='#' class=''></a>
         </div>
         <div class='col-md-4 align-self-center'>

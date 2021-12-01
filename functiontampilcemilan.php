@@ -7,7 +7,7 @@ $banyakdata = 0;
 foreach ($hasil as $data){
     echo "<div class='col mt-4'>
       <div class='card' style='padding: 10px;'>
-        <img src='img/menu_makanan.jpg' class='card-img-top' alt='img/menu_makanan.jpg'>
+        <img src='img/$data[gambar]' class='card-img-top' alt='img/menu_makanan.jpg'>
           <h5 class='card-title'>$data[nama_menu]</h5>
           <p class='card-text'>$data[harga]</p>
           <form action='' method='get'>

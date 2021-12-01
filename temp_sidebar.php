@@ -59,7 +59,7 @@
       </div>
     <div class="dropdown">
         <button class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        <a href="aboutus.php"><img src="img/img1.jpg" alt="" width="35" height="35" style ="margin-right: " class="rounded-circle"></a>
+        <a href="aboutus.php"><img src="img/<?php echo $_SESSION['gambar'];?>" alt="" width="35" height="35" style ="margin-right: " class="rounded-circle"></a>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="profil.php">Profil</a></li>
@@ -95,6 +95,8 @@
               <i class='no-italics'>Riwayat Pemesanan</i></a></li>
             <li><a href="daftarmeja.php"><i class="far fa-square"></i>
               <i class='no-italics'>Daftar Meja</i></a></li>
+              <li><a href="daftarreservasi.php"><i class="bi bi-journal-bookmark-fill"></i></i>
+                <i class='no-italics'>Reservasi</i></a></li>
             <li><a href="daftartotaltransaksi.php"><i class="bi bi-cash-stack"></i>
               <i class='no-italics'>Riwayat Penjualan</i></a></li>
             <li><a href="functionlogout.php"><i class="fas fa-sign-out-alt"></i>

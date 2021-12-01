@@ -1,8 +1,8 @@
 <?php
-require_once("includes/koneksi.php"); require_once("includes/logincheck.php");
+require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
   $connect = new PDO("mysql:host=localhost; dbname=orari", "root", "");
 //halaman
-  $limit=5;
+  $limit=8;
   $page=1;
   if($_POST['page']>1){
     $start = (($_POST['page']-1) * $limit);
@@ -12,11 +12,11 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");
   }
 //ENDHALAMAN
 
-  $query = 'SELECT * FROM menu ORDER BY nama_menu DESC';
-  $filter_query = 'SELECT * FROM menu ORDER BY nama_menu DESC LIMIT '.$start.', '.$limit.'';
+  $query = 'SELECT * FROM mejareservasi ORDER BY id_reservasi DESC';
+  $filter_query = 'SELECT * FROM mejareservasi ORDER BY id_reservasi DESC LIMIT '.$start.', '.$limit.'';
   if($_POST['query'] != ''){
-    $query = 'SELECT * FROM menu WHERE nama_menu LIKE "%'.$_POST['query'].'%"';//we rasa ada yag salah disini
-    $filter_query = 'SELECT * FROM menu WHERE nama_menu LIKE "%'.$_POST['query'].'%" ORDER BY nama_menu DESC LIMIT '.$start.', '.$limit.'';
+    $query = 'SELECT * FROM mejareservasi WHERE id_reservasi LIKE "%'.$_POST['query'].'%" OR nama_plggn LIKE "%'.$_POST['query'].'%" OR waktu_rsrvs LIKE "%'.$_POST['query'].'%" OR no_telp LIKE "%'.$_POST['query'].'%" OR  no_meja LIKE "%'.$_POST['query'].'%"';//we rasa ada yag salah disini
+    $filter_query = 'SELECT * FROM mejareservasi WHERE id_reservasi LIKE "%'.$_POST['query'].'%" OR nama_plggn LIKE "%'.$_POST['query'].'%" OR waktu_rsrvs LIKE "%'.$_POST['query'].'%" OR no_telp LIKE "%'.$_POST['query'].'%" OR  no_meja LIKE "%'.$_POST['query'].'%" ORDER BY id_reservasi DESC LIMIT '.$start.', '.$limit.'';
   }
 
   //
@@ -30,23 +30,34 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");
 
   // $result = $statement->fetchAll();
 
-  $output = '<p class="text-center">Total pencarian : '.$total_data.'</p>
-  <div class="container-fluid mb-4">
-    <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5">
+  $output = '<p class="text-center">TOTAL TRANSAKSI : '.$total_data.'</p>
+  <table class="table table-bordered table-info">
+    <thead class="h5">
+      <tr style="text-align:center">
+        <td>Id Reservasi</td>
+        <td>Nama Pelanggan</td>
+        <td>No. Telp</td>
+        <td>No. Meja</td>
+        <td>Waktu Reservasi</td>
+        <td>Action</td>
+      </tr>
+    </thead>
   ';
   if($total_data>0){
     while($row=mysqli_fetch_array($statement)){
-      $output .= '<div class="col mt-3">
-        <div class="card" style="padding: 10px;">
-          <img src="'.$row["gambar"].'" class="card-img-top" alt="img/menu_makanan.jpg">
-            <h5 class="card-title">'.$row["nama_menu"].'</h5>
-            <p class="card-text">'.$row["harga"].'</p>
-            <form action="" method="get">
-              <input type="text" value="'.$row["id_menu"].'" hidden name="id_pesanan_baru">
-              <button class="btn btn-primary" type="submit" name="addMakanan">+</button>
-            </form>
-        </div>
-      </div>
+      $output .= '
+      <tr>
+        <td>'.$row["id_reservasi"].'</td>
+        <td>'.$row['nama_plggn'].'</td>
+        <td>'.$row['no_telp'].'</td>
+        <td>'.$row['no_meja'].'</td>
+        <td>'.$row["waktu_rsrvs"].'</td>
+        <td>
+          <a href="editrsrvs.php?idrsrvs='.$row["id_reservasi"].'"><button class="btn btn-success mx-2" type="button"><img src="img/edit-icon.png" style="height:20px; width:20px;">Edit</button></a>
+
+          <button name="hapusrsrvs" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusrsrvs" data-bs-whatever="'.$row["id_reservasi"].'"><i class="bi bi-trash"></i> Hapus</button>
+        </td>
+      </tr>
       ';
     }
   }else{
@@ -54,8 +65,7 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");
   }
 
   $output.= '
-    </div>
-    </div>
+    </table>
     <ul class="pagination pagination-sm justify-content-center">
   ';
 

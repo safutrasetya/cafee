@@ -1,9 +1,10 @@
 <?php
+if ($selisihmenit>60){
 
-
-$strictlvl = '<a class="btn btn-danger" onclick="return confirm(';
-$strictlvl .= "'Are you sure to delete this menu?'";
-$strictlvl .= ')" href="functionhapusmenu.php?id='.$d['id_menu'].'"><img src="img/trash-can.png" style="height:20px; width:15px;"> Hapus</a>';
+}else{
+  echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Ada reservsi dimeja ini sekarang</div>";
+  break;
+}
 
 
 ?>

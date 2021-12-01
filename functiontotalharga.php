@@ -1,7 +1,6 @@
 <?php
 if(isset($_SESSION['keranjang'])){
   $count = count($_SESSION['keranjang']);
-  echo "<p>TOTAL PESANAN : $count</p>";
 
   $hargatotal = 0;
   $pesanan_id2 = array_column($_SESSION['keranjang'],'menu_id');
@@ -21,7 +20,7 @@ if(isset($_SESSION['keranjang'])){
     }
 
   }
-  echo "<p>TOTAL PEMBAYARAN : Rp. $hargatotal ,-</p>";
+  echo "<p class='text-end me-3'>TOTAL PEMBAYARAN : Rp. $hargatotal ,-</p>";
 }else{
   echo "<p>TOTAL PESANAN : 0 </p>";
 }

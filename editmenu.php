@@ -21,7 +21,7 @@
     $data = mysqli_fetch_assoc($sql);
      ?>
      <div class="container-fluid">
-       <div class="container bg-info text-center header ">
+       <div class="container text-center header ">
          <h1>Edit Menu</h1>
        </div>
         <div class="container shadow p-3 mb-5 bg-body rounded isi">

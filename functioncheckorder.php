@@ -11,11 +11,11 @@
           echo "<div id='divAlert' name='divAlert' class='alert alert-success m-2' role='alert'>Pembayaran telah dikonfirmasi!<br>Pesanan anda sedang dimasak...</div>";
           echo "<script> window.setTimeout(function(){
 
-        // Move to a new location or you can do something else
-        window.location.href = 'halamanmakanan.php';
+                // Move to a new location or you can do something else
+                window.location.href = 'halamanmakanan.php';
 
-    }, 5000);</script>";
-
+                }, 5000);</script>";
+          unset($_SESSION['keranjang']);
         }else{
 
         }
