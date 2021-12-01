@@ -62,7 +62,7 @@
                   </div>
                   <div class="mb-3 mt-3 me-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" pattern="(?=^.{5,6}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Za-z]).*$"
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" pattern=".{6,}"
                     title="Password harus 6-9 karakter gabungan huruf besar, huruf kecil dan angka" required>
                   </div>
                   <div class="text-end me-3">

@@ -18,12 +18,39 @@ $gambar = upload();
 
 
 
-if(!empty($gambar))
-{
-  $query = "INSERT INTO menu (gambar,ketersidiaan,nama_menu,info_menu,harga,kategori) VALUES
-            ('$gambar','$ketersidiaan', '$nama_menu','$info_menu','$harga','$kategori')";
+if(!empty($gambar)){
 
-  mysqli_query($koneksi,$query);
+  $sql = "SELECT * FROM menu WHERE nama_menu = '{$nama_menu}'";
+  $query = mysqli_query($koneksi, $sql);
+  $count = mysqli_num_rows($query);
+
+
+  if(!empty($nama_menu)){
+
+      if($count==0){
+
+          $sql = "INSERT INTO menu (gambar,ketersidiaan,nama_menu,info_menu,harga,kategori) VALUES
+                    ('$gambar','$ketersidiaan', '$nama_menu','$info_menu','$harga','$kategori')";
+
+          if($koneksi->query("$sql")===TRUE){
+              echo "<h3>Input menu berhasil</h3>";
+
+          }else{
+              echo "Terjadi Kesalahan: " .$sql."<br/>".$koneksi->error;
+
+          }
+          $koneksi->close();
+
+      }else {
+          echo "
+            <script>
+            alert('Menu tersebut sudah ada. Masukan menu dengan nama yang lain');
+            document.location.href = 'tambahakun.php';
+            </script>
+            ";
+      }
+
+  }
 
   echo "
     <script>
