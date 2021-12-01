@@ -20,7 +20,7 @@
       Kini kami hadir dengan teknologi yang akan mempermudah untuk melayani pesanan Anda.<br><br>
       Selamat datang di Orari Restaurant, restaurant pertama yang menggunakan website sebagai media untuk melayani penlanggan di pulai Samosir</p>
 
-      <p style="font: arial">Kenyamanan pelanggang adalah yang utama bagi kami.<br></div>
+      <p style="font: arial">Kenyamanan pelanggang adalah yang utama bagi kami.<br><br><br></div>
 	</div>
 <script src="js/aboutus.js"></script>
 </body>
