@@ -14,50 +14,6 @@
     <title>Tambah Menu</title>
     <script type="text/javascript">
 
-        // function validate(){
-        //     if (document.myForm.nama.value == NULL){
-        //       alert("Nama harus diisi");
-        //       document.myForm.nama.focus();
-        //       return false
-        //     }
-        // }
-       // function validasi()
-      // {
-      //    var nama = document.myForm.nama.value;
-      //    var password = document.myForm.password.value;
-      //    if (name==null || name=" "){
-      //      alert("Nama tidak boleh kosong");
-      //      return false;
-      //    }else if(password.length > 8 || password.length < 6 ){
-      //      alert("Password minimal 6 digit dan maksimal 8 digit")
-      //    }
-      //  }
-      //   var noHp = document.getElementById('nohp').value;
-      //   var nama = document.getElementById('nama').value;
-      //
-      //   // var noHp=document.forms["akun"]["nohp"].value;
-      //   var nomor =/^[0-9]+$/;
-      //   // var nama=document.forms["akun"]["nama"].value;
-      //
-      //   if(noHp==null || noHp="")
-      //   {
-      //     alert("Nomor Handphone tidak boleh kosong !");
-      //     return false;
-      //   }
-      //
-      //   if(!noHp.match(nomor)){
-      //     alert("Nomor Hp harus angka !");
-      //     return false;
-      //   }
-      //   if(noHp.lenth!=12){
-      //     alert("Nomor Hp harus 12 digit angka !");
-      //     return false;
-      //   }
-      //   if(nama.match(nomor)){
-      //     alert("Nama tidak boleh ada angka !");
-      //     return false;
-      //   }
-    // }
     </script>
   </head>
   <body class="bg-light">
@@ -123,6 +79,5 @@
   </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <!-- SCRIPT MODAL END -->
-    <!-- WYSIWYG untuk editor sinopsis -->
 
 </html>
