@@ -106,12 +106,13 @@
               </div>
               <div class="isi mb-3 mt-3 me-3">
                 <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" pattern="{6-9}" title="Password harus 6-9 karakter"
+                <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" pattern="[a-zA-Z0-9]{5,}"
+                title="Password minimal 5 digit diisi dengan huruf atau angka"
                 value="<?php echo $data['password'];?>"required>
               </div>
               <div class="isi mb-3 mt-3 me-3">
                 <label for="Repassword" class="form-label">Re Enter Password</label>
-                <input type="password" class="form-control" name="Repassword" id="Repassword" placeholder="Masukkan password" pattern="{6-9}" title="Password harus 6-9 karakter"
+                <input type="password" class="form-control" name="Repassword" id="Repassword" placeholder="Masukkan password" pattern="[a-zA-Z0-9]{5,}" title="Password minimal 5 digit diisi dengan huruf atau angka"
                 value="<?php echo $data['password'];?>"required>
                 <script type="text/javascript">
                 var password = document.getElementById("password");
