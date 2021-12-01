@@ -39,20 +39,22 @@
                 <div class="col-sm-9">
                   <div class="mb-3 mt-3 me-3">
                     <label for="nama_menu" class="form-label">Nama Menu</label>
-                    <input type="text" class="form-control" name="nama_menu" id="nama_menu"
+                    <input type="text" class="form-control" name="nama_menu" id="nama_menu" pattern="[a-zA-Z\s]{1,}" title="Nama Menu hanya diisi dengan huruf saja"
                      placeholder="cth. Nasi gorenng spesial" required>
                   </div>
                   <div class="row">
                     <div class="col-sm-6">
                       <div class="mb-3 me-3">
                         <label for="info_menu" class="form-label">Info Menu</label>
-                        <input type="text" class="form-control" name="info_menu" id="info_menu" placeholder="Nasi, Ayam Penyet" required>
+                        <input type="text" class="form-control" name="info_menu" id="info_menu" pattern="[a-zA-Z,\s]{1,}" title="Info Menu hanya diisi dengan huruf saja"
+                        placeholder="Nasi, Ayam Penyet" required>
                       </div>
                     </div>
                     <div class="col-sm-6">
                       <div class="mb-3 me-3">
                         <label for="hargamenu" class="form-label">Harga</label>
-                        <input type="text" class="form-control" name="harga" id="harga" placeholder="cth. 20000" required>
+                        <input type="text" class="form-control" name="harga" id="harga" pattern="[0-9]{4,}" title="Harga tidak valid"
+                        placeholder="cth. 20000" required>
                       </div>
                     </div>
                   </div>
