@@ -38,7 +38,7 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");
     while($row=mysqli_fetch_array($statement)){
       $output .= '<div class="col mt-3">
         <div class="card" style="padding: 10px;">
-          <img src="'.$row["gambar"].'" class="card-img-top" alt="img/menu_makanan.jpg">
+          <img src="img/'.$row["gambar"].'" class="card-img-top" alt="img/menu_makanan.jpg" style="width: 225px;  height: 225px">
             <h5 class="card-title">'.$row["nama_menu"].'</h5>
             <p class="card-text">'.$row["harga"].'</p>
             <form action="" method="get">
