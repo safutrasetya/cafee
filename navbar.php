@@ -15,7 +15,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
   <div class="container-fluid">
     <img src="img/img1.png" alt="" width="30" height="24">
-    <a class="navbar-brand" href="#" style ="margin-left: 5px">About Us</a>
+    <a class="navbar-brand" href="aboutus.php" style ="margin-left: 5px">About Us</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
