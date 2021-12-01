@@ -53,11 +53,14 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
               <div class="col-sm-9">
                 <div class="mb-3 mt-3 me-3">
                   <label for="no_meja" class="form-label">Meja</label>
-                  <input type="text" class="form-control" name="no_meja" id="no_meja">
+                  <input type="text" class="form-control" name="no_meja" pattern="[0-9]{1,}" title="Nama Meja hanya diisi dengan angka"
+                  id="no_meja" required>
                 </div>
                 <div class="mb-3 mt-3 me-3">
                   <label for="pass_meja" class="form-label">Password</label>
-                  <input type="text" class="form-control" name="pass_meja" id="pass_meja">
+                  <input type="text" class="form-control" name="pass_meja" pattern="(?=^.{5,6}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Za-z]).*$"
+                  title="Password 5-6 digit dengan kombinasi Huruf dan Angka"
+                  id="pass_meja" required>
                 </div>
                 <div class="text-end me-3">
                   <a href="daftarmeja.php"><button type="button" class="btn btn-danger">Cancel</button></a>

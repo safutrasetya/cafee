@@ -59,12 +59,12 @@
           <div class="my-4 ps-3 shadow">
                 <form action="" method="POST">
                   <div class="row">
-                    <div class="col-sm-8">
+                    <div class="col-sm-10">
                       <input type="text" name="keyword" id="keyword" class="form-control my-2" placeholder="Masukkan ID/Username/Nama..." autocomplete="off">
                     </div>
-                    <div class="col-sm-2">
+                    <!-- <div class="col-sm-2">
                       <button type="submit" id="tombol-cari" name="cari" class="btn btn-primary my-2 form-control">Search</button>
-                    </div>
+                    </div> -->
                     <div class="col-sm-2">
                       <a href="tambahakun.php"><button type="button" class="btn btn-success my-2 me-3 float-end"><i class="bi bi-person-plus"></i> Tambah akun</button></a>
                     </div>
