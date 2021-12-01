@@ -62,8 +62,8 @@
                   </div>
                   <div class="mb-3 mt-3 me-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" pattern=".{6,}"
-                    title="Password harus 6-9 karakter gabungan huruf besar, huruf kecil dan angka" required>
+                    <input type="password" class="form-control" name="password" id="password" placeholder="Masukkan password" pattern="[a-zA-Z0-9]{5,}"
+                    title="Password minimal 5 digit diisi dengan huruf atau angka" required>
                   </div>
                   <div class="text-end me-3">
                     <a href="daftarakun.php" onclick="return confirm('Anda yakin ingin keluar?')"><button type="button" class="btn btn-danger">Cancel</button></a>
