@@ -1,3 +1,8 @@
+
+
+<?php
+  require_once("includes/staffcheck.php");
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

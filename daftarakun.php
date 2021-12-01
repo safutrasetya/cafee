@@ -1,6 +1,7 @@
 <?php include("includes/koneksi.php");
  include("includes/logincheck.php");
  include("includes/admincheck.php");
+ require_once("includes/staffcheck.php");
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
