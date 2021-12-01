@@ -58,8 +58,8 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
                 </div>
                 <div class="mb-3 mt-3 me-3">
                   <label for="pass_meja" class="form-label">Password</label>
-                  <input type="text" class="form-control" name="pass_meja" pattern="(?=^.{5,6}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Za-z]).*$"
-                  title="Password 5-6 digit dengan kombinasi Huruf dan Angka"
+                  <input type="text" class="form-control" name="pass_meja" pattern="[a-zA-Z0-9]{5,}"
+                  title="Password minimal 5 digit diisi dengan huruf atau angka"
                   id="pass_meja" required>
                 </div>
                 <div class="text-end me-3">
