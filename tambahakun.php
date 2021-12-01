@@ -11,7 +11,7 @@
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/cafee.css">
     <!--end css kita sendiri-->
-    <title>Tambah Menu</title>
+    <title>Tambah Akun</title>
     <script type="text/javascript">
 
     </script>
