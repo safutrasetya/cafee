@@ -99,7 +99,7 @@
                     placeholder="cth. contoh@test.om" required>
                   </div>
                   <div class="mb-3 mt-3 me-3">
-                    <label for="nohp" class="form-label">No.Hp</label>
+                    <label for="nohp" class="form-label">No.Hp/Telp</label>
                     <input type="text" class="form-control" name="No_Hp" id="nohp" pattern="[0-9]{8,}" title="Nomor Hp/Telpon tidak valid "
                     placeholder="cth. 081234567899" required>
                   </div>
