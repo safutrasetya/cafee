@@ -56,7 +56,7 @@
                   </div>
                 </div>
                 <?php
-                  if($_SESSION['level']==1){
+                  if($_SESSION['level']==1||$_SESSION['level']==2){
                     echo '
                     <div class="p-5 col-sm-9">
                       <div class="mb-3 mt-3 me-3">
