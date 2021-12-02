@@ -122,7 +122,7 @@
                         <a href="editmenu.php?id=<?php echo $d['id_menu'];?>"class="btn btn-success"><img src="img/edit-icon.png" style="height:20px; width:20px;"> Edit</a>
 
                         <?php
-                          if($_SESSION['level']==1){
+                          if($_SESSION['level']==1||$_SESSION['level']==2){
                             $strictlvl = '<a class="btn btn-danger" onclick="return confirm(';
 
                             $strictlvl .= "'Are you sure to delete this menu?'";
