@@ -82,7 +82,7 @@
         </div>
         <ul>
           <?php
-            if($_SESSION['level']==1){
+            if($_SESSION['level']==1||$_SESSION['level']==2){
               echo '<li><a href="daftarakun.php"><i class="far fa-address-book"></i>
                 <i class="no-italics">Daftar Akun</i></a></li>';
             }

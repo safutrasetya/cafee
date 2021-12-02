@@ -33,9 +33,9 @@
             <form method="POST" action="">
               <div class="mb-3">
                 <input hidden name="idupdtlevel" type="text" class="form-control" id="idupdtlevel">
-                <input class="" type="radio" name="levelakun" id="admin" value="1">
+                <input class="" type="radio" name="levelakun" id="admin" value="2">
                 <label class="form-check-label" for="admin">Admin</label>
-                <input class="" type="radio" name="levelakun" id="staff" value="2">
+                <input class="" type="radio" name="levelakun" id="staff" value="3">
                 <label class="form-check-label" for="staff">Staff</label>
               </div>
               <div class="mt-2">
@@ -122,15 +122,17 @@
                     <td>
                       <?php
                         if($d['level']==1){
-                          echo "Admin";
+                          echo "Dev";
                         }elseif($d['level']==2){
+                          echo "Admin";
+                        }elseif($d['level']==3){
                           echo "Staff";
                         }
                       ?>
                     </td>
                     <td>
                       <?php
-                        if($d['level']==2 && $_SESSION['level']==1){
+                        if(($d['level']>2 && $_SESSION['level']==2)||($d['level']>1 && $_SESSION['level']==1)){
                           echo "<button name='gantilevel' type='button' class='btn btn-success me-1' data-bs-toggle='modal' data-bs-target='#gantilevel' data-bs-whatever='$id' statuslevel='$levelakun'><img src='img/edit-icon.png' style='height:20px; width:20px;'> Edit</button>";
                           echo "<a class='btn btn-danger' onclick='return confirm(";
                           echo '"Are you sure to delete this account?"';

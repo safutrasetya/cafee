@@ -34,9 +34,9 @@
                   </div>
                   <div class="mb-3 mt-5 me-3">
                     <label for="ketersediaanmenu" class="form-label">Level</label>
-                    <input type="radio" id="admin" name="level" value="1">
+                    <input type="radio" id="admin" name="level" value="2">
                     <label for="admin" class="form-label">Admin</label>
-                    <input type="radio" id="staff" name="level" value="2">
+                    <input type="radio" id="staff" name="level" value="3">
                     <label for="staff" class="form-label">Staff</label>
                   </div>
                 </div>

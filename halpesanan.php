@@ -33,7 +33,7 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p class="h4">Struk Pembelian <?php echo $_SESSION['idpembelian']; ?></p>
+            <p class="h4">Struk Pembelian</p>
             <div class="overflow-auto mb-3" style="height: 400px;">
               <table class="table text-left">
                 <thead>
