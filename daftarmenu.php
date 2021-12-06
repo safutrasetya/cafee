@@ -41,7 +41,7 @@
     <div class="jumbotron pe-2 h-100" style="height: 750px;">
       <div class="row">
         <div class="col-sm-12">
-          <div class="mx-auto my-3" style="">
+          <div class="mx-auto mb-3" style="">
             <h2 class="text-dark text-center display-5">Daftar Menu</h2>
           </div>
         </div>
