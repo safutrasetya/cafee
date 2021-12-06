@@ -40,7 +40,6 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
         <td colspan="2">Status Pembayaran</td>
         <td>Tanggal Pembayaran</td>
         <td>Waktu Pembayaran</td>
-        <td>Action</td>
       </tr>
     </thead>
   ';
@@ -65,10 +64,6 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
         </td>
         <td>'.$row["tanggal_pembayaran"].'</td>
         <td>'.$row["waktu_pembayaran"].'</td>
-        <td>
-          <button name="hapustransaksi" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapustransaksi" data-bs-whatever="'.$row["id_transaksi"].'"><i class="bi bi-trash"></i> Hapus</button>
-
-        </td>
       </tr>
       ';
     }
