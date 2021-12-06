@@ -99,8 +99,13 @@
                 <i class='no-italics'>Reservasi</i></a></li>
             <li><a href="daftartotaltransaksi.php"><i class="bi bi-cash-stack"></i>
               <i class='no-italics'>Riwayat Penjualan</i></a></li>
-            <li><a href="functionlogout.php"><i class="fas fa-sign-out-alt"></i>
-              <i class='no-italics'>Log Out</i></a></li>
+              <?php
+              if($_SESSION['level']==1||$_SESSION['level']==2){
+                echo '<li><a href="daftarhistory.php"><i class="bi bi-body-text"></i>
+                  <i class="no-italics">History</i></a></li>';
+              }
+              ?>
+
         </ul>
     </div>
   </div>

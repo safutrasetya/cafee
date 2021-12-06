@@ -36,6 +36,12 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
   if(!empty($gambar)){
     $sql="UPDATE akun SET gambar='$gambar',username='$username',nama='$nama',email='$email',No_Hp='$No_Hp',password='$password' WHERE id='$id'";
     mysqli_query($koneksi,$sql);
+    $akibat=$nama;
+    $nama2 = $_SESSION['nama'];
+    $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+    $start_date = $startdate->format('Y-m-d H:i:s');
+    $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama2','Edit Akun','$akibat','$start_date')";
+    mysqli_query($koneksi, $history);
     echo "
     <script>
     alert('Akun berhasil diperbarui!');

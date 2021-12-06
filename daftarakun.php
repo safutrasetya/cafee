@@ -29,10 +29,13 @@
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            <p class="text-danger">PERHATIAN! Mengubah akun staff menjadi admin akan membuat anda tidak dapat mengedit/menghapus akun tersebut. Ubah jabatan user dengan bijak.</p>
+            <p class="text-danger">PERHATIAN UNTUK ADMIN! Mengubah akun staff menjadi admin akan membuat anda tidak dapat mengedit/menghapus akun tersebut. Ubah jabatan user dengan bijak.</p>
             <form method="POST" action="">
               <div class="mb-3">
                 <input hidden name="idupdtlevel" type="text" class="form-control" id="idupdtlevel">
+                <?php
+
+                ?>
                 <input class="" type="radio" name="levelakun" id="admin" value="2">
                 <label class="form-check-label" for="admin">Admin</label>
                 <input class="" type="radio" name="levelakun" id="staff" value="3">
@@ -50,14 +53,14 @@
 
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron h-100" style="height: 750px;">
-      <div class="mx-auto my-3" style="">
+      <div class="mx-auto mt-3" style="">
         <h2 class="text-dark text-center display-5">Daftar Akun</h2>
       </div>
       <div class="row pe-2">
         <div class="col-sm-1">
         </div>
         <div class="col-sm-11">
-          <div class="my-4 ps-3 shadow">
+          <div class="mt-4 ps-3 shadow">
                 <form action="" method="POST">
                   <div class="row">
                     <div class="col-sm-10">
@@ -96,7 +99,7 @@
                 </thead>
                 <tbody>
                   <?php
-                      $perHalaman = 6;
+                      $perHalaman = 3;
                       $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman']  : 1;
                       $halamanAwal = ($halaman>1) ? ($halaman * $perHalaman) - $perHalaman : 0;
 
@@ -186,9 +189,9 @@
         modalTitlelvl.textContent = 'Ubah level akun : ' + idlvlupdt
         modalBodyInput.value = idlvlupdt
 
-        if (statuslevel==1){
+        if (statuslevel==2){
           document.getElementById("admin").checked = true;
-        }else if (statuslevel==2){
+        }else if (statuslevel==3){
           document.getElementById("staff").checked = true;
         }
       });

@@ -5,6 +5,12 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
     $query = "DELETE FROM riwayat_pembelian WHERE id_transaksi = '{$idtrnsks}'";
 
     if($koneksi->query($query)===TRUE){
+      $akibat=$idtrnsks;
+      $nama2 = $_SESSION['nama'];
+      $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+      $start_date = $startdate->format('Y-m-d H:i:s');
+      $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama2','hapus transaksi','$akibat','$start_date')";
+      mysqli_query($koneksi, $history);
       // header('Location:daftarriwayattrnsks.php');
       echo "<div id='divAlertHapus' name='divAlertHapus' class='alert alert-warning' role='alert'><i class='bi bi-exclamation-circle-fill'></i> Pesanan $idtrnsks telah dihapus</div>";
       ///ATUR INIIIII BINGUN W vvvvvvvvvv

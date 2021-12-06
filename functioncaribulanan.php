@@ -2,7 +2,7 @@
 require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
   $connect = new PDO("mysql:host=localhost; dbname=orari", "root", "");
 //halaman
-  $limit=8;
+  $limit=7;
   $page=1;
   if($_POST['page']>1){
     $start = (($_POST['page']-1) * $limit);
@@ -12,11 +12,11 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
   }
 //ENDHALAMAN
 
-$query = "SELECT tanggal_pembayaran FROM riwayat_pembelian GROUP BY MONTH(tanggal_pembayaran)";
-$filter_query = 'SELECT tanggal_pembayaran FROM riwayat_pembelian GROUP BY MONTH(tanggal_pembayaran) ORDER BY tanggal_pembayaran DESC LIMIT '.$start.', '.$limit.'';
+$query = "SELECT tanggal_pembayaran FROM riwayat_pembelian WHERE status_bayar = 1 GROUP BY MONTH(tanggal_pembayaran)";
+$filter_query = 'SELECT tanggal_pembayaran FROM riwayat_pembelian WHERE status_bayar = 1 GROUP BY MONTH(tanggal_pembayaran) ORDER BY tanggal_pembayaran DESC LIMIT '.$start.', '.$limit.'';
 if($_POST['query'] != ''){
-  $query = 'SELECT tanggal_pembayaran FROM riwayat_pembelian WHERE tanggal_pembayaran LIKE "%'.$_POST['query'].'%" GROUP BY MONTH(tanggal_pembayaran)';//we rasa ada yag salah disini
-  $filter_query = 'SELECT tanggal_pembayaran FROM riwayat_pembelian WHERE tanggal_pembayaran LIKE "%'.$_POST['query'].'%" GROUP BY MONTH(tanggal_pembayaran) ORDER BY tanggal_pembayaran DESC LIMIT '.$start.', '.$limit.'';
+  $query = 'SELECT tanggal_pembayaran FROM riwayat_pembelian WHERE tanggal_pembayaran LIKE "%'.$_POST['query'].'%" WHERE status_bayar = 1 GROUP BY MONTH(tanggal_pembayaran)';//we rasa ada yag salah disini
+  $filter_query = 'SELECT tanggal_pembayaran FROM riwayat_pembelian WHERE tanggal_pembayaran LIKE "%'.$_POST['query'].'%" WHERE status_bayar = 1 GROUP BY MONTH(tanggal_pembayaran) ORDER BY tanggal_pembayaran DESC LIMIT '.$start.', '.$limit.'';
 }
 
   //
@@ -45,7 +45,7 @@ if($_POST['query'] != ''){
       $date = strtotime($row['tanggal_pembayaran']);
       $month = date("m", $date);
       $year = date("Y", $date);
-      $query2 = "SELECT * FROM riwayat_pembelian WHERE MONTH(tanggal_pembayaran)='{$month}' AND YEAR(tanggal_pembayaran)='{$year}'";
+      $query2 = "SELECT * FROM riwayat_pembelian WHERE MONTH(tanggal_pembayaran)='{$month}' AND YEAR(tanggal_pembayaran)='{$year}' AND status_bayar = 1";
       $getquery2 = mysqli_query($koneksi, $query2);
       while($hasil2=mysqli_fetch_array($getquery2)){
         $totalbulanan = $totalbulanan + (int)$hasil2['total_pembayaran'];

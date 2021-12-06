@@ -11,6 +11,12 @@ require_once("includes/admincheck.php");
     $query = "UPDATE meja SET reservasi = '{$statusmeja}' WHERE id_meja = '{$idmeja}'";
 
     if($koneksi->query($query)===TRUE){
+      $akibat=$idmeja;
+      $nama = $_SESSION['nama'];
+      $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+      $start_date = $startdate->format('Y-m-d H:i:s');
+      $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama','Edit Status Meja','$akibat','$start_date')";
+      mysqli_query($koneksi, $history);
       // header('Location:daftarriwayattrnsks.php');
       echo "<div id='divAlert' name='divAlert' class='alert alert-success' role='alert'><i class='bi bi-exclamation-circle-fill'></i> Meja $idmeja telah diupdate</div>";
       ///ATUR INIIIII BINGUN W vvvvvvvvvv

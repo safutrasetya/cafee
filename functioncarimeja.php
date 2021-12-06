@@ -5,7 +5,7 @@
   $connect = new PDO("mysql:host=localhost; dbname=orari", "root", "");
 
 //halaman
-  $limit=8;
+  $limit=5;
   $page=1;
   if($_POST['page']>1){
     $start = (($_POST['page']-1) * $limit);
@@ -64,7 +64,7 @@
       $output .= '
         </td>
         <td>
-        <button name="gantistatus" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#gantistatus" data-bs-whatever="'.$row["id_meja"].'" statusbayar="'.$row["reservasi"].'"><img src="img/edit-icon.png" style="height:20px; width:20px;">Edit</button>
+        <button name="gantistatus" type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#gantistatus" data-bs-whatever="'.$row["id_meja"].'" reservasi="'.$row["reservasi"].'"><img src="img/edit-icon.png" style="height:20px; width:20px;">Edit</button>
 
         <button name="hapusmeja" type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#hapusmeja" data-bs-whatever="'.$row["id_meja"].'"><i class="bi bi-trash"></i> Hapus</button>
         </td>

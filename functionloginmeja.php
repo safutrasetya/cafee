@@ -18,7 +18,7 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
       echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Cek kembali id meja dan password meja.</div>";
 
     }else {
-      $start_date = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+      $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
       $start_date ->format('Y-m-d H:i:s');
         while ($row=mysqli_fetch_array($query)){
             $idmeja = $row['id_meja'];
@@ -39,6 +39,12 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
                     $_SESSION['password'] = $pass;
                     $_SESSION['idmeja'] = $idmeja;
                     header("Location:halamanmakanan.php");
+                    $akibat=$_SESSION['meja'];
+                    $nama2 = $_SESSION['meja'];
+                    $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+                    $start_date = $startdate->format('Y-m-d H:i:s');
+                    $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama2','Login Meja','$akibat','$start_date')";
+                    mysqli_query($koneksi, $history);
                   }else{
                     echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Ada reservsi dimeja ini sekarang</div>";
                     break;

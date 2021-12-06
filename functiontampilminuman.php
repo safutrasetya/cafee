@@ -1,6 +1,6 @@
 <?php
 
-$query = "SELECT * FROM menu WHERE kategori = 2 ";
+$query = "SELECT * FROM menu WHERE kategori = 2 AND ketersidiaan > 0";
 $hasil = mysqli_query($koneksi, $query);
 $banyakdata = 0;
 //TABEL

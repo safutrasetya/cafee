@@ -22,6 +22,12 @@ if(isset($_POST['btnRsrvs'])){
         if ($selisihmenit>60){
           $entry = "INSERT INTO mejareservasi (nama_plggn,no_telp,no_meja,waktu_rsrvs) VALUES ('$nama','$notelp','$nomeja','$waktuall')";
           if ($koneksi->query($entry)===TRUE){
+            $akibat=$nomeja;
+            $nama = $_SESSION['nama'];
+            $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+            $start_date = $startdate->format('Y-m-d H:i:s');
+            $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama','Reservasi','$akibat','$start_date')";
+            mysqli_query($koneksi, $history);
             echo "<div id='divAlert' name='divAlert' class='alert alert-success m-2' role='alert'>Reservasi telah dibuat!</div>";
             break;
           }else{
@@ -35,6 +41,12 @@ if(isset($_POST['btnRsrvs'])){
       }else{
         $entry = "INSERT INTO mejareservasi (nama_plggn,no_telp,no_meja,waktu_rsrvs) VALUES ('$nama','$notelp','$nomeja','$waktuall')";
         if ($koneksi->query($entry)===TRUE){
+          $akibat=$nomeja;
+          $nama = $_SESSION['nama'];
+          $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+          $start_date = $startdate->format('Y-m-d H:i:s');
+          $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama','Reservasi','$akibat','$start_date')";
+          mysqli_query($koneksi, $history);
           echo "<div id='divAlert' name='divAlert' class='alert alert-success m-2' role='alert'>Reservasi telah dibuat!</div>";
           break;
         }else{
@@ -47,6 +59,12 @@ if(isset($_POST['btnRsrvs'])){
   }else{
     $entry = "INSERT INTO mejareservasi (nama_plggn,no_telp,no_meja,waktu_rsrvs) VALUES ('$nama','$notelp','$nomeja','$waktuall')";
     if ($koneksi->query($entry)===TRUE){
+      $akibat=$nomeja;
+      $nama = $_SESSION['nama'];
+      $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+      $start_date = $startdate->format('Y-m-d H:i:s');
+      $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama','Reservasi','$akibat','$start_date')";
+      mysqli_query($koneksi, $history);
       echo "<div id='divAlert' name='divAlert' class='alert alert-success m-2' role='alert'>Reservasi telah dibuat!</div>";
     }else{
       echo "<div id='divAlert' name='divAlert' class='alert alert-danger m-2' role='alert'>Terjadi kesalahan...</div>";

@@ -30,6 +30,8 @@ if(!empty($user_login) && (!empty($pass_login))){
         }
 
         if($user_login==$user && $pass_login==$pass){
+
+
             header("Location:daftarmenu.php");
             $_SESSION['id'] = $id;
             $_SESSION['gambar'] = $gambar;
@@ -39,7 +41,12 @@ if(!empty($user_login) && (!empty($pass_login))){
             $_SESSION['No_Hp'] = $No_Hp;
             $_SESSION['password'] = $password;
             $_SESSION['level'] = $level;
-
+            $akibat=$_SESSION['nama'];
+            $nama2 = $_SESSION['nama'];
+            $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+            $start_date = $startdate->format('Y-m-d H:i:s');
+            $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama2','Login Staff/Admin','$akibat','$start_date')";
+            mysqli_query($koneksi, $history);
 
         }else {
           echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Cek kembali username dan password anda.</div>";

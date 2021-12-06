@@ -23,6 +23,12 @@ if(isset($_POST['btnRsrvs'])){
         if ($selisihmenit>60){
           $entry = "UPDATE mejareservasi SET nama_plggn = '$nama', no_telp = '$notelp', no_meja = '$nomeja', waktu_rsrvs ='$waktuall' WHERE id_reservasi = '$idR'";
           if ($koneksi->query($entry)===TRUE){
+            $akibat=$nomeja;
+            $nama2 = $_SESSION['nama'];
+            $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+            $start_date = $startdate->format('Y-m-d H:i:s');
+            $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama2','Reservasi','$akibat','$start_date')";
+            mysqli_query($koneksi, $history);
             echo "<div id='divAlert' name='divAlert' class='alert alert-success m-2' role='alert'>Reservasi telah diupdate! <br>Mengembalikan ke halaman sebelumnya...</div>";
             break;
           }else{
@@ -36,6 +42,12 @@ if(isset($_POST['btnRsrvs'])){
       }else{
         $entry = "UPDATE mejareservasi SET nama_plggn = '$nama', no_telp = '$notelp', no_meja = '$nomeja', waktu_rsrvs ='$waktuall' WHERE id_reservasi = '$idR'";
         if ($koneksi->query($entry)===TRUE){
+          $akibat=$nomeja;
+          $nama2 = $_SESSION['nama'];
+          $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+          $start_date = $startdate->format('Y-m-d H:i:s');
+          $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama2','Reservasi','$akibat','$start_date')";
+          mysqli_query($koneksi, $history);
           echo "<div id='divAlert' name='divAlert' class='alert alert-success m-2' role='alert'>Reservasi telah diupdate!<br>Mengembalikan ke halaman sebelumnya...</div>";
           break;
         }else{

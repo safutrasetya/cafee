@@ -33,6 +33,12 @@ if(!empty($gambar)){
                     ('$gambar','$ketersidiaan', '$nama_menu','$info_menu','$harga','$kategori')";
 
           if($koneksi->query("$sql")===TRUE){
+            $akibat=$nama_menu;
+            $nama = $_SESSION['nama'];
+            $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+            $start_date = $startdate->format('Y-m-d H:i:s');
+            $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama','Penambahan Menu','$akibat','$start_date')";
+            mysqli_query($koneksi, $history);
               echo "<h3>Input menu berhasil</h3>";
 
           }else{
@@ -45,7 +51,7 @@ if(!empty($gambar)){
           echo "
             <script>
             alert('Menu tersebut sudah ada. Masukan menu dengan nama yang lain');
-            document.location.href = 'tambahakun.php';
+            document.location.href = 'tambahmenu.php';
             </script>
             ";
       }

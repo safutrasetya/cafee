@@ -8,6 +8,12 @@
     $query = "DELETE FROM meja WHERE id_meja = '{$idmeja}'";
 
     if($koneksi->query($query)===TRUE){
+      $akibat=$idmeja;
+      $nama2 = $_SESSION['nama'];
+      $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+      $start_date = $startdate->format('Y-m-d H:i:s');
+      $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama2','Hapus Meja','$akibat','$start_date')";
+      mysqli_query($koneksi, $history);
       // header('Location:daftarriwayattrnsks.php');
       echo "<div id='divAlertHapus' name='divAlertHapus' class='alert alert-warning' role='alert'><i class='bi bi-exclamation-circle-fill'></i> Meja $idmeja telah dihapus</div>";
       ///ATUR INIIIII BINGUN W vvvvvvvvvv

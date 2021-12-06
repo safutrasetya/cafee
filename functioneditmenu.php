@@ -15,6 +15,12 @@ include("includes/koneksi.php");
         if(!empty($gambar)){
           $sql = "UPDATE menu SET gambar='$gambar',ketersidiaan='$ketersidiaan',nama_menu='$nama_menu',info_menu='$info_menu',harga='$harga', kategori='$kategori'  WHERE id_menu='$id_menu'";
           mysqli_query($koneksi,$sql);
+          $akibat=$nama_menu;
+          $nama = $_SESSION['nama'];
+          $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+          $start_date = $startdate->format('Y-m-d H:i:s');
+          $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama','Edit Menu','$akibat','$start_date')";
+          mysqli_query($koneksi, $history);
           echo "
           <script>
           alert('Menu berhasil diperbarui!');

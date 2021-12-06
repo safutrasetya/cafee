@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="css/akun.css">
     <link rel="stylesheet" href="css/cafee.css">
     <link rel="stylesheet" href="css/sidebartest.css">
-    <link rel="stylesheet" href="css/style.css">
+
     <link rel="stylesheet" href="css/scroll.css">
     <!--AJAX-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

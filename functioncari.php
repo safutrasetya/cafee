@@ -2,7 +2,7 @@
 require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
   $connect = new PDO("mysql:host=localhost; dbname=orari", "root", "");
 //halaman
-  $limit=8;
+  $limit=5;
   $page=1;
   if($_POST['page']>1){
     $start = (($_POST['page']-1) * $limit);

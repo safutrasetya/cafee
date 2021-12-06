@@ -83,7 +83,7 @@
                 </thead>
                 <tbody>
                   <?php
-                    $perHalaman = 5;
+                    $perHalaman = 3;
                     $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman']  : 1;
                     $halamanAwal = ($halaman>1) ? ($halaman * $perHalaman) - $perHalaman : 0;
 

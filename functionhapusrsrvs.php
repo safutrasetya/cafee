@@ -5,6 +5,12 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
     $query = "DELETE FROM mejareservasi WHERE id_reservasi = '{$idrsrvs}'";
 
     if($koneksi->query($query)===TRUE){
+      $akibat=$idrsrvs;
+      $nama2 = $_SESSION['nama'];
+      $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+      $start_date = $startdate->format('Y-m-d H:i:s');
+      $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama2','Hapus Reservasi','$akibat','$start_date')";
+      mysqli_query($koneksi, $history);
       // header('Location:daftarriwayatrsrvs.php');
       echo "<div id='divAlertHapus' name='divAlertHapus' class='alert alert-warning' role='alert'><i class='bi bi-exclamation-circle-fill'></i> Reservasi $idrsrvs telah dihapus</div>";
       ///ATUR INIIIII BINGUN W vvvvvvvvvv

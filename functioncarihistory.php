@@ -2,7 +2,7 @@
 require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
   $connect = new PDO("mysql:host=localhost; dbname=orari", "root", "");
 //halaman
-  $limit=7;
+  $limit=8;
   $page=1;
   if($_POST['page']>1){
     $start = (($_POST['page']-1) * $limit);
@@ -12,12 +12,12 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
   }
 //ENDHALAMAN
 
-$query = "SELECT DISTINCT tanggal_pembayaran FROM riwayat_pembelian WHERE status_bayar = 1";
-$filter_query = 'SELECT DISTINCT tanggal_pembayaran FROM riwayat_pembelian WHERE status_bayar = 1 ORDER BY tanggal_pembayaran DESC LIMIT '.$start.', '.$limit.'';
-if($_POST['query'] != ''){
-  $query = 'SELECT DISTINCT tanggal_pembayaran FROM riwayat_pembelian WHERE tanggal_pembayaran LIKE "%'.$_POST['query'].'%" AND status_bayar = 1';//we rasa ada yag salah disini
-  $filter_query = 'SELECT DISTINCT tanggal_pembayaran FROM riwayat_pembelian WHERE tanggal_pembayaran LIKE "%'.$_POST['query'].'%" AND status_bayar = 1 ORDER BY tanggal_pembayaran DESC LIMIT '.$start.', '.$limit.'';
-}
+  $query = 'SELECT * FROM history ORDER BY id_history DESC';
+  $filter_query = 'SELECT * FROM history ORDER BY id_history DESC LIMIT '.$start.', '.$limit.'';
+  if($_POST['query'] != ''){
+    $query = 'SELECT * FROM history WHERE id_history LIKE "%'.$_POST['query'].'%" OR pelaku LIKE "%'.$_POST['query'].'%" OR aksi LIKE "%'.$_POST['query'].'%" OR akibat LIKE "%'.$_POST['query'].'%" OR waktu LIKE "%'.$_POST['query'].'%"';//we rasa ada yag salah disini
+    $filter_query = 'SELECT * FROM history WHERE id_history LIKE "%'.$_POST['query'].'%" OR pelaku LIKE "%'.$_POST['query'].'%" OR aksi LIKE "%'.$_POST['query'].'%" OR akibat LIKE "%'.$_POST['query'].'%" OR waktu LIKE "%'.$_POST['query'].'%" ORDER BY id_history DESC LIMIT '.$start.', '.$limit.'';
+  }
 
   //
   // $filter_query = $query . 'LIMIT '.$start.', '.$limit.'';
@@ -30,28 +30,28 @@ if($_POST['query'] != ''){
 
   // $result = $statement->fetchAll();
 
-  $output = '<p class="text-center">TOTAL : '.$total_data.'</p>
-  <table class="table table-responsive table-striped table-bordered table-secondary" style="width: 800px;">
+  $output = '<p class="text-center">TOTAL AKSI : '.$total_data.'</p>
+  <table class="table table-bordered table-info">
     <thead class="h5">
       <tr style="text-align:center">
-        <td>Tanggal</td>
-        <td>Total penjualan harian</td>
+        <td>Id History</td>
+        <td>Pelaku</td>
+        <td>Aksi</td>
+        <td>Subjek yang terkena</td>
+        <td>Waktu Terjadi</td>
       </tr>
     </thead>
   ';
   if($total_data>0){
     while($row=mysqli_fetch_array($statement)){
-      $tanggal = $row['tanggal_pembayaran'];
-      $query2 = "SELECT * FROM riwayat_pembelian WHERE tanggal_pembayaran='{$tanggal}' AND status_bayar = 1";
-      $queryget2 = mysqli_query($koneksi, $query2);
-      $totalharian = 0;
-      while($queryhasil2=mysqli_fetch_array($queryget2)){
-        $totalharian = $totalharian + (int)$queryhasil2['total_pembayaran'];
-      }
       $output .= '
       <tr>
-        <td>'.$tanggal.'</td>
-        <td>Rp. '.$totalharian.',-</td>
+        <td>'.$row["id_history"].'</td>
+        <td>'.$row["pelaku"].'</td>
+        <td>'.$row["aksi"].'</td>
+        <td>'.$row["akibat"].'</td>
+        <td>'.$row["waktu"].'</td>
+
       </tr>
       ';
     }
