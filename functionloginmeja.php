@@ -19,7 +19,7 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
 
     }else {
       $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
-      $start_date ->format('Y-m-d H:i:s');
+      $start_date= $startdate->format('Y-m-d H:i:s');
         while ($row=mysqli_fetch_array($query)){
             $idmeja = $row['id_meja'];
             $passmeja = $row['pass_meja'];
@@ -34,7 +34,7 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
                   $selisihmenit = $selisihwaktu->days *24*60;
                   $selisihmenit += $selisihwaktu->h*60;
                   $selisihmenit += $selisihwaktu->i;
-                  if ($selisihmenit>60){
+                  if ($selisihmenit>60||$selisihmenit<60){
                     $_SESSION['meja'] = $meja;
                     $_SESSION['password'] = $pass;
                     $_SESSION['idmeja'] = $idmeja;
@@ -45,6 +45,7 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
                     $start_date = $startdate->format('Y-m-d H:i:s');
                     $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama2','Login Meja','$akibat','$start_date')";
                     mysqli_query($koneksi, $history);
+                    break;
                   }else{
                     echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Ada reservsi dimeja ini sekarang</div>";
                     break;
