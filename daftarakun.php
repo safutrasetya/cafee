@@ -1,7 +1,7 @@
 <?php include("includes/koneksi.php");
  include("includes/logincheck.php");
  include("includes/admincheck.php");
- require_once("includes/staffcheck.php");
+ require_once("includes/staffcheck.php");require_once("includes/akunmenumejacheckboxes.php");
  ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -53,27 +53,48 @@
 
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron h-100" style="height: 750px;">
-      <div class="mx-auto mt-3" style="">
+      <div class="mx-auto" style="">
         <h2 class="text-dark text-center display-5">Daftar Akun</h2>
       </div>
       <div class="row pe-2">
         <div class="col-sm-1">
         </div>
         <div class="col-sm-11">
-          <div class="mt-4 ps-3 shadow">
-                <form action="" method="POST">
-                  <div class="row">
-                    <div class="col-sm-10">
-                      <input type="text" name="keyword" id="keyword" class="form-control my-2" placeholder="Masukkan ID/Username/Nama..." autocomplete="off">
-                    </div>
-                    <!-- <div class="col-sm-2">
-                      <button type="submit" id="tombol-cari" name="cari" class="btn btn-primary my-2 form-control">Search</button>
-                    </div> -->
-                    <div class="col-sm-2">
-                      <a href="tambahakun.php"><button type="button" class="btn btn-success my-2 me-3 float-end"><i class="bi bi-person-plus"></i> Tambah akun</button></a>
-                    </div>
-                  </div>
-                </form>
+          <div class="mt-3 ps-3">
+            <form action="" method="POST">
+              <div class="row">
+                <div class="col-sm-7">
+                  <input type="text" name="keyword" id="keyword" class="form-control my-2" placeholder="Masukkan ID/Username/Nama..." autocomplete="off">
+                </div>
+                <div class="col-sm-auto" style="margin-left: -20px;">
+                  <a href="tambahakunimport.php">
+                    <button type="button" class="btn btn-success my-2">
+                      <i class="bi bi-folder-plus"></i> Import
+                    </button>
+                  </a>
+                </div>
+                <div class="col-sm-auto" style="margin-left: -20px;">
+                  <a href="tambahakun.php">
+                    <button type="button" class="btn btn-success my-2">
+                      <i class="bi bi-person-plus"></i> Tambah akun</button>
+                    </a>
+                </div>
+                <div class="col-sm-auto" style="margin-left: -20px;">
+                  <a href="exportakun.php">
+                    <button type="button" class="btn btn-info my-2">
+                      <i class="bi bi-folder-symlink"></i> Export
+                    </button>
+                  </a>
+                </div>
+                <div class="col-sm-auto" style="margin-left: 20px;">
+                  <a href="daftarakunhapus.php">
+                    <button type="button" class="btn btn-danger my-2">
+                      <i class="bi bi-trash-fill"></i> Hapus banyak akun
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -82,9 +103,26 @@
         </div>
         <div class="col-sm-11">
           <div class="mb-3 p-3 shadow">
+            <div class="row mb-2">
+              <form action="" method="post" id="form">
+                <label for="num_rows">Baris per Halaman : </label>
+                <select id="num_rows" name="num_rows" class="">
+                  <?php
+                  $numrows_arr = array("5","10","25","50","100","250");
+                  foreach($numrows_arr as $nrow){
+                      if(isset($_POST['num_rows']) && $_POST['num_rows'] == $nrow){
+                          echo '<option value="'.$nrow.'" selected="selected">'.$nrow.'</option>';
+                      }else{
+                          echo '<option value="'.$nrow.'">'.$nrow.'</option>';
+                      }
+                  }
+                  ?>
+                </select>
+              </form>
+            </div>
             <?php include('functionubahlvl.php'); ?>
             <div class="body" id="container">
-              <table class="table table-bordered table-info">
+              <table class="table table-bordered table-info ">
                 <thead class="h5">
                   <tr style="text-align:center">
                     <td>Id</td>
@@ -99,7 +137,11 @@
                 </thead>
                 <tbody>
                   <?php
-                      $perHalaman = 3;
+                      if(isset($_POST['num_rows'])){
+                        $perHalaman = $_POST['num_rows'];
+                      }else{
+                        $perHalaman = 5;
+                      }
                       $halaman = isset($_GET['halaman']) ? (int)$_GET['halaman']  : 1;
                       $halamanAwal = ($halaman>1) ? ($halaman * $perHalaman) - $perHalaman : 0;
 
@@ -114,10 +156,11 @@
                       while($d = mysqli_fetch_assoc($akuns)){
                         $id=$d['id'];
                         $levelakun = $d['level'];
+                        $nama = $d['nama'];
                    ?>
                   <tr>
                     <td><?php echo $d['id'];?></td>
-                    <td><img src="img/<?php echo $d['gambar']?>" class="gambarsize1"></td>
+                    <td><img src="img/<?php echo $d['gambar']?>" style="height: 50px;width: 50px;"></td>
                     <td><?php echo $d['username'] ?></td>
                     <td><?php echo $d['nama'] ?></td>
                     <td><?php echo $d['email'];?></td>
@@ -136,9 +179,9 @@
                     <td>
                       <?php
                         if(($d['level']>2 && $_SESSION['level']==2)||($d['level']>1 && $_SESSION['level']==1)){
-                          echo "<button name='gantilevel' type='button' class='btn btn-success me-1' data-bs-toggle='modal' data-bs-target='#gantilevel' data-bs-whatever='$id' statuslevel='$levelakun'><img src='img/edit-icon.png' style='height:20px; width:20px;'> Edit</button>";
+                          echo "<button name='gantilevel' type='button' class='btn btn-success me-1' data-bs-toggle='modal' data-bs-target='#gantilevel' data-bs-whatever2 ='$nama' data-bs-whatever='$id' statuslevel='$levelakun'><img src='img/edit-icon.png' style='height:20px; width:20px;'> Edit</button>";
                           echo "<a class='btn btn-danger' onclick='return confirm(";
-                          echo '"Are you sure to delete this account?"';
+                          echo '"Yakin menghapus akun '.$nama.' ?"';
                           echo ")' href='functionhapusakun.php?id=$id'><img src='img/trash-can.png' style='height:20px; width:15px;'> Hapus</a>";
                         }
                        ?>
@@ -147,21 +190,21 @@
                 <?php  } ?>
                 </tbody>
               </table>
-              <ul class="pagination pagination-sm justify-content-center">
-                <li class="page-item">
-                  <a class="page-link" <?php if($halaman > 1){echo "href = '?halaman=$prev'";} ?>>Previous</a>
-                </li>
-                <?php
-                for($x = 1;$x<=$totalHalaman;$x++){ ?>
+                  <ul class="pagination pagination-sm justify-content-center">
+                    <li class="page-item">
+                      <a class="page-link" <?php if($halaman > 1){echo "href = '?halaman=$prev'";} ?>>Previous</a>
+                    </li>
+                    <?php
+                    for($x = 1;$x<=$totalHalaman;$x++){ ?>
+                          <li class="page-item">
+                            <a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a>
+                            </li>
+                      <?php
+                      } ?>
                       <li class="page-item">
-                        <a class="page-link" href="?halaman=<?php echo $x ?>"><?php echo $x; ?></a>
-                        </li>
-                  <?php
-                  } ?>
-                  <li class="page-item">
-                    <a class="page-link" <?php if($halaman < $totalHalaman){ echo "href='?halaman=$next'";}?>>Next</a>
-                  </li>
-              </ul>
+                        <a class="page-link" <?php if($halaman < $totalHalaman){ echo "href='?halaman=$next'";}?>>Next</a>
+                      </li>
+                  </ul>
             </div>
           </div>
         </div>
@@ -178,6 +221,7 @@
         var button = event.relatedTarget
         // Extract info from data-bs-* attributes
         var idlvlupdt = button.getAttribute('data-bs-whatever')
+        var namalvlupdt = button.getAttribute('data-bs-whatever2')
         var statuslevel = button.getAttribute('statuslevel')
         // If necessary, you could initiate an AJAX request here
         // and then do the updating in a callback.
@@ -186,7 +230,7 @@
         var modalTitlelvl = formodallvl.querySelector('.modal-title')
         var modalBodyInput = formodallvl.querySelector('.modal-body input')
 
-        modalTitlelvl.textContent = 'Ubah level akun : ' + idlvlupdt
+        modalTitlelvl.textContent = 'Ubah level akun : ' + namalvlupdt
         modalBodyInput.value = idlvlupdt
 
         if (statuslevel==2){
@@ -194,6 +238,16 @@
         }else if (statuslevel==3){
           document.getElementById("staff").checked = true;
         }
+      });
+    </script>
+    <script>
+      $(document).ready(function(){
+          // Number of rows selection
+          $("#num_rows").change(function(){
+              // Submitting form
+              $("#form").submit();
+
+          });
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

@@ -34,7 +34,7 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
   <table class="table table-bordered table-info">
     <thead class="h5">
       <tr style="text-align:center">
-        <td>Id History</td>
+        <td>No.</td>
         <td>Pelaku</td>
         <td>Aksi</td>
         <td>Subjek yang terkena</td>
@@ -43,10 +43,11 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
     </thead>
   ';
   if($total_data>0){
+    $nomor = 1;
     while($row=mysqli_fetch_array($statement)){
       $output .= '
       <tr>
-        <td>'.$row["id_history"].'</td>
+        <td>'.$nomor.'</td>
         <td>'.$row["pelaku"].'</td>
         <td>'.$row["aksi"].'</td>
         <td>'.$row["akibat"].'</td>
@@ -54,6 +55,7 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
 
       </tr>
       ';
+      $nomor++;
     }
   }else{
     $output .= '<h5>NO DATA FOUND</h5>';

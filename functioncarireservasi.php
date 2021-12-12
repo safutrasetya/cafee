@@ -30,7 +30,7 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
 
   // $result = $statement->fetchAll();
 
-  $output = '<p class="text-center">TOTAL TRANSAKSI : '.$total_data.'</p>
+  $output = '<p class="text-center">TOTAL RESERVASI : '.$total_data.'</p>
   <table class="table table-bordered table-info">
     <thead class="h5">
       <tr style="text-align:center">

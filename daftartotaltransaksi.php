@@ -1,6 +1,6 @@
 <?php include("includes/koneksi.php");
  include("includes/logincheck.php");
- include("includes/admincheck.php");
+ include("includes/admincheck.php");require_once("includes/akunmenumejacheckboxes.php");
  ?>
 
 <!DOCTYPE html>
@@ -48,6 +48,13 @@
         <div class="row justify-content-center pe-2">
           <div class="col-sm-8">
             <div class="mb-3 ps-3">
+              <div class="col-sm-auto text-center">
+                <a href="exportriwayatpenjualan.php">
+                  <button type="button" class="btn btn-info my-2">
+                    <i class="bi bi-folder-symlink"></i> Export
+                  </button>
+                </a>
+              </div>
               <div class="row justify-content-center">
                 <div class="col-sm-8">
                   <input name="search_box" id="search_box" type="text" class="form-control my-2" placeholder="Cari...">
@@ -71,6 +78,13 @@
         <div class="row justify-content-center pe-2">
           <div class="col-sm-8">
             <div class="mb-3 ps-3">
+              <div class="col-sm-auto text-center">
+                <a href="exportriwayatpenjualanbulanan.php">
+                  <button type="button" class="btn btn-info my-2">
+                    <i class="bi bi-folder-symlink"></i> Export
+                  </button>
+                </a>
+              </div>
               <div class="row justify-content-center">
                 <div class="col-sm-8">
                   <input name="search_box2" id="search_box2" type="text" class="form-control my-2" placeholder="Cari...">
@@ -94,6 +108,13 @@
         <div class="row justify-content-center pe-2">
           <div class="col-sm-8">
             <div class="mb-3 ps-3">
+              <div class="col-sm-auto text-center">
+                <a href="exportriwayatpenjualantahunan.php">
+                  <button type="button" class="btn btn-info my-2">
+                    <i class="bi bi-folder-symlink"></i> Export
+                  </button>
+                </a>
+              </div>
               <div class="row justify-content-center">
                 <div class="col-sm-8">
                   <input name="search_box3" id="search_box3" type="text" class="form-control my-2" placeholder="Cari...">

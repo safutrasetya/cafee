@@ -1,6 +1,6 @@
 <?php include("includes/koneksi.php");
  include("includes/logincheck.php");
- include("includes/admincheck.php");
+ include("includes/admincheck.php");require_once("includes/akunmenumejacheckboxes.php");
  ?>
 
 <!DOCTYPE html>
@@ -21,9 +21,9 @@
     <link rel="stylesheet" href="css/scroll.css">
     <!--AJAX-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <title>Riwayat Transaksi</title>
+    <title>Reservasi</title>
   </head>
-  <body class="bg-light">
+  <body class="bg-light" onload="display_ct();">
     <!--MODAL GANTI SATUS PESANAN-->
     <div class="modal" id="gantistatus" tabindex="-1">
       <div class="modal-dialog modal-dialog-centered">
@@ -54,7 +54,7 @@
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="">Hapus Pesanan</h5>
+            <h5 class="modal-title" id="">Hapus Reservasi</h5>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
@@ -76,10 +76,15 @@
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron h-100" style="height: 750px;">
       <div class="row">
-        <div class="col-sm-12">
+        <div class="col-sm-6">
           <div class="mx-auto my-3" style="">
             <h2 class="text-dark text-center display-5">Reservasi</h2>
           </div>
+        </div>
+        <div class="col-sm-6">
+          <p class="h3 mt-5">
+            <span id='ct' ></span>
+          </p>
         </div>
       </div>
       <div class="row pe-2">
@@ -187,7 +192,18 @@
         }
       });
     </script>
+    <script type="text/javascript">
+function display_c(){
+var refresh=1000; // Refresh rate in milli seconds
+mytime=setTimeout('display_ct()',refresh)
+}
 
+function display_ct() {
+var x = new Date()
+document.getElementById('ct').innerHTML = x;
+display_c();
+ }
+</script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>

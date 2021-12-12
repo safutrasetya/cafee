@@ -1,6 +1,6 @@
 <?php include("includes/koneksi.php");
  include("includes/logincheck.php");
- include("includes/admincheck.php");
+include("includes/admincheck.php");require_once("includes/akunmenumejacheckboxes.php");
  ?>
 
 <!DOCTYPE html>
@@ -61,7 +61,7 @@
           </div>
           <div class="modal-body">
             <p class="h6">Yakin ingin menghapus Meja</p>
-            <p>Meja ini tidak bisa dikembalikan</p>
+            <p>Meja ini tidak bisa dikembalikan dan reservasi yang ada di meja ini akan dihapus.</p>
             <form method="POST" action="">
               <div class="mb-3">
                 <input hidden name="idhapusmeja" type="text" class="form-control" id="idhapusmeja"> <!-- ini id transaksi. ga ada php echo karena nilainya dari javascript yang dibawah -->
@@ -91,15 +91,61 @@
           <div class="mb-3 ps-3 shadow">
             <div class="row">
               <div class="col-sm-12">
-                <div class="row">
-                  <div class="col-sm-10">
-                    <input name="search_box" id="search_box" type="text" class="form-control my-2" placeholder="Cari Transaksi...">
+                <?php
+                  if($_SESSION['level']==3){
+                    ?>
+                    <div class="row">
+                      <div class="col-sm-11">
+                        <input name="search_box" id="search_box" type="text" class="form-control my-2" placeholder="Cari Meja...">
+                      </div>
+                      <div class="col-sm-1" style="margin-left: -20px;">
+                        <a href="exportmeja.php">
+                          <button type="button" class="btn btn-info my-2">
+                            <i class="bi bi-folder-symlink"></i> Export
+                          </button>
+                        </a>
+                      </div>
+                    </div>
+
+                    <?php
+                  }else{
+                    ?>
+                    <div class="row">
+                  <div class="col-sm-7">
+                    <input name="search_box" id="search_box" type="text" class="form-control my-2" placeholder="Cari Meja...">
                   </div>
-                  <div class="col-sm-2 pe-4">
-                    <button type="button" class="btn btn-primary my-2 form-control">Search</button>
-                    <a href="tambahmeja.php"><button type="button" class="btn btn-success form-control my-2"><img src="img/tambahmeja-ikon.png" style="height:30px; width:30px;">Tambah Meja</button></a>
+                  <div class="col-sm-auto" style="margin-left: -20px;">
+                    <a href="tambahmejaimport.php">
+                      <button type="button" class="btn btn-success my-2">
+                        <i class="bi bi-folder-plus"></i> Import
+                      </button>
+                    </a>
+                  </div>
+                  <div class="col-sm-auto" style="margin-left: -20px;">
+                    <a href="tambahmeja.php">
+                      <button type="button" class="btn btn-success my-2">
+                        <i class="bi bi-plus-lg"></i> Tambah Meja
+                      </button>
+                    </a>
+                  </div>
+                  <div class="col-sm-auto" style="margin-left: -20px;">
+                    <a href="exportmeja.php">
+                      <button type="button" class="btn btn-info my-2">
+                        <i class="bi bi-folder-symlink"></i> Export
+                      </button>
+                    </a>
+                  </div>
+                  <div class="col-sm-auto" style="margin-left: 20px;">
+                    <a href="daftarmejahapus.php">
+                      <button type="button" class="btn btn-danger my-2">
+                        <i class="bi bi-trash-fill"></i> Hapus banyak meja
+                      </button>
+                    </a>
                   </div>
                 </div>
+                    <?php
+                  }
+                ?>
               </div>
             </div>
           </div>

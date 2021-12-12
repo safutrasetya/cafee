@@ -88,7 +88,7 @@
             }
           ?>
             <li><a href="daftarmenu.php"><i class="far fa-clipboard"></i>
-              <i class='no-italics'>Daftar Makanan</i></a></li>
+              <i class='no-italics'>Daftar Menu</i></a></li>
             <li><a href="daftarpesanan.php"><i class="far fa-list-alt"></i>
               <i class='no-italics'>Daftar Pesanan</i></a></li>
             <li><a href="daftarriwayattrnsks.php"><i class="far fa-calendar-alt"></i>

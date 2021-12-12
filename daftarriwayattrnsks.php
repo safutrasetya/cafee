@@ -1,6 +1,6 @@
 <?php include("includes/koneksi.php");
  include("includes/logincheck.php");
- include("includes/admincheck.php");
+ include("includes/admincheck.php");require_once("includes/akunmenumejacheckboxes.php");
  ?>
 
 <!DOCTYPE html>
@@ -86,15 +86,19 @@
         <div class="col-sm-1">
         </div>
         <div class="col-sm-11">
-          <div class="mb-3 ps-3 shadow">
+          <div class="mb-3 px-3 shadow">
             <div class="row">
               <div class="col-sm-12">
                 <div class="row">
                   <div class="col-sm-10">
                     <input name="search_box" id="search_box" type="text" class="form-control my-2" placeholder="Cari Transaksi...">
                   </div>
-                  <div class="col-sm-2 pe-4">
-                    <button type="button" class="btn btn-primary my-2 form-control">Search</button>
+                  <div class="col-sm-2">
+                    <a href="exporttransaksi.php">
+                      <button type="button" class="btn btn-info my-2 form-control">
+                        <i class="bi bi-folder-symlink"></i> Export
+                      </button>
+                    </a>
                   </div>
                 </div>
               </div>

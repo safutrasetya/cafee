@@ -1,6 +1,7 @@
 <?php include("includes/koneksi.php");
  include("includes/logincheck.php");
- include("includes/admincheck.php");
+include("includes/admincheck.php");require_once("includes/akunmenumejacheckboxes.php");
+
  ?>
 
 <!DOCTYPE html>
@@ -45,6 +46,11 @@
         <div class="col-sm-auto">
           <div class="jumbotron shadow">
             <div class="p-4 float-center">
+              <a href="exporthistory.php">
+                <button type="button" class="btn btn-info my-2">
+                  <i class="bi bi-folder-symlink"></i> Export
+                </button>
+              </a>
               <div id="search_result">
               </div>
             </div>

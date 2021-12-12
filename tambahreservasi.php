@@ -1,4 +1,4 @@
-<?php   require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");?>
+<?php   require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");require_once("includes/akunmenumejacheckboxes.php");?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>

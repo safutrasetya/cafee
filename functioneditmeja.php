@@ -18,7 +18,7 @@ require_once("includes/admincheck.php");
       $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama','Edit Status Meja','$akibat','$start_date')";
       mysqli_query($koneksi, $history);
       // header('Location:daftarriwayattrnsks.php');
-      echo "<div id='divAlert' name='divAlert' class='alert alert-success' role='alert'><i class='bi bi-exclamation-circle-fill'></i> Meja $idmeja telah diupdate</div>";
+      echo "<div id='divAlert' name='divAlert' class='' style='background-color: #ffccd5;'><i class='bi bi-exclamation-circle-fill'></i> Meja $idmeja telah diupdate</div>";
       ///ATUR INIIIII BINGUN W vvvvvvvvvv
       echo "<script>$(document).ready(function(){
     //Check if the current URL contains '#'

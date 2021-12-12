@@ -1,6 +1,6 @@
 <?php include("includes/koneksi.php");
  include("includes/logincheck.php");
- include("includes/admincheck.php");
+ include("includes/admincheck.php");require_once("includes/akunmenumejacheckboxes.php");
  ?>
 
 <!DOCTYPE html>

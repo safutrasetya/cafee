@@ -5,7 +5,11 @@
   $connect = new PDO("mysql:host=localhost; dbname=orari", "root", "");
 
 //halaman
-  $limit=5;
+if(isset($_POST['num_rows'])){
+  $limit = $_POST['num_rows'];
+}else{
+  $limit = 5;
+}
   $page=1;
   if($_POST['page']>1){
     $start = (($_POST['page']-1) * $limit);
@@ -17,10 +21,10 @@
 //ENDHALAMAN
 
   $query = 'SELECT * FROM meja ORDER BY id_meja DESC';
-  $filter_query = 'SELECT * FROM meja ORDER BY id_meja DESC LIMIT '.$start.', '.$limit.'';
+  $filter_query = 'SELECT * FROM meja ORDER BY id_meja asc  LIMIT '.$start.', '.$limit.'';
   if($_POST['query'] != ''){
     $query = 'SELECT * FROM meja WHERE id_meja LIKE "%'.$_POST['query'].'%"';//we rasa ada yag salah disini
-    $filter_query = 'SELECT * FROM meja WHERE id_meja LIKE "%'.$_POST['query'].'%" ORDER BY id_meja DESC LIMIT '.$start.', '.$limit.'';
+    $filter_query = 'SELECT * FROM meja WHERE id_meja LIKE "%'.$_POST['query'].'%" ORDER BY id_meja ASC LIMIT '.$start.', '.$limit.'';
   }
 
   //

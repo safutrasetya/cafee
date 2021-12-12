@@ -1,5 +1,5 @@
 <?php
-require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
+require_once("includes/koneksi.php"); require_once("includes/logincheck.php");include("includes/admincheck.php");require_once("includes/akunmenumejacheckboxes.php");
 
 require 'functions.php';
 
