@@ -27,8 +27,9 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
             if($idmeja_login==$idmeja && $passmeja_login==$passmeja){
               $cmdreservasi = "SELECT * FROM mejareservasi WHERE no_meja = '$idmeja'";
               $getcmd = mysqli_query($koneksi, $cmdreservasi);
+              $variablecek = 0;
               while($each = mysqli_fetch_array($getcmd)){
-                if($each['no_meja']==$meja){
+                if($each['no_meja']==$idmeja){
                   $each['waktu_rsrvs'] = new DateTime($each['waktu_rsrvs']);
                   $selisihwaktu = $each['waktu_rsrvs']->diff($start_date);
                   $selisihmenit = $selisihwaktu->days *24*60;
@@ -47,12 +48,22 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
                     mysqli_query($koneksi, $history);
                     break;
                   }else{
+                    $variablecek = 1;
                     echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Ada reservsi dimeja ini sekarang</div>";
                     break;
                   }
+                }else{
+                  echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Id meja kkok gaada ya</div>";
+
                 }
               }
+              if($variablecek==0){
+                $_SESSION['meja'] = $meja;
+                $_SESSION['password'] = $pass;
+                $_SESSION['idmeja'] = $idmeja;
                 header("Location:halamanmakanan.php");
+              }
+              echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Mohon tunggu sebentar.</div>";
 
             }else {
               echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Cek kembali id meja dan password meja.</div>";
@@ -61,6 +72,8 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
         }
 
     }
+}else{
+  echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Id meja atau password belum dimasukkan...</div>";
 }
 
 }
