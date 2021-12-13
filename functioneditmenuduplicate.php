@@ -1,6 +1,6 @@
 <?php
 include("includes/koneksi.php");
-
+  
   if(isset($_POST['btnEdit'])){
     $id_menu   = $_POST['id_menu'];
     $ketersidiaan =$_POST['ketersediaan'];
