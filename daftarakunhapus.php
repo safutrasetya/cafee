@@ -20,6 +20,36 @@
     </script>
   </head>
   <body class="bg-light">
+    <div class="modal" id="modalDelete">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <!-- Modal Header -->
+          <div class="modal-header">
+            <h4 class="modal-title">Yakin dengan pilihan anda?</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+          </div>
+
+          <!-- Modal body -->
+          <div class="modal-body">
+            Akun yang anda hapus tidak akan bisa dikembalikan lagi.
+          </div>
+
+          <!-- Modal footer -->
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+            <form action="" method="post">
+              <button name="btnAkunDel" value="btnAkunDel" id="btnAkunDel" class="btn btn-danger text-end" type="submit">Hapus</button>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+
     <?php include("temp_sidebar.php");?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron bg-light shadow-lg mx-auto p-5">
@@ -76,9 +106,7 @@
           <div class="col-sm-9">
             <div class="row justify-content-auto">
               <div class="col-sm-1 text-start">
-                <form action="" method="post">
-                  <button name="btnAkunDel" value="btnAkunDel" id="btnAkunDel" class="btn btn-danger mb-2 text-end" type="submit">Hapus</button>
-                </form>
+                <button type="button" name="" value="" id="btnAkunDel" class="btn btn-danger mb-2 text-end" data-bs-toggle="modal" data-bs-target="#modalDelete">Hapus</button>
               </div>
               <div class="col-sm-2">
                 <a href="daftarakun.php"><button name="btnUnCek" class="btn btn-info">Kembali de daftar</button></a>

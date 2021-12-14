@@ -11,8 +11,8 @@
       }
       unset($_SESSION['akundelcek']);
       echo "
-      <div id='divAlert' name='divAlert' class='alert alert-info mt-1' role='alert'>
-      <i class='bi bi-exclamation-circle-fill'></i>Akun berhasil dihapus! merefresh dalam 3 detik...
+      <div id='divAlert2' name='divAlert' class='my-3 p-2' role='alert' style='background-color: #e6dd9c;'>
+      <i class='bi bi-exclamation-circle-fill'></i> Akun berhasil dihapus! merefresh dalam 3 detik...
       </div>";
       echo "<script>$(document).ready(function(){
                         setTimeout(function() {
@@ -20,8 +20,8 @@
               }, 3000);
               });</script>";
     }else{
-        echo "<div id='divAlert2' name='divAlert' class='alert alert-warning mt-1' role='alert'>
-        <i class='bi bi-exclamation-circle-fill'></i>Pilih setidaknya satu akun.
+        echo "<div id='divAlert2' name='divAlert' class='my-3 p-2' role='alert' style='background-color: #e6dd9c;'>
+        <i class='bi bi-exclamation-circle-fill'></i> Pilih setidaknya satu akun.
         </div>";
 
     }
