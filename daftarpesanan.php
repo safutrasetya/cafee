@@ -9,6 +9,7 @@ require 'functions.php';
 <!doctype html>
 <html lang="en">
   <head>
+    <meta http-equiv=”refresh” content=”60″>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
