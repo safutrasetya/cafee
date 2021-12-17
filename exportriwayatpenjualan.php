@@ -1,5 +1,5 @@
 <?php
- require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php"); require_once("includes/staffcheck.php");
+ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php");
 //export.php
 
   $output = '';

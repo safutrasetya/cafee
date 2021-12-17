@@ -9,6 +9,7 @@ foreach ($hasil as $data){
       <div class='card' style='padding: 10px;'>
         <img src='img/$data[gambar]' class='card-img-top' alt='img/menu_makanan.jpg' style='width: 225px;  height: 225px'>
           <h5 class='card-title'>$data[nama_menu]</h5>
+          <p>$data[info_menu]</p>
           <p class='card-text'>$data[harga]</p>
           <form action='' method='get'>
             <input type='text' value='$data[id_menu]' hidden name='id_pesanan_baru'>

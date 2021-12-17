@@ -1,11 +1,11 @@
 html,
 body{
-    height: 100%;
+    height: 500px;
     background-color: #222d32 !important;
 }
 
 .container{
-    height: 100%;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -13,7 +13,7 @@ body{
 }
 .login-form{
     width: 380px;
-    height: 100%;
+    height: 500px;
     padding: 20px;
     background-color: #344147 !important;
     border-radius: 10px !important;

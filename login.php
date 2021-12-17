@@ -25,7 +25,7 @@
                 <h1 class = "card-title text-center">LOGIN STAFF</h1>
                 <?php include ("functionlogin.php");?>
             </div>
-            <div class="card-text">
+            <div class="card-body">
               <!--form ussername & password-->
                 <form method="POST" action="">
               <div class="mb-4">

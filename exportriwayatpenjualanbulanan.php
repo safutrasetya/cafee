@@ -1,5 +1,5 @@
 <?php
-require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php"); require_once("includes/staffcheck.php");
+require_once("includes/koneksi.php"); require_once("includes/logincheck.php");require_once("includes/admincheck.php"); 
 
 $output = '';
 $filter_query = 'SELECT DISTINCT tanggal_pembayaran FROM riwayat_pembelian WHERE status_bayar = 1 ORDER BY tanggal_pembayaran';

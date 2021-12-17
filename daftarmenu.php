@@ -103,7 +103,7 @@
                       </button>
                     </a>
                   </div>
-                  <div class="col-sm-auto" style="margin-left: 20px;">
+                  <div class="col-sm-auto" style="margin-left: 10px;">
                     <a href="daftarmenuhapus.php">
                       <button type="button" class="btn btn-danger my-2">
                         <i class="bi bi-trash-fill"></i> Hapus banyak menu

@@ -52,6 +52,9 @@ if(!empty($user_login) && (!empty($pass_login))){
           echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Cek kembali username dan password anda.</div>";
         }
     }
+}else{
+  echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Anda belum memasukkan username atau password..</div>";
+
 }
 
 }
