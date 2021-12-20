@@ -1,7 +1,7 @@
 <?php
   include("includes/koneksi.php"); include("includes/logincheck.php");
-  include ('functiontotalpesanan.php');
-
+  include ('functiontotalpesanan.php');include('includes/pesanancheck.php');
+  include('includes/checkadminstaff.php');
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -24,80 +24,78 @@
     <title>Pesanan Anda</title>
   </head>
   <body class="bg-success">
-
-    <div class="modal" id="tampilstruk" tabindex="-1">
+    <div class="modal" id="myModal">
       <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
+
+          <!-- Modal Header -->
           <div class="modal-header">
-            <h5 class="modal-title" id="">Cek sekali lagi struk anda</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <h4 class="modal-title">Hapus semua pesanan</h4>
+            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
           </div>
+
+          <!-- Modal body -->
           <div class="modal-body">
-            <p class="h4">Struk Pembelian</p>
-            <div class="overflow-auto mb-3" style="height: 400px;">
-              <table class="table text-left">
-                <thead>
-                  <tr>
-                    <td>Nama Makanan/Minuman</td>
-                    <td>Harga</td>
-                  </tr>
-                </thead>
-                <tbody class="text-start">
-                  <!--PHP TABEL STRUK-->
-                  <?php
-                    if(isset($_SESSION['keranjang'])){
-                      $pesanan_id2 = array_column($_SESSION['keranjang'],'menu_id');
-                      $pesanan_quantity_key = array_column($_SESSION['keranjang'],'menu_quantity');
-                      $keyquantity = key($pesanan_quantity_key);
-
-                      $query3 = "SELECT * FROM menu";
-                      $qresult2 = mysqli_query($koneksi, $query3);
-                      $idUpdate=0;
-                      while($row2 = mysqli_fetch_array($qresult2)){
-                        foreach($pesanan_id2 as $pesanan_id3){
-                          $keyquantity = key($pesanan_quantity_key);
-                          if($row2['id_menu']== $pesanan_id3){
-                            $keyint = (int)$keyquantity;
-                            tampilttlharga($row2['gambar'], $row2['nama_menu'],$row2['harga'],$row2['id_menu'],$idUpdate);
-                            $idUpdate++;
-                          }
-                          next($pesanan_quantity_key);
-                        }
-                      }
-                    }else{
-                      echo "<h5>Anda belumm memesan apapun</h5>";
-                    }
-                  ?>
-
-                  <!--END PHP TABEL STRUK-->
-                </tbody>
-              </table>
-              <?php
-                include('functiontotalharga.php');
-              ?>
-            </div>
+            Anda yakin ingin menghapus semua pesanan? (Pesanan tidak bisa dikembalikan)
           </div>
+
+          <!-- Modal footer -->
           <div class="modal-footer">
-            <a href="functiontunggutransaksi.php"><button class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan pesanan!</button></a>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+            <form method="post" action="">
+              <button name="btnBatalPesan" type="submit" class="btn btn-success">Ya, Hapus</button>
+            </form>
           </div>
+
         </div>
       </div>
     </div>
+    <!--  -->
+    <?php include('functionbatalpesan.php');?>
     <?php include('temp_navbar.php'); ?>
     <div class="jumbotron pt-3 mt-5 h-100" >
       <div class="jumbotron mx-auto" style="background-color:MediumAquaMarine;">
-        <div class="mx-auto text-center my-2">
+        <div class="mx-auto text-center mb-2 mt-3">
           <h2 class="text-dark">Sudah yakin dengan pesanan anda?</h2>
         </div>
         <div class="jumbotron bg-light p-2 shadow mx-4">
           <div class="row">
             <div class="col-md">
-              <a href="halamanmakanan.php"><button class="btn btn-info m-2" type="button"><i class="bi bi-arrow-left-square"></i> Pesan lagi</button></a>
-              <button class="btn btn-primary m-2 float-end" data-bs-toggle="modal" data-bs-target="#tampilstruk"><i class="bi bi-check2"></i> Selesaikan pesanan</button>
+              <form action="" method="POST" class="form-inline">
+                <a href="halamanmakanan.php"><button class="btn btn-info m-2" type="button"><i class="bi bi-arrow-left-square"></i> Pesan lagi</button></a>
+                <button data-bs-toggle="modal" data-bs-target="#myModal" type="button" class="btn btn-secondary"><i class="bi bi-x"></i> Hapus semua</button>
+                <!-- <a href="halpesananyakin.php"> -->
+                <!-- <form action="" method="POST"> -->
+                  <button name="btnSelesai" class="btn btn-primary m-2 float-end" data-bs-toggle="modal" data-bs-target="#tampilstruk">
+                    <i class="bi bi-check2"></i> Selesaikan pesanan
+                  </button>
+              </form>
+              <!-- </a> -->
 
             </div>
           </div>
           <?php include('functionupdatekuantitas.php') ?>
+          <?php
+            if(isset($_POST['btnSelesai'])){
+              if(isset($_SESSION['keranjang'])){
+                $hitung = array_column($_SESSION['keranjang'], 'menu_id');
+                if(isset($_SESSION['keranjang'])&&count($hitung)!=0){
+                  echo "<script> window.setTimeout(function(){
+
+                        // Move to a new location or you can do something else
+                        window.location.href = 'halpesananyakin.php';
+
+                      }, 0);</script>";
+                }else{
+                  echo "<div id='divAlert' name='divAlert' class='alert alert-info m-2' role='alert'>Anda belum memesan apapun. Pesan setidaknya satu menu sebelum melanjutkan</div>";
+                }
+              }else{
+                echo "<div id='divAlert' name='divAlert' class='alert alert-info m-2' role='alert'>Anda belum memesan apapun. Pesan setidaknya satu menu sebelum melanjutkan</div>";
+
+              }
+            }else{
+            }
+          ?>
         </div>
         <div class="row mt-3 mx-2 pb-4">
           <div class="col-md-8">
@@ -136,6 +134,8 @@
                       }
                     }else if(isset($_SESSION['keranjang'])&&count($_SESSION['keranjang'])==0){
 
+                      echo "<h5>Anda belum memesan apapun</h5>";
+                    }elseif(!isset($_SESSION['keranjang'])){
                       echo "<h5>Anda belum memesan apapun</h5>";
                     }
                   ?>
@@ -191,7 +191,7 @@
 
                           }
                         }else{
-                          echo "<h5>Anda belumm memesan apapun</h5>";
+                          // echo "<h5 class='text-center'>Anda belum memesan apapun</h5>";
                         }
                       ?>
                       <!--END TABEL STRUK-->
@@ -204,8 +204,6 @@
                   <!--END TOTAL HARGA DAN TOTAL PEMESANAN-->
                   <div class="row my-2">
                     <div class="col-md">
-                      <a href="halamanmakanan.php"><button type="button" class="btn btn-info m-2"><i class="bi bi-arrow-left-square"></i> Pesan lagi</button></a>
-                      <button class="btn btn-primary m-2 float-end" data-bs-toggle="modal" data-bs-target="#tampilstruk"><i class="bi bi-check2"></i> Selesaikan pesanan</button>
                     </div>
                   </div>
                 </div>
@@ -221,7 +219,6 @@
       });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-kQtW33rZJAHjgefvhyyzcGF3C5TFyBQBA13V1RKPf4uH+bwyzQxZ6CmMZHmNBEfJ" crossorigin="anonymous"></script>
-    <?php echo count($_SESSION['keranjang']);?>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 

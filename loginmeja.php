@@ -2,6 +2,7 @@
  if(isset($_SESSION['meja'])){
    header ("Location:halamanmakanan.php");
  }
+ include('includes/checkadminstaff.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -20,11 +21,11 @@
   <body>
      <div class = "container">
         <div class = "card login-form">
-            <div class = "card-body">
+            <div class = "card-header">
                 <h1 class = "card-title text-center">LOGIN MEJA</h1>
                 <?php include ("functionloginmeja.php");?>
             </div>
-            <div class="card-text">
+            <div class="card-body">
               <!--form ussername & password-->
                 <form method="POST" action="">
               <div class="mb-4">

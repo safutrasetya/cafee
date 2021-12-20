@@ -22,12 +22,12 @@
       <div style ="margin-top: ">
         <span class="badge bg-secondary">
           <?php
-          if(isset($_SESSION['keranjang'])){
-            $count = count($_SESSION['keranjang']);
-            echo $count;
-          }else{
-            echo 0;
-          }
+            if(isset($_SESSION['keranjang'])){
+              $count = count($_SESSION['keranjang']);
+              echo $count;
+            }else{
+              echo 0;
+            }
           ?>
         </span>
         <a href="halpesanan.php">

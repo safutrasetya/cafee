@@ -1,6 +1,47 @@
 <?php
 include("includes/koneksi.php");
-  
+  function upload(){
+    $namaFile = $_FILES['gambar']['name'];
+    $ukuranFile = $_FILES['gambar']['size'];
+    $error = $_FILES['gambar']['error'];
+    $tmpName = $_FILES['gambar']['tmp_name'];
+
+    //Cek ekstensi
+    if( $error === 4){
+      echo "<script>
+              alert('Pilih gambar terlebih dahulu');
+              window.history.back();
+            </script>";
+            return false;
+    }
+    $ekstensiGambarValid = ['jpg','jpeg','png'];
+    $ekstensiGambar = explode('.',$namaFile);
+    $ekstensiGambar = strtolower(end($ekstensiGambar));
+    if(!in_array($ekstensiGambar,$ekstensiGambarValid)){
+      echo "<script>
+              alert('Yang Anda upload bukan gambar');
+              window.history.back();
+            </script>";
+            return false;
+
+    }
+    //Cek size
+    if($ukuranFile > 1000000){
+      echo "<script>
+              alert('Ukuran gambar terlalu besar');
+              window.history.back();
+            </script>";
+            return false;
+      }
+
+
+    $namaFileBaru = uniqid();
+    $namaFileBaru .= '.';
+    $namaFileBaru .= $ekstensiGambar;
+    move_uploaded_file($tmpName, 'img/' . $namaFileBaru);
+
+    return $namaFileBaru;
+  }
   if(isset($_POST['btnEdit'])){
     $id_menu   = $_POST['id_menu'];
     $ketersidiaan =$_POST['ketersediaan'];
@@ -10,9 +51,11 @@ include("includes/koneksi.php");
     $kategori =htmlspecialchars  ($_POST['kategori']);
 
     if($_FILES['gambar']['error'] === 4){
-      $gambar = $gambarLama;
-    }else $gambar = upload();
+      // $gambar = $gambarLama;
+    }else{
 
+     $gambar = upload();
+   }
 
 
     if(!empty($gambar)){

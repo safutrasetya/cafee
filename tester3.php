@@ -1,44 +1,58 @@
-<?php
-  $output = '';
-  $filter_query = 'SELECT DISTINCT tanggal_pembayaran FROM riwayat_pembelian WHERE status_bayar = 1 ORDER BY tanggal_pembayaran';
-  $filterdistinct = mysqli_query($koneksi, $filter_query);
-  $query = 'SELECT tanggal_pembayaran FROM riwayat_pembelian WHERE status_bayar = 1 GROUP BY YEAR(tanggal_pembayaran) ORDER BY tanggal_pembayaran';
-  $result = mysqli_query($koneksi, $query);
-  if(mysqli_num_rows($result) > 0)
-  {
-  $output .= '
-   <table class="table" bordered="1">
-      <tr>
-        <th>Tanggal</th>
-        <th>Total penjualan Bulanan</th>
+<div class="modal" id="tampilstruk" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="">Cek sekali lagi struk anda</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="h4">Struk Pembelian</p>
+        <div class="overflow-auto mb-3" style="height: 400px;">
+          <table class="table text-left">
+            <thead>
+              <tr>
+                <td>Nama Makanan/Minuman</td>
+                <td>Harga</td>
+              </tr>
+            </thead>
+            <tbody class="text-start">
+              <!--PHP TABEL STRUK-->
+              <?php
+                if(isset($_SESSION['keranjang'])){
+                  $pesanan_id2 = array_column($_SESSION['keranjang'],'menu_id');
+                  $pesanan_quantity_key = array_column($_SESSION['keranjang'],'menu_quantity');
+                  $keyquantity = key($pesanan_quantity_key);
 
-      </tr>
-  ';
-  while($row = mysqli_fetch_array($result))
-  {
-    $totaltahunan = 0;
-    $date = strtotime($row['tanggal_pembayaran']);
-    $year = date("Y", $date);
-    $query2 = "SELECT * FROM riwayat_pembelian WHERE YEAR(tanggal_pembayaran)='{$year}' AND status_bayar = 1";
-    $queryget2 = mysqli_query($koneksi, $query2);
-    $totalharian = 0;
-    while($queryhasil2=mysqli_fetch_array($queryget2)){
-      $totalharian = $totalharian + (int)$queryhasil2['total_pembayaran'];
-    }
-    $output .= '
-    <tr>
-      <td>'.$tanggal.'</td>
-      <td>Rp. '.$totalharian.',-</td>
-    </tr>
-    ';
-  }
-  $output .= '</table>';
-  header('Content-Type: application/xls');
-  header('Content-Disposition: attachment; filename=download.xls');
-  echo $output;
-  }
+                  $query3 = "SELECT * FROM menu";
+                  $qresult2 = mysqli_query($koneksi, $query3);
+                  $idUpdate=0;
+                  while($row2 = mysqli_fetch_array($qresult2)){
+                    foreach($pesanan_id2 as $pesanan_id3){
+                      $keyquantity = key($pesanan_quantity_key);
+                      if($row2['id_menu']== $pesanan_id3){
+                        $keyint = (int)$keyquantity;
+                        tampilttlharga($row2['gambar'], $row2['nama_menu'],$row2['harga'],$row2['id_menu'],$idUpdate);
+                        $idUpdate++;
+                      }
+                      next($pesanan_quantity_key);
+                    }
+                  }
+                }else{
+                  echo "<h5>Anda belumm memesan apapun</h5>";
+                }
+              ?>
 
-
-
-
- ?>
+              <!--END PHP TABEL STRUK-->
+            </tbody>
+          </table>
+          <?php
+            include('functiontotalharga.php');
+          ?>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="functiontunggutransaksi.php"><button class="btn btn-primary m-2 float-end"><i class="bi bi-check2"></i> Selesaikan pesanan!</button></a>
+      </div>
+    </div>
+  </div>
+</div>

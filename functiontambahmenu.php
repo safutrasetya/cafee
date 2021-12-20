@@ -25,6 +25,7 @@ if(!empty($gambar)){
   $count = mysqli_num_rows($query);
 
 
+
   if(!empty($nama_menu)){
 
       if($count==0){
@@ -39,7 +40,7 @@ if(!empty($gambar)){
             $start_date = $startdate->format('Y-m-d H:i:s');
             $history = "INSERT INTO history (pelaku,aksi,akibat,waktu) VALUES ('$nama','Penambahan Menu','$akibat','$start_date')";
             mysqli_query($koneksi, $history);
-              echo "<h3>Input menu berhasil</h3>";
+            // echo "<h3>Input menu berhasil</h3>";
 
           }else{
               echo "Terjadi Kesalahan: " .$sql."<br/>".$koneksi->error;

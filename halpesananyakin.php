@@ -1,6 +1,35 @@
 <?php
   include("includes/koneksi.php"); include("includes/logincheck.php");
-  include('functiontotalpesanan.php');include('includes/checkadminstaff.php');
+  include('functiontotalpesanan.php');include ('includes/pesanancheck.php');
+  include('includes/checkadminstaff.php');
+  $hargatotal= 0;
+  $_SESSION['totalharga']=$hargatotal;
+  if(isset($_SESSION['keranjang'])){
+    //hitung total harga
+    $arrquantitas = array_column($_SESSION['keranjang'], 'menu_id');
+
+    $query2 = "SELECT * FROM menu";
+    $qresult2 = mysqli_query($koneksi, $query2);
+    $idloop=0;
+    while($row2 = mysqli_fetch_array($qresult2)){
+      foreach($arrquantitas as $arrquantitas2){
+
+        if($row2['id_menu']== $arrquantitas2){
+
+          $kuantitas = $_SESSION['keranjang'][$idloop]['menu_quantity'];
+          $hargatotal = $hargatotal + ((int)$row2['harga'] * (int)$kuantitas);
+          $idloop++;
+        }
+      }
+
+    }
+    //end hitung total harga
+    if(!$query2){
+        die("Query gagal" .mysqli_error($koneksi));
+    }
+    $arridsesi = array_column($_SESSION['keranjang'], 'menu_id');
+    $_SESSION['totalharga']=$hargatotal;
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -26,20 +55,17 @@
     <div class="jumbotron">
       <div class="card text-center my-4 mx-5 shadow-lg">
         <div class="card-body">
-          <p class="display-5">Menunggu Konfirmasi <span class='spinner-border spinner-border-md'></span></h5>
-          <p class="text-danger">Silahkan lanjutkan pembayaran dengan staff restoran.</p>
-          <p class="h3">Meja <?php echo $_SESSION['meja']; ?></p>
-          <p class="h5">Struk Pembelian <?php echo $_SESSION['idpembelian']; ?></p>
-          <?php include("functioncheckorder.php");?>
+          <p class="display-5">Yakin dengan pesanan anda?</h5>
+          <p class="h5">Struk Pembelian</p>
           <div class="d-flex justify-content-center">
             <div class="card" style="width: 400px;">
               <div class="card-body">
                 <!--TABEL STRUK-->
                 <div class="overflow-auto mb-3" style="height: 400px;">
-                  <table class="table text-left">
+                  <table class="table text-start">
                     <thead>
                       <tr>
-                        <td>Nama Makanan/Minuman</td>
+                        <td>Nama Menu</td>
                         <td>Harga</td>
                       </tr>
                     </thead>
@@ -66,7 +92,7 @@
                             }
                           }
                         }else{
-                          echo "<h5>Anda belum memesan apapun</h5>";
+                          echo "<h5>Anda belumm memesan apapun</h5>";
                         }
                       ?>
                       <tr>
@@ -76,8 +102,13 @@
                       <!--END PHP TABEL STRUK-->
                     </tbody>
                   </table>
+
                 </div>
                 <!--END TABEL STRUK-->
+                <a href="halpesanan.php"><button class="btn btn-secondary float-start">Kembali</button></a>
+
+                <a href="functiontunggutransaksi.php"><button class="btn btn-primary float-end">Ya, sudah pas!</button></a>
+
               </div>
             </div>
           </div>
@@ -85,7 +116,7 @@
       </div>
     </div>
 
-    <meta http-equiv="refresh" content="7" />
+    <!-- <meta http-equiv="refresh" content="7" /> -->
 
     <script type="text/javascript">
       jQuery(function($) {

@@ -1,3 +1,5 @@
+<?php include("includes/koneksi.php"); include("includes/logincheck.php");
+include('includes/pesanancheck.php'); include('includes/checkadminstaff.php');?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -18,7 +20,6 @@
   </head>
 
   <body style="background-color:MediumAquaMarine;">
-    <?php include("includes/koneksi.php"); include("includes/logincheck.php"); ?>
     <?php include('temp_navbar.php'); ?>
     <div class="jumbotron p-3 h-100" style="height: 750px;">
       <div class="jumbotron p-3 h-100" style="height: 750px;">
@@ -39,7 +40,7 @@
               </ul>
             </nav>
           </div>
-          <input name="search_box" id="search_box" type="text" class="form-control" placeholder="Cari menu...">
+          <input name="search_box" id="search_box" type="text" class="form-control mb-1" placeholder="Cari menu...">
           <?php include('functionpesanmenu.php'); ?>
           <div id="search_result"></div>
 
@@ -73,6 +74,11 @@
         });
       });
 
+    </script>
+    <script type="text/javascript">
+      jQuery(function($) {
+        $('#divAlert').delay(4000).fadeOut(400);
+      });
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>

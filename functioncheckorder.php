@@ -16,8 +16,9 @@
 
                 }, 5000);</script>";
           unset($_SESSION['keranjang']);
+          $_SESSION['pesananberhasil'] = 0;
         }else{
-
+          $_SESSION['pesananberhasil'] = 1;
         }
 
       }

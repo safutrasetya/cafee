@@ -18,8 +18,10 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
       echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Cek kembali id meja dan password meja.</div>";
 
     }else {
-      $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
-      $start_date= $startdate->format('Y-m-d H:i:s');
+      $start_date = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
+      // $start_date= $startdate->format('Y-m-d H:i:s');
+      // $start_date =strtotime($start_date);
+      // $start_date = date('Y-m-d H:i:s', $start_date);
         while ($row=mysqli_fetch_array($query)){
             $idmeja = $row['id_meja'];
             $passmeja = $row['pass_meja'];
@@ -35,7 +37,7 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
                   $selisihmenit = $selisihwaktu->days *24*60;
                   $selisihmenit += $selisihwaktu->h*60;
                   $selisihmenit += $selisihwaktu->i;
-                  if ($selisihmenit>60||$selisihmenit<60){
+                  if($selisihmenit>30||$selisihmenit<-30){
                     $_SESSION['meja'] = $meja;
                     $_SESSION['password'] = $pass;
                     $_SESSION['idmeja'] = $idmeja;
@@ -63,8 +65,6 @@ if(!empty($idmeja_login) && (!empty($passmeja_login))){
                 $_SESSION['idmeja'] = $idmeja;
                 header("Location:halamanmakanan.php");
               }
-              echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Mohon tunggu sebentar.</div>";
-
             }else {
               echo "<div id='divAlert' name='divAlert' class='alert alert-warning m-2' role='alert'>Cek kembali id meja dan password meja.</div>";
 

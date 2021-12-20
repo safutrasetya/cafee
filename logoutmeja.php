@@ -2,6 +2,7 @@
  if(isset($_SESSION['nama'])){
    header ("Location:daftarmenu.php");
  }
+ include('includes/checkadminstaff.php');
 ?>
 <!doctype html>
 <html lang="en">

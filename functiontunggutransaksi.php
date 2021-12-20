@@ -64,8 +64,8 @@
     }else{
     }
     $koneksi->close();
+    header('Location:halpesananberhasil.php');
   }else{
     header('Location:halamanmakanan.php');
   }
-  header('Location:halpesananberhasil.php');
 ?>

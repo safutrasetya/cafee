@@ -31,7 +31,7 @@ require_once("includes/admincheck.php");
           ('','$no_meja','$pass_meja','$reservasi')
           ";
         mysqli_query($conn,$query);
-        $nama = $_SESSION['nama']
+        $nama = $_SESSION['nama'];
         $startdate = new DateTime("now", new DateTimeZone('Asia/Jakarta'));
         $start_date = $startdate->format('Y-m-d H:i:s');
         $history = "INSERT INTO history (nama,aksi,waktu) VALUES ('$nama','Penambahan akun','$start_date')";

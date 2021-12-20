@@ -29,7 +29,7 @@
         </div>
         <div class='col-md-1 align-self-center'>
 
-        <a href=functionremovepesanan0.php?idRemoval=$pesananid><button type='button' class='btn-close' data-bs-toggle='modal' data-bs-target='#myModal'></button></a>
+        <a href=functionremovepesanan0.php?idRemoval=$pesananid><button type='button' class='btn-close'></button></a>
 
         </div>
       </div>

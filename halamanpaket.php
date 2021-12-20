@@ -1,3 +1,5 @@
+<?php include("includes/koneksi.php"); include("includes/logincheck.php");
+include('includes/pesanancheck.php'); include('includes/checkadminstaff.php');?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -8,6 +10,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
     <!--CSS KITA SENDIRI-->
     <link rel="stylesheet" href="css/cafee.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
     <!--end css kita sendiri-->
     <!-- css kita -->
     <link href = "css/halmakanan.css" rel = "stylesheet">
@@ -44,6 +48,11 @@
         </div>
       </div>
     </div>
+    <script type="text/javascript">
+      jQuery(function($) {
+        $('#divAlert').delay(4000).fadeOut(400);
+      });
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   </body>
 </html>

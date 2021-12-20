@@ -27,6 +27,8 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
     <meta charset="utf-8">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
+
     <title>Tambah Meja</title>
   </head>
   <body>
@@ -42,12 +44,15 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
               <form action="" method="post">
                 <div class="mb-3 mt-3 me-3">
                   <label for="ketersediaanmenu" class="form-label">Status : </label>
-                  <input type="radio" id="kondisi" name="reservasi" value="0">
-                  <label for="kosong" class="form-label">kosong</label>
-                  <input type="radio" id="kondisi" name="reservasi" value="1">
-                  <label for="Penuh" class="form-label">Penuh</label>
-                  <input type="radio" id="kondisi" name="reservasi" value="2">
-                  <label for="dibooking" class="form-label">Telah dibooking</label>
+                  <br>
+                  <input type="radio" id="kosong" name="reservasi" value="0">
+                  <label for="kosong" class="form-label">Kosong </label>
+                  <br>
+                  <input type="radio" id="penuh" name="reservasi" value="1">
+                  <label for="penuh" class="form-label">Penuh </label>
+                  <br>
+                  <input type="radio" id="dibooking" name="reservasi" value="2">
+                  <label for="dibooking" class="form-label">Telah dibooking </label>
                 </div>
               </div>
               <div class="col-sm-9">
@@ -58,7 +63,7 @@ require_once("includes/koneksi.php"); require_once("includes/logincheck.php");re
                 </div>
                 <div class="mb-3 mt-3 me-3">
                   <label for="pass_meja" class="form-label">Password</label>
-                  <input type="text" class="form-control" name="pass_meja" pattern="[a-zA-Z0-9]{5,}"
+                  <input type="password" class="form-control" name="pass_meja" pattern="[a-zA-Z0-9]{5,}"
                   title="Password minimal 5 digit diisi dengan huruf atau angka"
                   id="pass_meja" required>
                 </div>
